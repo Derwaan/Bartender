@@ -5,7 +5,7 @@
 
 ###Initiation à Git
 
-* [Formation Git donnée à l'ULC](http://sebastien.combefis.be/teaching/trainings/git)
+* [Formation Git donnée à l'UCL](http://sebastien.combefis.be/teaching/trainings/git)
 * [Séance d'exercices](http://sebastien.combefis.be/files/trainings/GIT-form-2014-Exercices.pdf)
 * [tryGit](https://try.github.io/levels/1/challenges/1)
 
