@@ -1,11 +1,21 @@
-= TODO ORM =
+# TODO ORM 
 
-== Check list ==
+## Check list 
 
 [x] Boxes
-[x] Flèches 
+
+
+[x] Flèches
+
+
 [ ] Nom des valeurs (rouge dans l'ORM d'exemple)
+
+
 [ ] Conditions obligatoires (boules aux terminaisons)
+
+
 [ ] Autres ?
+
+
 
 
