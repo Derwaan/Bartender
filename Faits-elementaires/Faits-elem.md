@@ -39,7 +39,6 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 - Produit (nom) Coca-Cola
 - Produit (nom) Coca-Cola a un (prix) 1.20€
 - Produit (nom) Coca-Cola a un (seuil) 10
-- Produit (nom) Coca-Cola périme le (date) 12/12/20
 - Produit (nom) Coca-Cola possède une (description) Le Coca-Cola est une boisson gazeuse sucrée de type cola fabriquée  par la Coca-Cola Company. Le nom « Coca-Cola » est une marque  commerciale américaine déposée en 1886.
 - Produit (nom) Coca-Cola est réprésenté par (image) ***
 - Produit (nom) Coca-Cola a un (rating) 7/10
@@ -48,8 +47,8 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 
 ## Lot
 
--Lot(id) a une (date de péremption). Lot 154 de Coca-Cola périme le 13/05/15
--Lot(id) a une (quentité) de produit. Lot 154 contient 50 Coca-Cola.
+- Lot(id) a une (date de péremption). Lot 154 de Coca-Cola périme le 13/05/15
+- Lot(id) a une (quentité) de produit. Lot 154 contient 50 Coca-Cola.
 
 ## Administrateur
 
