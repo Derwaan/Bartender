@@ -6,9 +6,9 @@
 
 [x] Flèches
 
-[ ] Nom des valeurs (rouge dans l'ORM d'exemple)
+[X] Nom des valeurs (rouge dans l'ORM d'exemple)
 
-[ ] Conditions obligatoires (boules aux terminaisons)
+[X] Conditions obligatoires (boules aux terminaisons)
 
 [ ] Conditions d'unicité externe et de sous-ensemble (si elles existent)
 
