@@ -47,8 +47,8 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 
 ## Lot
 
-- Lot(id) a une (date de péremption). Lot 154 de Coca-Cola périme le 13/05/15
-- Lot(id) a une (quentité) de produit. Lot 154 contient 50 Coca-Cola.
+- Lot(id) a une (date de péremption). Lot 154 de Coca-Cola périme le 13/05/16
+- Lot(id) a une (quantité) de produit. Lot 154 contient 50 Coca-Cola.
 
 ## Administrateur
 
