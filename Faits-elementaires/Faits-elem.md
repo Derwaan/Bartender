@@ -1,4 +1,4 @@
-# Faits élémentaires
+﻿# Faits élémentaires
 
 Un client possède un login et un mot de passe, une commande, un historique des commandes, un numéro client, et des données personnelles. 
 L'administrateur possède un mot de passe. 
@@ -24,18 +24,9 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 - Client (nom) Eric Dubois a un (numéro) Eric possède un numéro de téléphone (numéro) 0478 00 00 00
 - Client (nom) Eric Dubois a un (historique) Eric possède un historique de ses commandes
 
-##Commande
-
-- Commande (numéro) 13456
-- Commande (numéro) 13456 contient un (produit) Coca
-- Commande (numéro) 13456 contient la quantité de l'article (quantité) 2
-- Commande (numéro) 13456 a une (date) 12/01/25:12h45
-- Commande (numéro) 13456 a une (table) 12
-- Commande (numéro) 13456 a un (login) Eric123
-
 ##Produit
 
-- Produit (nom) Coca-Cola a un (type) Soft
+- Produit (nom) Coca-Cola a une catégorie (Categorie) Soft
 - Produit (nom) Coca-Cola
 - Produit (nom) Coca-Cola a un (prix) 1.20€
 - Produit (nom) Coca-Cola a un (seuil) 10
@@ -44,6 +35,9 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 - Produit (nom) Coca-Cola a un (rating) 7/10
 - Produit (nom) Coca-Cola possède (id) 0001
 - Produit (nom) Coca-Cola fait partie d'un (lot)  Lot de Coca-Cola
+- Produit (nom) Coca-Cola peut faire partie d'une commande (Commande)
+- Produit (nom) Coca-Cola possède une quantité (Quantite) 10
+- Produit (nom) Coca-Cola peut être lié a un utilisateur (User) Eric123
 
 ## Lot
 
@@ -73,8 +67,9 @@ http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html
 - Commande (numéro) 0001 possède des produits (produit) Coca.
 - Commande (numéro) 0001 possède des quantités (quantité) 2
 - Commande (numéro) 0001 désigne un client (client)  Eric Dubois
-- Commannde (numéro) 0001 possède une date (date) 19/02/2015
+- Commande (numéro) 0001 possède une date (date) 19/02/2015
 - Commande (numéro) 0001 possède un état (état) Payé.
+- Commande (numéro) 13456 a une (table) 12
 
 ## String
 
