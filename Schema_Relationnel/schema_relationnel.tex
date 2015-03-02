@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{ulem}
+
+\title{Schéma Relationnel}
+\author{Trong-Vu Tran}
+\date{March 2015}
+
+\begin{document}
+
+\maketitle
+
+\section{Schéma Relationnel}
+
+\begin{itemize}
+
+\item User(\uuline{Login}, mdp, Categorie\_user, Nom\_user, Langue, \uline{Email}, [Adresse])
+\item Rating(\uline{Login}, ID\_produit, Note)
+\item Produit(\uuline{ID\_produit}, Description, \uline{Nom\_Produit}, Catégorie, Image, Prix, Seuil)
+\item Lot(\uuline{ID\_Lot}, \uline{ID\_produit, Date\_peremption}, Quantite)
+\item Quantite(\uline{ID\_produit, ID\_commande}, Quantite)
+\item Commande(\uline{ID\_commande}, Login, Etat, Date\_commande, Table)
+\item String(\uline{ID\_string}, Texte, Langue, Description, Nom\_Produit, Categorie)
+
+\end{itemize}
+
+\end{document}

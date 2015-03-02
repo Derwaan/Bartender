@@ -1,7 +1,0 @@
-User(Login, mdp, Categorie_user, Nom_user, Langue, Email, [Adresse])
-Rating(Login, ID_produit, Note)
-Produit(ID_produit, Description, Nom_Produit, Catégorie, Image, Prix, Seuil)
-Lot(ID_Lot, ID_produit, Date_peremption, Quantite)
-Quantite(ID_produit, ID_commande, Quantite)
-Commande(ID_commande, Login, Etat, Date_commande, Table)
-String(ID_string, Texte, Langue, Description, Nom_Produit, Categorie)
