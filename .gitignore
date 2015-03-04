@@ -40,3 +40,6 @@ hs_err_pid*
 *.log
 *.synctex.gz
 *.pdf
+
+#ORM Gen
+*.jpeg
