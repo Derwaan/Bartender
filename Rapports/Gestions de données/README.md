@@ -21,4 +21,9 @@ structures un peu particulière comme la gestion des traductions via un id
 Schéma relationnel mis au point à base de l'ORM via la procédure de mapping 
 relationnel Rmap. 
 
+## bartender.sqlite
+Base de données SQLITE.
 
+## fill.sql
+Requête DML (INSERT) permettant de remplir la base de données BARTENDER avec 
+des données réalistes à titre d'exemple.
