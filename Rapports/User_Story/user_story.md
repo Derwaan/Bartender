@@ -16,6 +16,8 @@ En tant que *utilisateur* utilisant l'application, afin de preciser a quelle tab
 
 En tant que *utilisateur* utilisant l'application, afin de modifier mon compte, je peux acceder mon compte.
 
+En tant que *utilisateur* utilisant l'application, afin de donner mon avis, je peux donner une note a un produit.
+
 En tant que *serveur* utilisant l'application, afin de servir les commandes, je peux consulter la liste des commandes et savoir a quelle table cette commande est prevue.
 
 En tant que *serveur* utilisant l'application, afin de fournir une facture a un client, je peux avoir accès aux commandes de la table et voir le total.
@@ -28,3 +30,4 @@ En tant que *administrateur* utilisant l'application, afin d'ajouter un serveur,
 
 En tant que *administrateur* utilisant l'application, afin de consulter les statistiques du bar, je peux consulter les statistiques.
 
+En tant que *administrateur* utilisant l'application,afin de gerer les produits, je peut modifier les valeurs des produits (nom, prix, description, etc...)
