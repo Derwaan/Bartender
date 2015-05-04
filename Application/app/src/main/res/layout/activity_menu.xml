@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="La carte"
+        android:id="@+id/menu"
+        android:layout_above="@+id/order"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ma commande"
+        android:id="@+id/order"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se déconnecter"
+        android:id="@+id/button"
+        android:layout_marginBottom="73dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon compte"
+        android:id="@+id/account"
+        android:layout_below="@+id/order"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestion"
+        android:id="@+id/admin"
+        android:layout_below="@+id/account"
+        android:layout_alignRight="@+id/menu"
+        android:layout_alignEnd="@+id/menu" />
+</RelativeLayout>
