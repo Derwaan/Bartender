@@ -22,19 +22,26 @@ import java.util.ArrayList;
  * @version 1
  */
 public class User {
+    private static final String DB_TABLE = "USER";
 
-    private static final String DB_COLUMN_ID = "u_id";
-    private static final String DB_COLUMN_NAME = "u_name";
-    private static final String DB_COLUMN_PASSWORD = "u_password";
-    private static final String DB_TABLE = "users";
+    private static final String DB_COLUMN_ID = "ID_LOGIN";
+    private static final String DB_COLUMN_PASSWORD = "MDP";
+    private static final String DB_COLUMN_TYPE = "CATEGORIE USER";
+    private static final String DB_COLUMN_NAME = "NOM_USER";
+    private static final String DB_COLUMN_LANGUAGE = "LANGUE";
+    private static final String DB_COLUMN_EMAIL = "EMAIL";
+    private static final String DB_COLUMN_SEX = "SEX";
+    private static final String DB_COLUMN_GSM = "GSM";
+    private static final String DB_COLUMN_ADRESS = "ADRESSE";
+
     /**
      * Identifiant unique de l'utilisateur courant. Correspond à _id dans la base de données.
      */
     private final int id;
     /**
-     * Nom (unique) de l'utilisateur courant. Correspond à u_nom dans la base de données.
+     * Login de l'utilisateur
      */
-    private String name;
+    private String login;
     /**
      * Mot de passe de l'utilisateur courant. Correspond à u_password dans la base de données.
      */
@@ -43,6 +50,30 @@ public class User {
      * Type de l'utilisateur courant. Correspond à ??? dans la base de données.
      */
     private int type;
+    /**
+     * Nom (unique) de l'utilisateur courant. Correspond à u_nom dans la base de données.
+     */
+    private String name;
+    /**
+     * Langue de l'utilisateur
+     */
+    private String language;
+    /**
+     * Email de l'utilisateur
+     */
+    private String email;
+    /**
+     * Sexe de l'utilisateur
+     */
+    private String sex;
+    /**
+     * Téléphone de l'utilisateur.
+     */
+    private String gsm;
+    /**
+     * Adresse de l'utilisateur
+     */
+    private String adress;
 
     /**
      * Constructeur de l'utilisateur. Initialise une instance de l'utilisateur présent dans la base
@@ -51,37 +82,95 @@ public class User {
      * @note Ce constructeur est privé (donc utilisable uniquement depuis cette classe). Cela permet
      * d'éviter d'avoir deux instances différentes d'un même utilisateur.
      */
-    private User(int uId, String uName, String uPassword, int uType) {
+    private User(int uId, String uPassword, int uType, String uName, String uLanguage, String uEmail, String uSex, String uGSM, String uAdress) {
 
         this.id = uId;
-        this.name = uName;
+        this.login= Integer.toString(id);
         this.password = uPassword;
         this.type = uType;
+        this.name = uName;
+        this.language = uLanguage;
+        this.email = uEmail;
+        this.sex = uSex;
+        this.gsm = uGSM;
+        this.adress = uAdress;
         User.userSparseArray.put(uId, this);
     }
 
-    /**
-     * Fournit l'id de l'utilisateur courant.
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * Fournit le type de l'utilisateur courant.
-     * 1 client
-     * 2 serveur
-     * 3 admin
-     */
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public int getType() {
         return type;
     }
 
-    /**
-     * Fournit le nom de l'utilisateur courant.
-     */
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getGsm() {
+        return gsm;
+    }
+
+    public void setGsm(String gsm) {
+        this.gsm = gsm;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
     /**
@@ -149,7 +238,7 @@ public class User {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
         // Colonnes à récupérer
-        String[] colonnes = {DB_COLUMN_ID, DB_COLUMN_NAME, DB_COLUMN_PASSWORD};
+        String[] colonnes = {DB_COLUMN_ID, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE, DB_COLUMN_NAME, DB_COLUMN_LANGUAGE, DB_COLUMN_EMAIL, DB_COLUMN_SEX, DB_COLUMN_GSM, DB_COLUMN_ADRESS};
 
         // Requête de selection (SELECT)
         Cursor cursor = db.query(DB_TABLE, colonnes, null, null, null, null, null);
@@ -164,14 +253,21 @@ public class User {
         while (!cursor.isAfterLast()) {
             // Récupération des informations de l'utilisateur pour chaque ligne.
             int uId = cursor.getInt(0);
-            String uNom = cursor.getString(1);
-            String uPassword = cursor.getString(2);
+            String uPassword = cursor.getString(1);
+            int uType = cursor.getInt(2);
+            String uName = cursor.getString(3);
+            String uLanguage = cursor.getString(4);
+            String uEmail = cursor.getString(5);
+            String uSex = cursor.getString(6);
+            String uGSM = cursor.getString(7);
+            String uAdress = cursor.getString(8);
+
 
             // Vérification pour savoir s'il y a déjà une instance de cet utilisateur.
             User user = User.userSparseArray.get(uId);
             if (user == null) {
                 // Si pas encore d'instance, création d'une nouvelle instance.
-                user = new User(uId, uNom, uPassword);
+                user = new User(uId, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
             }
 
             // Ajout de l'utilisateur à la liste.
