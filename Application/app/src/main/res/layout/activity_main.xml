@@ -1,59 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Se connecter"
-        android:id="@+id/login"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="S&apos;inscrire"
-        android:id="@+id/register"
-        android:layout_below="@+id/login"
-        android:layout_alignRight="@+id/login"
-        android:layout_alignEnd="@+id/login"
-        android:layout_alignLeft="@+id/login"
-        android:layout_alignStart="@+id/login" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/username"
-        android:text="Identifiant"
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="111dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/">
 
-    <EditText
+        <ImageView
+            android:layout_width="152dp"
+            android:layout_height="171dp"
+            android:id="@+id/logo"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/icone" />
+    </FrameLayout>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/password"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:text="Mot de passe"
-        android:layout_below="@+id/username"
-        android:layout_alignParentLeft="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
+        android:text="Carte"
+        android:id="@+id/menu_btn"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="143dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mes commandes"
+        android:id="@+id/orders_btn"
+        android:layout_below="@+id/menu_btn"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon compte"
+        android:id="@+id/account_btn"
+        android:layout_below="@+id/orders_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="État du stock"
+        android:id="@+id/stock_btn"
+        android:layout_below="@+id/account_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rajouter un serveur"
+        android:id="@+id/addWaiter_btn"
+        android:layout_below="@+id/stock_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Statistiques"
+        android:id="@+id/stats_btn"
+        android:layout_below="@+id/addWaiter_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se déconnecter"
+        android:id="@+id/logout_btn"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/stats_btn"
+        android:layout_alignLeft="@+id/stock_btn"
+        android:layout_alignStart="@+id/stock_btn" />
 
 </RelativeLayout>

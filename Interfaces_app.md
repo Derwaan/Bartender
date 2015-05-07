@@ -31,6 +31,7 @@
 - Bouton tri par prix (price_btn)
 - Bouton tri par catégorie (cat_btn)
 - Bouton tri par note (rating_btn)
+- Bouton recherche (search_btn)
 - Liste (bouttons) des produits (products_list)
 
 ##Ecran de Mes commandes (activity_orders) :
