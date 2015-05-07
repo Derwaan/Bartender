@@ -19,16 +19,19 @@
 ##Ecran d'accueil client :
 - Logo
 - Bouton Carte
-- Bouton Ma Commande
+- Bouton Mes Commandes
 - Bouton Mon Compte
-- Addition
+- Bouton État des stocks (admin)
+- Bouton rajouter un serveur (admin)
+- Bouton Statistiques (admin)
 
 ##Ecran de la carte :
 - Liste (bouttons) des produits
 - Prix de chaque produit
 
-##Ecran de ma commande :
+##Ecran de Mes commandes :
 - Numéro de table
+- Total des commandes
 - Liste des produits commander
 - Boutton supprimer (-)
 - Boutton rajouter (+)
@@ -43,12 +46,6 @@
 - Prix du produit
 - Boutton rajouter à la commande
 - Boutton modifier (admin)
-
-##Ecran accueil serveur/admin :
-- Bouton carte
-- Bouton liste des commandes
-- Bouton état des stocks
-- Bouton statistiques (admin)
 
 ##Ecran liste des commandes :
 - Liste des commandes et table (bouttons)
