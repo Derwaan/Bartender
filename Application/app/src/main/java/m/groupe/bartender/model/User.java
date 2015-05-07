@@ -234,7 +234,7 @@ public class User {
     /**
      * Fournit la liste des utilisateurs.
      */
-    public static ArrayList<User> getUtilisateurs() {
+    /*public static ArrayList<User> getUtilisateurs() {
         // Récupération du  SQLiteHelper et de la base de données.
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
@@ -285,6 +285,6 @@ public class User {
 
         return users;
     }
-
+*/
 }
 
