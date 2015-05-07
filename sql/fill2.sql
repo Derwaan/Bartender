@@ -10,36 +10,36 @@ INSERT INTO USER VALUES ('Brice','azerty',1,'Brice','en','b@b','en','M',01234952
 
 -- Table Produit (idProduit, desc(id), nom(id),cat(id), image, prix, seuil)
 --- /!\ Problème dans les indices si on dépasse 100 catégories.
-INSERT INTO PRODUIT VALUES (1,1001,101,1,NULL,,); -- Carapils
-INSERT INTO PRODUIT VALUES (2,1002,102,1,NULL,,); -- Youpielair
-INSERT INTO PRODUIT VALUES (3,1003,103,1,NULL,,); -- Foobar
-INSERT INTO PRODUIT VALUES (4,1004,104,2,NULL,,); -- 
-INSERT INTO PRODUIT VALUES (5,1005,105,2,NULL,,); --
-INSERT INTO PRODUIT VALUES (6,1006,106,2,NULL,,); --
-INSERT INTO PRODUIT VALUES (7,1007,107,3,NULL,,); -- Eau du robinet
-INSERT INTO PRODUIT VALUES (8,1008,108,3,NULL,,); -- Badoit
-INSERT INTO PRODUIT VALUES (9,1009,109,3,NULL,,); -- Waiakea
-INSERT INTO PRODUIT VALUES (10,1010,110,4,NULL,,); -- Pinot Noir
-INSERT INTO PRODUIT VALUES (11,1011,111,4,NULL,,); -- Soubirac
-INSERT INTO PRODUIT VALUES (12,1012,112,4,NULL,,); -- Merlot
-INSERT INTO PRODUIT VALUES (13,1013,113,5,NULL,,); -- Bloody Mary
-INSERT INTO PRODUIT VALUES (14,1014,114,5,NULL,,); -- Cervelle de singe
-INSERT INTO PRODUIT VALUES (15,1015,115,5,NULL,,); -- Sex on the Beach
-INSERT INTO PRODUIT VALUES (16,1016,116,5,NULL,,); -- The Funny Super Green
-INSERT INTO PRODUIT VALUES (17,1017,117,6,NULL,,); -- Big Peat
-INSERT INTO PRODUIT VALUES (18,1018,118,6,NULL,,); -- Vodka
-INSERT INTO PRODUIT VALUES (19,1019,119,6,NULL,,); -- Gin
-INSERT INTO PRODUIT VALUES (20,1020,120,6,NULL,,); -- Rhum
-INSERT INTO PRODUIT VALUES (21,1021,121,7,NULL,,); -- Amaraetto
-INSERT INTO PRODUIT VALUES (22,1022,122,7,NULL,,); -- Limoncello
-INSERT INTO PRODUIT VALUES (23,1023,123,7,NULL,,); -- Calvados
-INSERT INTO PRODUIT VALUES (24,1024,124,7,NULL,,); -- Grappa
-INSERT INTO PRODUIT VALUES (25,1025,125,8,NULL,,); -- Hercule
-INSERT INTO PRODUIT VALUES (26,1026,126,8,NULL,,); -- Saison
-INSERT INTO PRODUIT VALUES (27,1027,127,8,NULL,,); -- Orval
-INSERT INTO PRODUIT VALUES (28,1028,128,8,NULL,,); -- Gueuze
-INSERT INTO PRODUIT VALUES (29,1029,129,8,NULL,,); -- Ginette
-INSERT INTO PRODUIT VALUES (30,1030,130,9,NULL,,); -- Cahuètes
+INSERT INTO PRODUIT VALUES (1,1001,101,1,NULL,0.4,9); -- Carapils
+INSERT INTO PRODUIT VALUES (2,1002,102,1,NULL,1.2,9); -- Youpielair
+INSERT INTO PRODUIT VALUES (3,1003,103,1,NULL,1.5,3); -- Foobar
+INSERT INTO PRODUIT VALUES (4,1004,104,2,NULL,1,3); -- Surge
+INSERT INTO PRODUIT VALUES (5,1005,105,2,NULL,1,6); -- Ok
+INSERT INTO PRODUIT VALUES (6,1006,106,2,NULL,1.2,9); -- Coke BCV
+INSERT INTO PRODUIT VALUES (7,1007,107,3,NULL,0,1); -- Eau du robinet
+INSERT INTO PRODUIT VALUES (8,1008,108,3,NULL,3,7); -- Badoit
+INSERT INTO PRODUIT VALUES (9,1009,109,3,NULL,3,8); -- Waiakea
+INSERT INTO PRODUIT VALUES (10,1010,110,4,NULL,2,7); -- Pinot Noir
+INSERT INTO PRODUIT VALUES (11,1011,111,4,NULL,2,6); -- Soubirac
+INSERT INTO PRODUIT VALUES (12,1012,112,4,NULL,2,7); -- Merlot
+INSERT INTO PRODUIT VALUES (13,1013,113,5,NULL,4,10); -- Bloody Mary
+INSERT INTO PRODUIT VALUES (14,1014,114,5,NULL,4,10); -- Cervelle de singe
+INSERT INTO PRODUIT VALUES (15,1015,115,5,NULL,4,10); -- Sex on the Beach
+INSERT INTO PRODUIT VALUES (16,1016,116,5,NULL,42,10); -- The Funny Super Green
+INSERT INTO PRODUIT VALUES (17,1017,117,6,NULL,6,5); -- Big Peat
+INSERT INTO PRODUIT VALUES (18,1018,118,6,NULL,6,5); -- Vodka
+INSERT INTO PRODUIT VALUES (19,1019,119,6,NULL,6,5); -- Gin
+INSERT INTO PRODUIT VALUES (20,1020,120,6,NULL,6,5); -- Rhum
+INSERT INTO PRODUIT VALUES (21,1021,121,7,NULL,4,5); -- Amaraetto
+INSERT INTO PRODUIT VALUES (22,1022,122,7,NULL,4,5); -- Limoncello
+INSERT INTO PRODUIT VALUES (23,1023,123,7,NULL,4,5); -- Calvados
+INSERT INTO PRODUIT VALUES (24,1024,124,7,NULL,4,5); -- Grappa
+INSERT INTO PRODUIT VALUES (25,1025,125,8,NULL,2,5); -- Hercule
+INSERT INTO PRODUIT VALUES (26,1026,126,8,NULL,2,5); -- Saison
+INSERT INTO PRODUIT VALUES (27,1027,127,8,NULL,2,5); -- Orval
+INSERT INTO PRODUIT VALUES (28,1028,128,8,NULL,2,5); -- Gueuze
+INSERT INTO PRODUIT VALUES (29,1029,129,8,NULL,2,6); -- Ginette
+INSERT INTO PRODUIT VALUES (30,1030,130,9,NULL,0.5,10); -- Cahuètes
 
 
 
@@ -65,20 +65,18 @@ INSERT INTO STRING VALUES (9,'fr','En-cas');
 INSERT INTO STRING VALUES (9,'en','Snacks');
 
 --- Nom
-INSERT INTO STRING VALUES (100,'fr','Carapils');
-INSERT INTO STRING VALUES (100,'en','Carapils');
-INSERT INTO STRING VALUES (101,'fr','Youpielair (Maison)');
-INSERT INTO STRING VALUES (101,'en','Youpielair (Homemade)');
-INSERT INTO STRING VALUES (102,'fr','Foooobar');
-INSERT INTO STRING VALUES (102,'en','Foooobar');
-INSERT INTO STRING VALUES (103,'fr',);
-INSERT INTO STRING VALUES (103,'en',);
-INSERT INTO STRING VALUES (104,'fr',);
-INSERT INTO STRING VALUES (104,'en',);
-INSERT INTO STRING VALUES (105,'fr',);
-INSERT INTO STRING VALUES (105,'en',);
-INSERT INTO STRING VALUES (106,'fr',);
-INSERT INTO STRING VALUES (106,'en',);
+INSERT INTO STRING VALUES (101,'fr','Carapils');
+INSERT INTO STRING VALUES (101,'en','Carapils');
+INSERT INTO STRING VALUES (102,'fr','Youpielair (Maison)');
+INSERT INTO STRING VALUES (102,'en','Youpielair (Homemade)');
+INSERT INTO STRING VALUES (103,'fr','FooooBar');
+INSERT INTO STRING VALUES (103,'en','FooooBar');
+INSERT INTO STRING VALUES (104,'fr','Surge');
+INSERT INTO STRING VALUES (104,'en','Surge');
+INSERT INTO STRING VALUES (105,'fr','Ok');
+INSERT INTO STRING VALUES (105,'en','Ok');
+INSERT INTO STRING VALUES (106,'fr','Coca-Cola Cerise - Vanille');
+INSERT INTO STRING VALUES (106,'en','Coca-Cola Black Cherry - Vanilla');
 INSERT INTO STRING VALUES (107,'fr','Eau (Maison)');
 INSERT INTO STRING VALUES (107,'en','Water (Homemade)');
 INSERT INTO STRING VALUES (108,'fr','Badoit (Saint-Galmier)');
@@ -129,26 +127,24 @@ INSERT INTO STRING VALUES (130,'fr','Cacahuètes');
 INSERT INTO STRING VALUES (130,'en','Peanuts');
 
 --- Descriptions
-INSERT INTO STRING VALUES (1000,'fr','Légende urbaine.');
-INSERT INTO STRING VALUES (1000,'en','Urban legend.');
-INSERT INTO STRING VALUES (1001,'fr','Bière du patron');
-INSERT INTO STRING VALUES (1001,'en','Homemade beer');
-INSERT INTO STRING VALUES (1002,'fr','Bière aléatoire dans une sélection secrète');
-INSERT INTO STRING VALUES (1002,'en','Ramdom beer taken from a secret selection');
-INSERT INTO STRING VALUES (1003,'fr',);
-INSERT INTO STRING VALUES (1003,'en',);
-INSERT INTO STRING VALUES (1004,'fr',);
-INSERT INTO STRING VALUES (1004,'en',);
-INSERT INTO STRING VALUES (1005,'fr',);
-INSERT INTO STRING VALUES (1005,'en',);
-INSERT INTO STRING VALUES (1006,'fr',);
-INSERT INTO STRING VALUES (1006,'en',);
+INSERT INTO STRING VALUES (1001,'fr','Légende urbaine.');
+INSERT INTO STRING VALUES (1001,'en','Urban legend.');
+INSERT INTO STRING VALUES (1002,'fr','Bière du patron');
+INSERT INTO STRING VALUES (1002,'en','Homemade beer');
+INSERT INTO STRING VALUES (1003,'fr','Bière aléatoire dans une sélection secrète');
+INSERT INTO STRING VALUES (1003,'en','Ramdom beer taken from a secret selection');
+INSERT INTO STRING VALUES (1004,'fr','Vert fluo et vous donne la force de Hulk grâce à son taux en caféine illégal ! Merci Coca-Cola Company !');
+INSERT INTO STRING VALUES (1004,'en','Bright green and will give you Hulk strength with its illegal caffeine rate! Thank you Coca-Cola Company!');
+INSERT INTO STRING VALUES (1005,'fr','La boisson gazeuse cynique par Coca-Cola. Le soda Ok vous dit "Ne soyez pas dans l\'illusion qu\'il existe une raison à toute chose. C\'est OK pour vous de penser que je ne suis pas OK mais je le suis."');
+INSERT INTO STRING VALUES (1005,'en','The cynical soft drink by Coca-Cola. OK soda says "Don’t be fooled into thinking there has to be a reason for everything. It’s OK for you to think I’m not OK but I am"');
+INSERT INTO STRING VALUES (1006,'fr','Prenez un Coca-Cola, une cerise et de la vanille. Mélangez le tout sur un nid de glaçon et sa rondelle de citron.');
+INSERT INTO STRING VALUES (1006,'en','Take a Coke, a black cherry and vanilla. Shake it and put it on ice with some lemon.');
 INSERT INTO STRING VALUES (1007,'fr','Eau de ville dont s\'abreuve nos robinets qui vous désalterera.');
 INSERT INTO STRING VALUES (1007,'en','City water which quenches our faucets that will refresh you.');
 INSERT INTO STRING VALUES (1008,'fr','Vénérées par les Gaulois et appréciées par les rois, les eaux de Saint-Galmier ont longtemps été reconnues pour leurs vertues réparatrice. Toutefois, il a fallu attendre l\'action d\'un entrepreneur connu sous le nom d\'Auguste Badoit pour partager les eaux de sources de ce petit village avec le monde entier. À une hauteur de 500m sous la vallée de la Loire, l\'eau est naturellement chargée en minéraux donnant le côté gazeux telle une signature de la marque. De nos jours, l\'eau de qualité est une habituée des grands restaurants où sa carbonatation délicate et son goût équilibrée plaira aux palais sensibles des gourmets.');
 INSERT INTO STRING VALUES (1008,'en','Revered by the ancient Gauls and enjoyed by kings, the waters of Saint-Galmier have long been recognized for their restorative properties. However, it took an enterprising silk salesman named Auguste Badoit to share the spring water of this tiny French town with the world. Traveling to the surface from 500 feet below the Loire Valley, the water is naturally endowed with a generous amount of trace minerals as well as light, playful bubbles that give Badoit its signature taste. Today, the water is a common sight at fine restaurants, where its delicate carbonation and balanced taste complement the subtle flavors of gourmet meals.');
 INSERT INTO STRING VALUES (1009,'fr','Provenant du pic enneigé du Mauna Loa, le plus grand volcan de subaérien du monde, l\'eau de Waiakea est naturellement filtrée à travers des milliers de pieds de roche volcanique poreuse avant d\'être embouteillé. Le produit résultant est riche en électrolytes et minéraux essentiels, et est également inhabituellement alcaline, donnant à l\'eau sucrée caractéristique sa finition.');
-INSERT INTO STRING VALUES (1009,'en','Sourced from the snowy peak of Mauna Loa, the world's largest subaerial volcano, Waiakea's water is naturally filtered through thousands of feet of porous volcanic rock before being bottled. The resulting product is rich in electrolytes and essential minerals, and is also unusually alkaline, giving the water its distinctive sweet finish. ');
+INSERT INTO STRING VALUES (1009,'en','Sourced from the snowy peak of Mauna Loa, the world\'s largest subaerial volcano, Waiakea\'s water is naturally filtered through thousands of feet of porous volcanic rock before being bottled. The resulting product is rich in electrolytes and essential minerals, and is also unusually alkaline, giving the water its distinctive sweet finish. ');
 INSERT INTO STRING VALUES (1010,'fr','Délicieux Pinot noir vieilli un an en fûts de chêne francais neufs. De couleur rubis intense, il offre un bouquet fin de beaux fruits et de subtils tons de vanille. La bouche gourmande présente un délicieux palais de fruits des bois, de cerise noire et une légère touche fumée.');
 INSERT INTO STRING VALUES (1010,'en','Delicious Pinot Noir aged one year in barrels of new French oak. Intense ruby color, it offers a bouquet fine beautiful fruits and subtle tones of vanilla. The greedy mouth has a delicious palate of berries, black cherries and a touch of smoke.');
 INSERT INTO STRING VALUES (1011,'fr','Pour des lendemains douloureux.');
@@ -195,10 +191,35 @@ INSERT INTO STRING VALUES (1030,'en','Tasty nuts in a bowl to share with friends
 
 
 -- Table Lot(idlot,idprod,dateperemp,Q)
-INSERT INTO LOT VALUES (1,1,28122010,40);
-INSERT INTO LOT VALUES (2,2,24032012,30);
-INSERT INTO LOT VALUES (3,1,23122011,30);
-INSERT INTO LOT VALUES (4,3,24052034,12);
-INSERT INTO LOT VALUES (5,4,24052012,50);
-INSERT INTO LOT VALUES (6,5,21042011,23);
-INSERT INTO LOT VALUES (7,6,23062013,60);
+INSERT INTO LOT VALUES (1,1,'2019-12-12',40);
+INSERT INTO LOT VALUES (2,2,'2019-12-12',30);
+INSERT INTO LOT VALUES (3,1,'2019-12-12',30);
+INSERT INTO LOT VALUES (4,3,'2019-12-12',12);
+INSERT INTO LOT VALUES (5,4,'2019-12-12',50);
+INSERT INTO LOT VALUES (6,5,'2019-12-12',23);
+INSERT INTO LOT VALUES (7,7,'2019-12-12',60000);
+INSERT INTO LOT VALUES (8,6,'2019-12-12',60);
+INSERT INTO LOT VALUES (9,8,'2019-12-12',60);
+INSERT INTO LOT VALUES (10,9,'2019-12-12',60);
+INSERT INTO LOT VALUES (11,10,'2019-12-12',60);
+INSERT INTO LOT VALUES (12,11,'2019-12-12',60);
+INSERT INTO LOT VALUES (13,12,'2019-12-12',60);
+INSERT INTO LOT VALUES (14,13,'2019-12-12',60);
+INSERT INTO LOT VALUES (15,14,'2019-12-12',60);
+INSERT INTO LOT VALUES (16,15,'2019-12-12',60);
+INSERT INTO LOT VALUES (17,16,'2019-12-12',60);
+INSERT INTO LOT VALUES (18,17,'2019-12-12',60);
+INSERT INTO LOT VALUES (19,18,'2019-12-12',60);
+INSERT INTO LOT VALUES (20,19,'2019-12-12',60);
+INSERT INTO LOT VALUES (21,20,'2019-12-12',60);
+INSERT INTO LOT VALUES (22,21,'2019-12-12',60);
+INSERT INTO LOT VALUES (23,22,'2019-12-12',60);
+INSERT INTO LOT VALUES (24,23,'2019-12-12',60);
+INSERT INTO LOT VALUES (25,24,'2019-12-12',60);
+INSERT INTO LOT VALUES (26,25,'2019-12-12',60);
+INSERT INTO LOT VALUES (27,26,'2019-12-12',60);
+INSERT INTO LOT VALUES (28,27,'2019-12-12',60);
+INSERT INTO LOT VALUES (29,28,'2019-12-12',60);
+INSERT INTO LOT VALUES (30,29,'2019-12-12',60);
+INSERT INTO LOT VALUES (31,30,'2019-12-12',60);
+
