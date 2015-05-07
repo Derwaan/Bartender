@@ -5,6 +5,15 @@ INSERT INTO USER VALUES ('Brol','azerty',2,'Truc','fr','brol@trucl.com','F',1234
 INSERT INTO USER VALUES ('Machin','azerty',3,'Machine','fr','machin@machine.com','M',023423452426,'truc');
 INSERT INTO USER VALUES ('Lala','foobar',2,'Dipsy','en','pooo@ttbb.com','F',024962352,'tbb');
 
+-- Backup USER
+INSERT INTO USER VALUES (1,'Pierre','foobar',1,'Jaques','fr','piet@brol.com','M',0467344356,'foobar 1050');
+INSERT INTO USER VALUES (2,'Sacha','azerty',1,'Ketchum','en','sacha@pokemon.com','M',0235325234,'Pokedex');
+INSERT INTO USER VALUES (3,'Brol','azerty',2,'Truc','fr','brol@trucl.com','F',123423452,'Foobar');
+INSERT INTO USER VALUES (4,'Machin','azerty',3,'Machine','fr','machin@machine.com','M',023423452426,'truc');
+INSERT INTO USER VALUES (5,'Lala','foobar',2,'Dipsy','en','pooo@ttbb.com','F',024962352,'tbb');
+INSERT INTO USER VALUES (6,'Dany','foobar',1,'Danette','fr','dan@dan.fr','M',923345852,'foo');
+INSERT INTO USER VALUES (7,'Brice','azerty',1,'Brice','en','b@b','en','M',012349522,'foo');
+
 -- Table Produit (idProduit, desc(id), nom(id),cat(id), image, prix, seuil)
 INSERT INTO PRODUIT VALUES (1,1000,100,1,NULL,2.2,8);
 INSERT INTO PRODUIT VALUES (2,1001,101,2,NULL,2.1,10);
