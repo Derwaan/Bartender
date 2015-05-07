@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="La carte"
-        android:id="@+id/menu"
-        android:layout_above="@+id/order"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ma commande"
-        android:id="@+id/order"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:id="@+id/name_btn" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Se déconnecter"
-        android:id="@+id/button"
-        android:layout_marginBottom="73dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mon compte"
-        android:id="@+id/account"
-        android:layout_below="@+id/order"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix"
+            android:id="@+id/price_btn" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gestion"
-        android:id="@+id/admin"
-        android:layout_below="@+id/account"
-        android:layout_alignRight="@+id/menu"
-        android:layout_alignEnd="@+id/menu" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catégorie"
+            android:id="@+id/cat_btn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            android:id="@+id/rating_btn" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="445dp"
+            android:id="@+id/products_list"
+            android:choiceMode="none"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rechercher"
+            android:id="@+id/search_btn"
+            android:layout_gravity="center_horizontal|bottom" />
+    </FrameLayout>
+
 </RelativeLayout>
