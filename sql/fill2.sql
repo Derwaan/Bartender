@@ -10,26 +10,26 @@ INSERT INTO USER VALUES ('Brice','azerty',1,'Brice','en','b@b','en','M',01234952
 
 -- Table Produit (idProduit, desc(id), nom(id),cat(id), image, prix, seuil)
 --- /!\ Problème dans les indices si on dépasse 100 catégories.
-INSERT INTO PRODUIT VALUES (1,1001,101,1,NULL,,);
-INSERT INTO PRODUIT VALUES (2,1002,102,1,NULL,,);
-INSERT INTO PRODUIT VALUES (3,1003,103,1,NULL,,);
-INSERT INTO PRODUIT VALUES (4,1004,104,2,NULL,,);
-INSERT INTO PRODUIT VALUES (5,1005,105,2,NULL,,);
-INSERT INTO PRODUIT VALUES (6,1006,106,2,NULL,,);
-INSERT INTO PRODUIT VALUES (7,1007,107,3,NULL,,);
-INSERT INTO PRODUIT VALUES (8,1008,108,3,NULL,,);
-INSERT INTO PRODUIT VALUES (9,1009,109,3,NULL,,);
-INSERT INTO PRODUIT VALUES (10,1010,110,4,NULL,,);
-INSERT INTO PRODUIT VALUES (11,1011,111,4,NULL,,);
-INSERT INTO PRODUIT VALUES (12,1012,112,4,NULL,,);
-INSERT INTO PRODUIT VALUES (13,1013,113,5,NULL,,);
-INSERT INTO PRODUIT VALUES (14,1014,114,5,NULL,,);
-INSERT INTO PRODUIT VALUES (15,1015,115,5,NULL,,);
-INSERT INTO PRODUIT VALUES (16,1016,116,5,NULL,,);
+INSERT INTO PRODUIT VALUES (1,1001,101,1,NULL,,); -- Carapils
+INSERT INTO PRODUIT VALUES (2,1002,102,1,NULL,,); -- Youpielair
+INSERT INTO PRODUIT VALUES (3,1003,103,1,NULL,,); -- Foobar
+INSERT INTO PRODUIT VALUES (4,1004,104,2,NULL,,); -- 
+INSERT INTO PRODUIT VALUES (5,1005,105,2,NULL,,); --
+INSERT INTO PRODUIT VALUES (6,1006,106,2,NULL,,); --
+INSERT INTO PRODUIT VALUES (7,1007,107,3,NULL,,); -- Eau du robinet
+INSERT INTO PRODUIT VALUES (8,1008,108,3,NULL,,); -- Badoit
+INSERT INTO PRODUIT VALUES (9,1009,109,3,NULL,,); -- Waiakea
+INSERT INTO PRODUIT VALUES (10,1010,110,4,NULL,,); -- Pinot Noir
+INSERT INTO PRODUIT VALUES (11,1011,111,4,NULL,,); -- Soubirac
+INSERT INTO PRODUIT VALUES (12,1012,112,4,NULL,,); -- Merlot
+INSERT INTO PRODUIT VALUES (13,1013,113,5,NULL,,); -- Bloody Mary
+INSERT INTO PRODUIT VALUES (14,1014,114,5,NULL,,); -- Cervelle de singe
+INSERT INTO PRODUIT VALUES (15,1015,115,5,NULL,,); -- Sex on the Beach
+INSERT INTO PRODUIT VALUES (16,1016,116,5,NULL,,); -- The Funny Super Green
 INSERT INTO PRODUIT VALUES (17,1017,117,6,NULL,,); -- Big Peat
 INSERT INTO PRODUIT VALUES (18,1018,118,6,NULL,,); -- Vodka
 INSERT INTO PRODUIT VALUES (19,1019,119,6,NULL,,); -- Gin
-INSERT INTO PRODUIT VALUES (20,1020,120,6,NULL,,); -- 
+INSERT INTO PRODUIT VALUES (20,1020,120,6,NULL,,); -- Rhum
 INSERT INTO PRODUIT VALUES (21,1021,121,7,NULL,,); -- Amaraetto
 INSERT INTO PRODUIT VALUES (22,1022,122,7,NULL,,); -- Limoncello
 INSERT INTO PRODUIT VALUES (23,1023,123,7,NULL,,); -- Calvados
@@ -65,12 +65,12 @@ INSERT INTO STRING VALUES (9,'fr','En-cas');
 INSERT INTO STRING VALUES (9,'en','Snacks');
 
 --- Nom
-INSERT INTO STRING VALUES (100,'fr',);
-INSERT INTO STRING VALUES (100,'en',);
-INSERT INTO STRING VALUES (101,'fr',);
-INSERT INTO STRING VALUES (101,'en',);
-INSERT INTO STRING VALUES (102,'fr',);
-INSERT INTO STRING VALUES (102,'en',);
+INSERT INTO STRING VALUES (100,'fr','Carapils');
+INSERT INTO STRING VALUES (100,'en','Carapils');
+INSERT INTO STRING VALUES (101,'fr','Youpielair (Maison)');
+INSERT INTO STRING VALUES (101,'en','Youpielair (Homemade)');
+INSERT INTO STRING VALUES (102,'fr','Foooobar');
+INSERT INTO STRING VALUES (102,'en','Foooobar');
 INSERT INTO STRING VALUES (103,'fr',);
 INSERT INTO STRING VALUES (103,'en',);
 INSERT INTO STRING VALUES (104,'fr',);
@@ -79,34 +79,34 @@ INSERT INTO STRING VALUES (105,'fr',);
 INSERT INTO STRING VALUES (105,'en',);
 INSERT INTO STRING VALUES (106,'fr',);
 INSERT INTO STRING VALUES (106,'en',);
-INSERT INTO STRING VALUES (107,'fr',);
-INSERT INTO STRING VALUES (107,'en',);
-INSERT INTO STRING VALUES (108,'fr',);
-INSERT INTO STRING VALUES (108,'en',);
-INSERT INTO STRING VALUES (109,'fr',);
-INSERT INTO STRING VALUES (109,'en',);
-INSERT INTO STRING VALUES (110,'fr',);
-INSERT INTO STRING VALUES (110,'en',);
-INSERT INTO STRING VALUES (111,'fr',);
-INSERT INTO STRING VALUES (111,'en',);
-INSERT INTO STRING VALUES (112,'fr',);
-INSERT INTO STRING VALUES (112,'en',);
-INSERT INTO STRING VALUES (113,'fr',);
-INSERT INTO STRING VALUES (113,'en',);
-INSERT INTO STRING VALUES (114,'fr',);
-INSERT INTO STRING VALUES (114,'en',);
-INSERT INTO STRING VALUES (115,'fr',);
-INSERT INTO STRING VALUES (115,'en',);
-INSERT INTO STRING VALUES (116,'fr',);
-INSERT INTO STRING VALUES (116,'en',);
+INSERT INTO STRING VALUES (107,'fr','Eau (Maison)');
+INSERT INTO STRING VALUES (107,'en','Water (Homemade)');
+INSERT INTO STRING VALUES (108,'fr','Badoit (Saint-Galmier)');
+INSERT INTO STRING VALUES (108,'en','Badoit (Saint-Galmier)');
+INSERT INTO STRING VALUES (109,'fr','Eau de source du volcan hawaien Waiakea');
+INSERT INTO STRING VALUES (109,'en','Waiakea Hawaiian Volcanic Water');
+INSERT INTO STRING VALUES (110,'fr','Pinot noir 12% (Chateau Bon Baron)');
+INSERT INTO STRING VALUES (110,'en','Pinot noir 12% (Chateau Bon Baron)');
+INSERT INTO STRING VALUES (111,'fr','Soubirac 14% (Chateau Mal de Tête');
+INSERT INTO STRING VALUES (111,'en','Soubirac 14% (Chateau Headache');
+INSERT INTO STRING VALUES (112,'fr','Merlot/Dornfelder 12% (Hagelander)');
+INSERT INTO STRING VALUES (112,'en','Merlot/Dornfelder 12% (Hagelander)');
+INSERT INTO STRING VALUES (113,'fr','Marie Sanglante');
+INSERT INTO STRING VALUES (113,'en','Bloody Mary');
+INSERT INTO STRING VALUES (114,'fr','Cervelle de singe');
+INSERT INTO STRING VALUES (114,'en','Monkey Brain');
+INSERT INTO STRING VALUES (115,'fr','Sexe à la plage');
+INSERT INTO STRING VALUES (115,'en','Sex on the Beach');
+INSERT INTO STRING VALUES (116,'fr','Le Vert Super Chouette');
+INSERT INTO STRING VALUES (116,'en','The Funny Super Green');
 INSERT INTO STRING VALUES (117,'fr','Big Peat 46% (Douglas Laing)');
 INSERT INTO STRING VALUES (117,'en','Big Peat 46% (Douglas Laing)');
 INSERT INTO STRING VALUES (118,'fr','Vodka 47% (Zubrowka)');
 INSERT INTO STRING VALUES (118,'en','Vodka 47% (Zubrowka)');
 INSERT INTO STRING VALUES (119,'fr','Biercée Gin "Less is More" 44% (Distillerie de Biercée)');
 INSERT INTO STRING VALUES (119,'en','Biercée Gin "Less is More" 44% (Distillerie de Biercée)');
-INSERT INTO STRING VALUES (120,'fr',);
-INSERT INTO STRING VALUES (120,'en',);
+INSERT INTO STRING VALUES (120,'fr','Rhum arrangé vanille 10 ans d\âge (Maison)');
+INSERT INTO STRING VALUES (120,'en','Rhum mixed with vanilla 10 years old (Homemade)');
 INSERT INTO STRING VALUES (121,'fr','Amaretto 28% (Disaronno)');
 INSERT INTO STRING VALUES (121,'en','Amaretto 28% (Disaronno)');
 INSERT INTO STRING VALUES (122,'fr','Limoncello 32% (Maison)');
@@ -129,27 +129,49 @@ INSERT INTO STRING VALUES (130,'fr','Cacahuètes');
 INSERT INTO STRING VALUES (130,'en','Peanuts');
 
 --- Descriptions
-INSERT INTO STRING VALUES (1000,'fr',);
-INSERT INTO STRING VALUES (1000,'en',);
-INSERT INTO STRING VALUES (1001,'fr',);
-INSERT INTO STRING VALUES (1001,'en',);
-INSERT INTO STRING VALUES (1002,'fr',);
-INSERT INTO STRING VALUES (1002,'en',);
+INSERT INTO STRING VALUES (1000,'fr','Légende urbaine.');
+INSERT INTO STRING VALUES (1000,'en','Urban legend.');
+INSERT INTO STRING VALUES (1001,'fr','Bière du patron');
+INSERT INTO STRING VALUES (1001,'en','Homemade beer');
+INSERT INTO STRING VALUES (1002,'fr','Bière aléatoire dans une sélection secrète');
+INSERT INTO STRING VALUES (1002,'en','Ramdom beer taken from a secret selection');
 INSERT INTO STRING VALUES (1003,'fr',);
 INSERT INTO STRING VALUES (1003,'en',);
 INSERT INTO STRING VALUES (1004,'fr',);
 INSERT INTO STRING VALUES (1004,'en',);
 INSERT INTO STRING VALUES (1005,'fr',);
 INSERT INTO STRING VALUES (1005,'en',);
+INSERT INTO STRING VALUES (1006,'fr',);
+INSERT INTO STRING VALUES (1006,'en',);
+INSERT INTO STRING VALUES (1007,'fr','Eau de ville dont s\'abreuve nos robinets qui vous désalterera.');
+INSERT INTO STRING VALUES (1007,'en','City water which quenches our faucets that will refresh you.');
+INSERT INTO STRING VALUES (1008,'fr','Vénérées par les Gaulois et appréciées par les rois, les eaux de Saint-Galmier ont longtemps été reconnues pour leurs vertues réparatrice. Toutefois, il a fallu attendre l\'action d\'un entrepreneur connu sous le nom d\'Auguste Badoit pour partager les eaux de sources de ce petit village avec le monde entier. À une hauteur de 500m sous la vallée de la Loire, l\'eau est naturellement chargée en minéraux donnant le côté gazeux telle une signature de la marque. De nos jours, l\'eau de qualité est une habituée des grands restaurants où sa carbonatation délicate et son goût équilibrée plaira aux palais sensibles des gourmets.');
+INSERT INTO STRING VALUES (1008,'en','Revered by the ancient Gauls and enjoyed by kings, the waters of Saint-Galmier have long been recognized for their restorative properties. However, it took an enterprising silk salesman named Auguste Badoit to share the spring water of this tiny French town with the world. Traveling to the surface from 500 feet below the Loire Valley, the water is naturally endowed with a generous amount of trace minerals as well as light, playful bubbles that give Badoit its signature taste. Today, the water is a common sight at fine restaurants, where its delicate carbonation and balanced taste complement the subtle flavors of gourmet meals.');
+INSERT INTO STRING VALUES (1009,'fr','Provenant du pic enneigé du Mauna Loa, le plus grand volcan de subaérien du monde, l\'eau de Waiakea est naturellement filtrée à travers des milliers de pieds de roche volcanique poreuse avant d\'être embouteillé. Le produit résultant est riche en électrolytes et minéraux essentiels, et est également inhabituellement alcaline, donnant à l\'eau sucrée caractéristique sa finition.');
+INSERT INTO STRING VALUES (1009,'en','Sourced from the snowy peak of Mauna Loa, the world's largest subaerial volcano, Waiakea's water is naturally filtered through thousands of feet of porous volcanic rock before being bottled. The resulting product is rich in electrolytes and essential minerals, and is also unusually alkaline, giving the water its distinctive sweet finish. ');
+INSERT INTO STRING VALUES (1010,'fr','Délicieux Pinot noir vieilli un an en fûts de chêne francais neufs. De couleur rubis intense, il offre un bouquet fin de beaux fruits et de subtils tons de vanille. La bouche gourmande présente un délicieux palais de fruits des bois, de cerise noire et une légère touche fumée.');
+INSERT INTO STRING VALUES (1010,'en','Delicious Pinot Noir aged one year in barrels of new French oak. Intense ruby color, it offers a bouquet fine beautiful fruits and subtle tones of vanilla. The greedy mouth has a delicious palate of berries, black cherries and a touch of smoke.');
+INSERT INTO STRING VALUES (1011,'fr','Pour des lendemains douloureux.');
+INSERT INTO STRING VALUES (1011,'en','For painful tomorrows.');
+INSERT INTO STRING VALUES (1012,'fr','Un vin rouge foncé, dévoilant la générosité du Dornfelder et l’élégance du Merlot. En bouche, un fruité serré alterne avec les touches vanillées apportées par le passage en barrique. Le vin offre une finale longue, persistante et très agréable.');
+INSERT INTO STRING VALUES (1012,'en','A dark red wine, revealing the generosity of Dornfelder and elegance of Merlot. In the mouth, a tight fruity alternates with vanilla touches brought by the passage in barrels. The wine has a long finish, persistent and very pleasant.');
+INSERT INTO STRING VALUES (1013,'fr','Vodka, jus de tomates, jus de citron, sauce Worcestershire, tabasco, sel de céleri, sel, poivre');
+INSERT INTO STRING VALUES (1013,'en','Vodka, tomato juice, lemon juice, Worcestershire sauce, Tabasco sauce, celery salt, salt, pepper');
+INSERT INTO STRING VALUES (1014,'fr','Grenadine, Baileys, vodka');
+INSERT INTO STRING VALUES (1014,'en','Grenadine, Baileys, vodka');
+INSERT INTO STRING VALUES (1015,'fr','Vodka, melon, chambord, jus d\'ananas, jus de cranberry');
+INSERT INTO STRING VALUES (1015,'en','Vodka, melon, Chambord, pineapple juice, cranberry juice');
+INSERT INTO STRING VALUES (1016,'fr','Citron, vodka, tequila, curaçao bleu, jus d\'oranges, sucre et cannelle');
+INSERT INTO STRING VALUES (1016,'en','Lemon, vodka, tequila, blue curacao, orange juice, sugar and cinnamon');
 INSERT INTO STRING VALUES (1017,'fr','Tous les single malts de l\'île d\'Islay, y compris le rarissime Port Ellen, sont présents au sein de ce Blended Malt (assemblage de single malts) résolument tourbé au nom évocateur signé Douglas Laing. Une tourbe sèche et fumée qui ravira les amateurs de jeunes Islay très typés.');
 INSERT INTO STRING VALUES (1017,'en','All single malts from Islay, including rare Port Ellen, are present within that Blended Malt (assembly of single malts) resolutely peaty evocative name signed Douglas Laing. A dry peat and smoke delight fans young Islay very typical.');
 INSERT INTO STRING VALUES (1018,'fr','Zubrowka est une vodka polonaise à l\'herbe de bison. Egalement appelée Vodka de Bison, Zubrowka doit son nom à une herbe aromatique des plaines orientales de Pologne très appréciée du bison. La Vodka Zubrowka est élaboré à partir de seigle de grande qualité cultivé dans les régions du Nord-Ouest de la Pologne.');
 INSERT INTO STRING VALUES (1019,'en','
 Zubrowka is a Polish vodka bison grass. Also called Buffalo Vodka, Zubrowka is named after an aromatic herb of the eastern plains of Poland appreciated the buffalo. Zubrowka Vodka is made from high quality rye grown in the North-West of Poland.');
-INSERT INTO STRING VALUES (1019,'fr',);
-INSERT INTO STRING VALUES (1019,'en',);
-INSERT INTO STRING VALUES (1020,'fr',);
-INSERT INTO STRING VALUES (1020,'en',);
+INSERT INTO STRING VALUES (1019,'fr','a Distillerie de Biercée est parvenue à ramener le gin à son essence même : un gin franc et sans détour dans le respect de la tradition. L’ensemble botanique bien défini et sa teneur en alcool de 44% lui confèrent un caractère épicé équilibré alliant saveurs de baies de genévrier, d’agrumes frais et notes poivrées.');
+INSERT INTO STRING VALUES (1019,'en','Distillerie de Biercée has succeeded in bringing gin back to basics: an honest, straight forward gin elaborated according to tradition. The well-defined selection of botanicals and its 44 % alcohol content give it a spicy, balanced character combining the flavours of juniper berries, fresh citrus fruit and peppery notes.');
+INSERT INTO STRING VALUES (1020,'fr','Rhum arrangé maison où des gousses de vanille ont mariné durant 10 ans.');
+INSERT INTO STRING VALUES (1020,'en','Rum where vanilla beans marinated for 10 years.');
 INSERT INTO STRING VALUES (1021,'fr','Digestif italien aromatisé aux herbes et aux fruits ayant trempé dans l\'huile de noyaux d\'abricots'.);
 INSERT INTO STRING VALUES (1021,'en','Italian liqueur flavored with herbs and fruits soaked in apricot kernel oil.');
 INSERT INTO STRING VALUES (1022,'fr','Limoncello fait maison avec amour !');
