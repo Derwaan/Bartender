@@ -59,3 +59,25 @@
 - Liste des produits + stock (products_list)
 - Bouton rajouter stock (admin) (addProduct_btn)
 
+##Ecran rajouter un serveur (activity_addWaiter)
+- Champ identifiant (login_field)
+- Champ mot de passe (password_field)
+- Champ nom (name_field)
+- Champ email (mail_field)
+- Champ langue (Spinner) (language_spin)
+- Champ sexe (Spinner) (sex_spin)
+- Champ téléphone (phone_field)
+- Champ adresse (address_field)
+- Bouton valider (submit_btn)
+
+#Ecran modifier son compte (activity_account) :
+- Champ identifiant (login_field)
+- Champ mot de passe (password_field)
+- Champ nom (name_field)
+- Champ email (mail_field)
+- Champ langue (Spinner) (language_spin)
+- Champ sexe (Spinner) (sex_spin)
+- Champ téléphone (phone_field)
+- Champ adresse (address_field)
+- Bouton valider (submit_btn)
+
