@@ -1,4 +1,4 @@
-package m.groupe.bartender;
+package m.groupe.bartender.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
