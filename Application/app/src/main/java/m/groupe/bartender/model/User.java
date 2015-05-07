@@ -25,6 +25,7 @@ public class User {
     private static final String DB_TABLE = "USER";
 
     private static final String DB_COLUMN_ID = "ID_LOGIN";
+    private static final String DB_COLUMN_LOGIN = "LOGIN";
     private static final String DB_COLUMN_PASSWORD = "MDP";
     private static final String DB_COLUMN_TYPE = "CATEGORIE USER";
     private static final String DB_COLUMN_NAME = "NOM_USER";
@@ -82,10 +83,10 @@ public class User {
      * @note Ce constructeur est privé (donc utilisable uniquement depuis cette classe). Cela permet
      * d'éviter d'avoir deux instances différentes d'un même utilisateur.
      */
-    private User(int uId, String uPassword, int uType, String uName, String uLanguage, String uEmail, String uSex, String uGSM, String uAdress) {
+    private User(int uId, String uLogin, String uPassword, int uType, String uName, String uLanguage, String uEmail, String uSex, String uGSM, String uAdress) {
 
         this.id = uId;
-        this.login= Integer.toString(id);
+        this.login= uLogin;
         this.password = uPassword;
         this.type = uType;
         this.name = uName;
@@ -253,21 +254,22 @@ public class User {
         while (!cursor.isAfterLast()) {
             // Récupération des informations de l'utilisateur pour chaque ligne.
             int uId = cursor.getInt(0);
-            String uPassword = cursor.getString(1);
-            int uType = cursor.getInt(2);
-            String uName = cursor.getString(3);
-            String uLanguage = cursor.getString(4);
-            String uEmail = cursor.getString(5);
-            String uSex = cursor.getString(6);
-            String uGSM = cursor.getString(7);
-            String uAdress = cursor.getString(8);
+            String uLogin = cursor.getString(1);
+            String uPassword = cursor.getString(2);
+            int uType = cursor.getInt(3);
+            String uName = cursor.getString(4);
+            String uLanguage = cursor.getString(5);
+            String uEmail = cursor.getString(6);
+            String uSex = cursor.getString(7);
+            String uGSM = cursor.getString(8);
+            String uAdress = cursor.getString(9);
 
 
             // Vérification pour savoir s'il y a déjà une instance de cet utilisateur.
             User user = User.userSparseArray.get(uId);
             if (user == null) {
                 // Si pas encore d'instance, création d'une nouvelle instance.
-                user = new User(uId, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
+                user = new User(uId, uLogin, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
             }
 
             // Ajout de l'utilisateur à la liste.

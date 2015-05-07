@@ -50,7 +50,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/">
+        android:id="@+id/Frame">
 
         <ImageView
             android:layout_width="167dp"

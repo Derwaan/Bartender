@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.activity.MainActivity;
 import m.groupe.bartender.model.User;
 import m.groupe.bartender.R;
@@ -41,21 +42,21 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
          * @note La liste des utilisateurs est affichées dans un Spinner, pour en savoir plus lisez
          * http://d.android.com/guide/topics/ui/controls/spinner.html
          */
-        userSpinner = (Spinner) findViewById(R.id.login_username);
+        //userSpinner = (Spinner) findViewById(R.id.username);
 
         // Obtention de la liste des utilisateurs.
-        ArrayList<User> users = User.getUtilisateurs();
+        //ArrayList<User> users = User.getUtilisateurs();
 
         // Création d'un ArrayAdapter en utilisant la liste des utilisateurs et un layout pour le spinner existant dans Android.
-        ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_spinner_dropdown_item, users);
+        //ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_spinner_dropdown_item, users);
         // On lie l'adapter au spinner.
-        userSpinner.setAdapter(adapter);
+        //userSpinner.setAdapter(adapter);
 
 
         // On indique qu'il faut appeler onEditorAction de cette classe lorsqu'une action (valider ici)
         // est faite depuis le clavier lorsqu'on est en train de remplir le mot de passe.
-        EditText passwordEditText = (EditText) findViewById(R.id.login_password);
-        passwordEditText.setOnEditorActionListener(this);
+        //EditText passwordEditText = (EditText) findViewById(R.id.password);
+        //passwordEditText.setOnEditorActionListener(this);
     }
 
     @Override
@@ -63,8 +64,8 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         super.onResume();
 
         // On efface le mot de passe qui était écrit quand on se déconnecte.
-        EditText passwordEditText = (EditText) findViewById(R.id.login_password);
-        passwordEditText.setText("");
+        //EditText passwordEditText = (EditText) findViewById(R.id.password);
+        //passwordEditText.setText("");
     }
 
     /**
@@ -81,9 +82,9 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
      */
     public void login(View v) {
         // Lorsqu'on clique sur le bouton "Se connecter" on qu'on valide depuis le clavier.
-        username = (EditText) findViewById(R.id.username);
+        username = (EditText) findViewById(R.id.login_field);
         Spinner userid = (Spinner) username.getText();
-        password = (EditText) findViewById(R.id.password);
+        password = (EditText) findViewById(R.id.password_field);
         String userpw = password.getText().toString();
 
         User user = (User) userid.getSelectedItem();
