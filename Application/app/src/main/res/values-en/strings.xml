@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Bartender</string>
+
+    <!-- Login -->
+    <string name='login_activity_title'>Login</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_username">Username</string>
+    <string name="login_wrong_password_msg">Wrong password or login!</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
