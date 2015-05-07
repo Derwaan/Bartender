@@ -24,6 +24,7 @@
 - Bouton État des stocks (admin) (stock_button)
 - Bouton rajouter un serveur (admin) (addWaiter_btn)
 - Bouton Statistiques (admin) (stats_btn)
+- Bouton Se déconnecter (logout_btn)
 
 ##Ecran de la carte (activity_menu) :
 - Liste (bouttons) des produits (products_list)
