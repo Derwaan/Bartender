@@ -27,6 +27,10 @@
 - Bouton Se déconnecter (logout_btn)
 
 ##Ecran de la carte (activity_menu) :
+- Bouton tri par nom (name_btn)
+- Bouton tri par prix (price_btn)
+- Bouton tri par catégorie (cat_btn)
+- Bouton tri par note (rating_btn)
 - Liste (bouttons) des produits (products_list)
 
 ##Ecran de Mes commandes (activity_orders) :
