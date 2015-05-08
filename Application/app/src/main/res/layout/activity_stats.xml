@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="129dp"
+        android:layout_height="517dp"
+        android:layout_gravity="left|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°1"
+            android:id="@+id/table1_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°2"
+            android:id="@+id/table2_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°3"
+            android:id="@+id/table3_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°4"
+            android:id="@+id/table4_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°5"
+            android:id="@+id/table5_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°6"
+            android:id="@+id/table6_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°7"
+            android:id="@+id/table7_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Table n°8"
+            android:id="@+id/table8_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="282.5dp"
+        android:layout_height="517dp"
+        android:layout_gravity="right|center_vertical"
+        android:id="@+id/ll2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 1"
+            android:id="@+id/table1_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 2"
+            android:id="@+id/table2_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 4"
+            android:id="@+id/table3_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 4"
+            android:id="@+id/table4_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 5"
+            android:id="@+id/table5_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 6"
+            android:id="@+id/table6_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 7"
+            android:id="@+id/table7_value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2.5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Value 8"
+            android:id="@+id/table8_value" />
+    </LinearLayout>
+</FrameLayout>
