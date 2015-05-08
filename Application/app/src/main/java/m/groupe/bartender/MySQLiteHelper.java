@@ -186,16 +186,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *        product_id : id du produit dont on veut le rating.
      *
      * @post Le rating du produit ayant l'id product_id
-
-  /*  private int getRating(SQLiteDatabase db, int product_id)
+     */
+    private int getRating(SQLiteDatabase db, int product_id)
     {
         String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
         Cursor result = db.rawQuery(request, null);
+        rating.moveToFirst();
         int rating = result.getInt(0);
         result.close();
         return rating;
-
-    }*/
+    }
 
     /**
      * Calcul le rating de tout les produit et retourne une liste 
@@ -203,25 +203,59 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * @param db : Base de données dans laquelle on va chercher le rating.
      *
      * @post un tableau contenant les ratings de tout les produit int[0] = rating du produit 1 (donc penser a faire +1 si on veut recup le nom du produit correspondant)
-<<<<<<< HEAD
-
-    private int[] getAllRatings(SQLiteDatabase db)
-=======
      */
-   /* private int[] getAllRatings(SQLiteDatabase db)
->>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
+    private int[] getAllRatings(SQLiteDatabase db)
     {
-        String request = "SELECT SUM(RATING.NOTE)/COUNT(RATING.NOTE) FROM RATING, PRODUIT, STRING WHERE PRODUIT.ID_PROD = RATING.ID_PRODUIT GROUP BY PRODUIT.ID_PROD";
+        String request = "SELECT STRING.TEXTE, SUM(RATING.NOTE)/COUNT(RATING.NOTE) FROM RATING, PRODUIT, STRING WHERE PRODUIT.ID_PROD = RATING.ID_PRODUIT GROUP BY PRODUIT.ID_PROD";
         Cursor result = db.rawQuery(request, null);
 
-        int rating[result.getColumnCount()];
+        int rating[result.getCount()];
 
-        for (int i = 0; i < result.getColumnCount() ; i++)
+        rating.moveToFirst();
+        for (int i = 0; i < result.getCount() ; i++)
         {
             rating = result.getInt(i);
         }
 
         result.close();
         return rating;
-    }*/
+    }
+    
+    /**
+     * Calcul des factures les commandes non payées (state = 1) par table.
+     *
+     * @param db Base de données dans laquelle on va chercher les factures impayées.
+     *
+     * @post une arraylist d'objet basique, 1 ere colonne = int command.table, 2eme colonne = double addition
+     */
+    private ArrayList<Object> getAllRatings(SQLiteDatabase db)
+    {
+        String request = "SELECT COMMAND.TABL, SUM(ROUND(PRODUIT.PRIX*QUANTITY.QUANTITY,2)) FROM COMMAND, PRODUIT, QUANTITY WHERE COMMAND.STATE != 0 AND PRODUIT.ID_PROD = QUANTITY.ID_PROD AND COMMAND.ID_COMMAND = QUANTITY.ID_COMMAND";
+        Cursor result = db.rawQuery(request, null);
+
+        ArrayList<Object> to_pay[result.getCount()][result.getColumnCount()];
+        int trigger = 0;
+
+        for (int i = 0; i < result.getColumnCount() ; i++)
+        {
+            for (int j = 0; j < result.getCount() ; j++)
+            {
+                if (i == 1 && trigger == 0)
+                {
+                    result.moveToNext();
+                    trigger = 1;
+                }
+                if (i == 0)
+                {
+                    to_pay[j][i] = (Object)result.getInt(j);
+                }
+                else
+                {
+                    to_pay[j][i] = (Object)result.getDouble(j);
+                }
+            }
+        }
+        result.close();
+        return to_pay;
+    }
 }
