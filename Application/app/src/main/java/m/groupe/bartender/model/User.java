@@ -1,12 +1,14 @@
 package m.groupe.bartender.model;
 
 import android.database.Cursor;
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.SparseArray;
 
+
 import java.util.ArrayList;
 
-//import m.groupe.bartender.model.SQL;
+import m.groupe.bartender.MySQLiteHelper;
 
 
 /**
@@ -38,7 +40,7 @@ public class User {
     /**
      * Identifiant unique de l'utilisateur courant. Correspond à _id dans la base de données.
      */
-    private final int id;
+    private int id;
     /**
      * Login de l'utilisateur
      */
@@ -177,18 +179,20 @@ public class User {
     /**
      * Connecte l'utilisateur courant.
      *
-     * @param passwordToTry le mot de passe entré.
-     *
      * @return Vrai (true) si l'utilisateur à l'autorisation de se connecter, false sinon.
      */
-    public boolean login(String passwordToTry) {
-        if (this.password.equals(passwordToTry)) {
-            // Si le mot de passe est correct, modification de l'utilisateur connecté.
-            User.connectedUser = this;
-            return true;
+    public boolean login() {
+        User user = User.passwordMatch(this.login, this.password);
+        if(user != null) {
+            this.id = user.getId();
+            this.type = user.getType();
+            connectedUser = this;
+            return(true);
         }
-        return false;
+
+        return(false);
     }
+
 
     /**
      * Fournit une représentation textuelle de l'utilisateur courant. (Ici le nom)
@@ -223,6 +227,38 @@ public class User {
         return User.connectedUser;
     }
 
+    /**
+     * Provides the users list.
+     */
+    public static User passwordMatch(String login, String password) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        String[] columns = {DB_COLUMN_ID, DB_COLUMN_NAME, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
+        String where = DB_COLUMN_NAME + " = ? AND " + DB_COLUMN_PASSWORD + " = ?";
+        String[] whereArgs = {login, password};
+        Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+            int uId = cursor.getInt(0);
+            String uLogin = cursor.getString(1);
+            String uPassword = cursor.getString(2);
+            int uType = cursor.getInt(3);
+            String uName = cursor.getString(4);
+            String uLanguage = cursor.getString(5);
+            String uEmail = cursor.getString(6);
+            String uSex = cursor.getString(7);
+            String uGSM = cursor.getString(8);
+            String uAdress = cursor.getString(9);
+
+
+            User user = new User(uId, uLogin, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
+            cursor.close();
+            db.close();
+
+            return user;
+        }
+        return null;
+    }
 
     /**
      * Déconnecte l'utilisateur actuellement connecté à l'application.
@@ -286,5 +322,17 @@ public class User {
         return users;
     }
 */
+    public static boolean add(User newUser) {
+        boolean addSuccessful = false;
+
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DB_COLUMN_NAME, newUser.getLogin());
+        values.put(DB_COLUMN_PASSWORD, newUser.getPassword());
+        values.put(DB_COLUMN_TYPE, newUser.getType());
+        addSuccessful = db.insert(DB_TABLE, null, values) > 0;
+
+        return addSuccessful;
+    }
 }
 
