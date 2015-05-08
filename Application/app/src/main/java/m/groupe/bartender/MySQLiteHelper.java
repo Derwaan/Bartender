@@ -31,11 +31,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * Nom du fichier sql contenant les instructions de création de la base de données. Le fichier
      * doit être placé dans le dossier assets/
      */
-<<<<<<< HEAD
     private static final String DATABASE_SQL_FILENAME = "bartender-auto.sql";
-=======
-    private static final String DATABASE_SQL_FILENAME = "bartender.sql";
->>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     /**
      * Nom du fichier de la base de données.
      */
@@ -190,26 +186,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *        product_id : id du produit dont on veut le rating.
      *
      * @post Le rating du produit ayant l'id product_id
-<<<<<<< HEAD
 
-    private int getRating(SQLiteDatabase db, int product_id)
-=======
-     */
   /*  private int getRating(SQLiteDatabase db, int product_id)
->>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     {
         String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
         Cursor result = db.rawQuery(request, null);
         int rating = result.getInt(0);
         result.close();
         return rating;
-<<<<<<< HEAD
-    }
-    */
-=======
+
     }*/
 
->>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     /**
      * Calcul le rating de tout les produit et retourne une liste 
      *
@@ -236,9 +223,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper
 
         result.close();
         return rating;
-<<<<<<< HEAD
-
-=======
->>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     }*/
 }
