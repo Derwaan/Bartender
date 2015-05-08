@@ -233,7 +233,7 @@ public class User {
     public static User passwordMatch(String login, String password) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        String[] columns = {DB_COLUMN_ID, DB_COLUMN_LOGIN, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
+        String[] columns = {DB_COLUMN_ID, DB_COLUMN_LOGIN, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE, DB_COLUMN_NAME, DB_COLUMN_LANGUAGE, DB_COLUMN_EMAIL, DB_COLUMN_SEX, DB_COLUMN_GSM, DB_COLUMN_ADRESS};
         String where = DB_COLUMN_LOGIN + " = ? AND " + DB_COLUMN_PASSWORD + " = ?";
         String[] whereArgs = {login, password};
         Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null, null);
