@@ -254,4 +254,45 @@ public class MySQLiteHelper extends SQLiteOpenHelper
 
         return trad;
     }
+
+    /**
+     * recupere la liste des lot perime
+     *
+     * @param db Base de données dans laquelle on va chercher les produit perime
+     *
+     * @post un double tableau de string, 1ere colonne = nom du produit, 2eme colonne = id du lot perime
+     */
+    private Object[][] getOoD(SQLiteDatabase db)
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        Date date = new Date();
+        dateFormat.format(date);
+
+        String request = "SELECT STRING.TEXTE, LOT.ID_LOT FROM USER, PRODUIT, STRING, LOT WHERE PRODUIT.NOM_PRODUIT = STRING.ID_STRING AND PRODUIT.ID_PROD = LOT.IDPROD AND LOT.DATELOT < " + dateFormat.format(date);
+        Cursor result = db.rawQuery(request, null);
+
+        result.moveToFirst();
+
+        String to_trash[][] = new String[result.getCount()][result.getColumnCount()];
+
+        int trigger = 0;
+
+        for (int i = 0; i < result.getColumnCount() ; i++)
+        {
+            for (int j = 0; j < result.getCount() ; j++)
+            {
+                if (i == 1 && trigger == 0)
+                {
+                    result.moveToNext();
+                    trigger = 1;
+                }
+                else
+                {
+                    to_pay[j][i] = result.getString(j);
+                }
+            }
+        }
+        result.close();
+        return to_pay;
+    }
 }
