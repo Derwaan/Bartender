@@ -1,11 +1,6 @@
-DROP TABLE IF EXISTS "COMMAND";
-CREATE TABLE COMMAND ( ID_COMMAND INTEGER NOT NULL,
-						ID_LOGIN INTEGER NOT NULL REFERENCES USER,
-						STATE INTEGER NOT NULL,
-						DATE_COMMAND TEXT NOT NULL,
-						TABL INTEGER NOT NULL,
-						PRIMARY KEY (ID_COMMAND)
-						);
+
+CREATE TABLE COMMAND ( ID_COMMAND INTEGER NOT NULL, ID_LOGIN INTEGER NOT NULL REFERENCES USER, STATE INTEGER NOT NULL, DATE_COMMAND TEXT NOT NULL,TABL INTEGER NOT NULL,PRIMARY KEY (ID_COMMAND));
+
 INSERT INTO "COMMAND" VALUES(1,89,0,'11-26-2014',6);
 INSERT INTO "COMMAND" VALUES(2,47,0,'02-27-2015',2);
 INSERT INTO "COMMAND" VALUES(3,60,0,'05-07-2014',4);
@@ -106,13 +101,8 @@ INSERT INTO "COMMAND" VALUES(97,1,0,'09-23-2014',3);
 INSERT INTO "COMMAND" VALUES(98,95,0,'08-31-2014',2);
 INSERT INTO "COMMAND" VALUES(99,85,0,'04-04-2015',3);
 INSERT INTO "COMMAND" VALUES(100,58,0,'04-07-2015',1);
-DROP TABLE IF EXISTS "LOT";
-CREATE TABLE LOT ( ID_LOT INTEGER NOT NULL,
-					IDPROD INTEGER NOT NULL REFERENCES PRODUIT,
-					DATELOT TEXT NOT NULL,
-					QTY INTEGER NOT NULL,
-					PRIMARY KEY (ID_LOT)
-				 );
+
+CREATE TABLE LOT ( ID_LOT INTEGER NOT NULL, IDPROD INTEGER NOT NULL REFERENCES PRODUIT,DATELOT TEXT NOT NULL,QTY INTEGER NOT NULL,PRIMARY KEY (ID_LOT));
 INSERT INTO "LOT" VALUES(1,23,'11-25-2014',97);
 INSERT INTO "LOT" VALUES(2,16,'01-29-2016',172);
 INSERT INTO "LOT" VALUES(3,3,'11-17-2015',146);
@@ -213,16 +203,8 @@ INSERT INTO "LOT" VALUES(97,17,'09-08-2014',157);
 INSERT INTO "LOT" VALUES(98,13,'09-09-2014',158);
 INSERT INTO "LOT" VALUES(99,7,'11-22-2015',42);
 INSERT INTO "LOT" VALUES(100,22,'10-07-2014',130);
-DROP TABLE IF EXISTS "PRODUIT";
-CREATE TABLE PRODUIT (  ID_PROD INTEGER NOT NULL,
-						DESCR INTEGER NOT NULL REFERENCES STRING,
-						NOM_PRODUIT INTEGER NOT NULL REFERENCES STRING UNIQUE,
-						CATEGORY INTEGER NOT NULL REFERENCES STRING,
-						IMAGE BLOB,
-						PRIX REAL NOT NULL,
-						SEUIL INTEGER NOT NULL,
-						PRIMARY KEY (ID_PROD)
-					);
+
+CREATE TABLE PRODUIT (  ID_PROD INTEGER NOT NULL,DESCR INTEGER NOT NULL REFERENCES STRING,NOM_PRODUIT INTEGER NOT NULL REFERENCES STRING UNIQUE,CATEGORY INTEGER NOT NULL REFERENCES STRING,	IMAGE BLOB,PRIX REAL NOT NULL,SEUIL INTEGER NOT NULL, PRIMARY KEY (ID_PROD));
 INSERT INTO "PRODUIT" VALUES(1,1001,101,1,NULL,0.4,9);
 INSERT INTO "PRODUIT" VALUES(2,1002,102,1,NULL,1.2,9);
 INSERT INTO "PRODUIT" VALUES(3,1003,103,1,NULL,1.5,3);
@@ -253,11 +235,8 @@ INSERT INTO "PRODUIT" VALUES(27,1027,127,8,NULL,2,5);
 INSERT INTO "PRODUIT" VALUES(28,1028,128,8,NULL,2,5);
 INSERT INTO "PRODUIT" VALUES(29,1029,129,8,NULL,2,6);
 INSERT INTO "PRODUIT" VALUES(30,1030,130,9,NULL,0.5,10);
-DROP TABLE IF EXISTS "QUANTITY";
-CREATE TABLE QUANTITY ( ID_PROD INTEGER NOT NULL REFERENCES PRODUIT,
-						ID_COMMAND INTEGER NOT NULL REFERENCES COMMAND,
-						QUANTITY INTEGER NOT NULL
-						);
+
+CREATE TABLE QUANTITY ( ID_PROD INTEGER NOT NULL REFERENCES PRODUIT,ID_COMMAND INTEGER NOT NULL REFERENCES COMMAND,	QUANTITY INTEGER NOT NULL);
 INSERT INTO "QUANTITY" VALUES(18,1,7);
 INSERT INTO "QUANTITY" VALUES(28,2,10);
 INSERT INTO "QUANTITY" VALUES(2,3,3);
@@ -358,11 +337,8 @@ INSERT INTO "QUANTITY" VALUES(15,97,5);
 INSERT INTO "QUANTITY" VALUES(20,98,9);
 INSERT INTO "QUANTITY" VALUES(24,99,4);
 INSERT INTO "QUANTITY" VALUES(14,100,6);
-DROP TABLE IF EXISTS "RATING";
-CREATE TABLE RATING ( ID_LOGIN INTEGER NOT NULL REFERENCES USER,
-					  ID_PRODUIT INTEGER NOT NULL,
-					  NOTE REAL NOT NULL
-					);
+
+CREATE TABLE RATING ( ID_LOGIN INTEGER NOT NULL REFERENCES USER, ID_PRODUIT INTEGER NOT NULL, NOTE REAL NOT NULL);
 INSERT INTO "RATING" VALUES(35,1,2);
 INSERT INTO "RATING" VALUES(56,6,5);
 INSERT INTO "RATING" VALUES(77,15,1);
@@ -463,11 +439,8 @@ INSERT INTO "RATING" VALUES(69,27,5);
 INSERT INTO "RATING" VALUES(26,30,2);
 INSERT INTO "RATING" VALUES(87,28,3);
 INSERT INTO "RATING" VALUES(96,21,3);
-DROP TABLE IF EXISTS "STRING";
-CREATE TABLE STRING (ID_STRING INTEGER NOT NULL,
-						LANGUE TEXT NOT NULL,
-						TEXTE TEXT NOT NULL
-					);
+
+CREATE TABLE STRING (ID_STRING INTEGER NOT NULL, LANGUE TEXT NOT NULL,TEXTE TEXT NOT NULL);
 INSERT INTO "STRING" VALUES(1,'fr','Bières à la pompe');
 INSERT INTO "STRING" VALUES(1,'en','Biers (Draft)');
 INSERT INTO "STRING" VALUES(2,'fr','Softs');
@@ -581,8 +554,7 @@ INSERT INTO "STRING" VALUES(1016,'en','Lemon, vodka, tequila, blue curacao, oran
 INSERT INTO "STRING" VALUES(1017,'fr','Tous les single malts de l''île d''Islay, y compris le rarissime Port Ellen, sont présents au sein de ce Blended Malt (assemblage de single malts) résolument tourbé au nom évocateur signé Douglas Laing. Une tourbe sèche et fumée qui ravira les amateurs de jeunes Islay très typés.');
 INSERT INTO "STRING" VALUES(1017,'en','All single malts from Islay, including rare Port Ellen, are present within that Blended Malt (assembly of single malts) resolutely peaty evocative name signed Douglas Laing. A dry peat and smoke delight fans young Islay very typical.');
 INSERT INTO "STRING" VALUES(1018,'fr','Zubrowka est une vodka polonaise à l''herbe de bison. Egalement appelée Vodka de Bison, Zubrowka doit son nom à une herbe aromatique des plaines orientales de Pologne très appréciée du bison. La Vodka Zubrowka est élaboré à partir de seigle de grande qualité cultivé dans les régions du Nord-Ouest de la Pologne.');
-INSERT INTO "STRING" VALUES(1019,'en','
-Zubrowka is a Polish vodka bison grass. Also called Buffalo Vodka, Zubrowka is named after an aromatic herb of the eastern plains of Poland appreciated the buffalo. Zubrowka Vodka is made from high quality rye grown in the North-West of Poland.');
+INSERT INTO "STRING" VALUES(1019,'en','Zubrowka is a Polish vodka bison grass. Also called Buffalo Vodka, Zubrowka is named after an aromatic herb of the eastern plains of Poland appreciated the buffalo. Zubrowka Vodka is made from high quality rye grown in the North-West of Poland.');
 INSERT INTO "STRING" VALUES(1019,'fr','a Distillerie de Biercée est parvenue à ramener le gin à son essence même : un gin franc et sans détour dans le respect de la tradition. L’ensemble botanique bien défini et sa teneur en alcool de 44% lui confèrent un caractère épicé équilibré alliant saveurs de baies de genévrier, d’agrumes frais et notes poivrées.');
 INSERT INTO "STRING" VALUES(1019,'en','Distillerie de Biercée has succeeded in bringing gin back to basics: an honest, straight forward gin elaborated according to tradition. The well-defined selection of botanicals and its 44 % alcohol content give it a spicy, balanced character combining the flavours of juniper berries, fresh citrus fruit and peppery notes.');
 INSERT INTO "STRING" VALUES(1020,'fr','Rhum arrangé maison où des gousses de vanille ont mariné durant 10 ans.');
@@ -607,21 +579,8 @@ INSERT INTO "STRING" VALUES(1029,'fr','Ginette "Blonde Naturelle" s''inscrit dan
 INSERT INTO "STRING" VALUES(1029,'en','Ginette "Natural Blond" is in respect of authenticity, craftsmanship and is brewed exclusively from ingredients from organic agriculture.');
 INSERT INTO "STRING" VALUES(1030,'fr','Une robe croquante accompagnée de son arachide authentique servie en bol et accompagnée de ses nombreuses amies !');
 INSERT INTO "STRING" VALUES(1030,'en','Tasty nuts in a bowl to share with friends!');
-DROP TABLE IF EXISTS "USER";
-CREATE TABLE USER ( ID_LOGIN INTEGER NOT NULL,
-                    LOGIN TEXT NOT NULL,
-					MDP TEXT NOT NULL,
-					CATEGORIE_USER INTEGER NOT NULL,
-					NOM_USER TEXT NOT NULL,
-					LANGUE TEXT NOT NULL,
-					EMAIL TEXT NOT NULL,
-					SEX TEXT NOT NULL,
-					GSM TEXT,
-					ADRESSE TEXT,
-					PRIMARY KEY (ID_LOGIN),
-					UNIQUE(EMAIL),
-					UNIQUE(ID_LOGIN)
-					);
+
+CREATE TABLE USER ( ID_LOGIN INTEGER NOT NULL, LOGIN TEXT NOT NULL,	MDP TEXT NOT NULL,CATEGORIE_USER INTEGER NOT NULL,NOM_USER TEXT NOT NULL,LANGUE TEXT NOT NULL,EMAIL TEXT NOT NULL,SEX TEXT NOT NULL,GSM TEXT,ADRESSE TEXT,PRIMARY KEY (ID_LOGIN),UNIQUE(EMAIL),UNIQUE(ID_LOGIN));
 INSERT INTO "USER" VALUES(1,'Katelyn','VNO63LTQ3JM',1,'Phyllis Summers','fr','non@Nullamsuscipitest.edu','F','07 64 57 69 48','426-9602 Laoreet Road');
 INSERT INTO "USER" VALUES(2,'Gary','TZF70UBM4LC',2,'Geraldine Roberts','fr','in.faucibus.orci@vulputatenisisem.net','M','01 05 53 72 50','1305 Risus St.');
 INSERT INTO "USER" VALUES(3,'Caryn','DMF71CNG2CQ',2,'Kendall Bernard','en','et@tristiqueac.edu','M','05 45 50 84 61','P.O. Box 952, 9069 In Avenue');
