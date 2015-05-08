@@ -31,11 +31,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * Nom du fichier sql contenant les instructions de création de la base de données. Le fichier
      * doit être placé dans le dossier assets/
      */
-    private static final String DATABASE_SQL_FILENAME = "bartender-auto.sql";
+    private static final String DATABASE_SQL_FILENAME = "foobar.sql";
     /**
      * Nom du fichier de la base de données.
      */
-    private static final String DATABASE_NAME = "bartender.sqlite";
+    private static final String DATABASE_NAME = "foobar.sqlite";
 
     /**
      * Version de la base de données (à incrémenter en cas de modification de celle-ci afin que la
@@ -150,12 +150,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         {
             throw new RuntimeException("Erreur de lecture du fichier " + DATABASE_SQL_FILENAME + " : " + e.getMessage(), e);
         }
-/*            catch (SQLException e)
+            catch (SQLException e)
         {
             throw new RuntimeException("Erreur SQL lors de la création de la base de données." +
                     "Vérifiez que chaque instruction SQL est au plus sur une ligne." +
                     "L'erreur est : " + e.getMessage(), e);
-        }*/
+        }
     }
 
 
