@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="369dp"
+        android:id="@+id/products_list"
+        android:layout_gravity="center"
+        android:choiceMode="none" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/table_text"
+        android:layout_gravity="left|top"
+        android:text="Table n° " />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_text"
+        android:layout_gravity="center_horizontal|top"
+        android:text="Total : €" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/state_text"
+        android:layout_gravity="right|top"
+        android:text="Etat" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Commander"
+        android:id="@+id/submit_btn"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>
