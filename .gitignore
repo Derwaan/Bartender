@@ -1,3 +1,6 @@
+Application/.idea/
+*.iml
+
 # Built application files
 *.apk
 *.ap_
@@ -39,10 +42,3 @@ hs_err_pid*
 *.aux
 *.log
 *.synctex.gz
-
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
-
-*.iml
-
-## Directory-based project format:
-.idea/
