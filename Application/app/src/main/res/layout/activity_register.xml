@@ -20,7 +20,7 @@
         android:layout_below="@+id/connexion_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Identifiant"
+        android:hint="Identifiant"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -33,7 +33,7 @@
         android:layout_below="@+id/login_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Mot de passe"
+        android:hint="Mot de passe"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Nom"
+        android:hint="Nom"
         android:ems="10"
         android:id="@+id/name_field"
         android:layout_below="@+id/informations_text"
@@ -70,7 +70,7 @@
         android:layout_below="@+id/name_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Email"
+        android:hint="Email"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -101,7 +101,7 @@
         android:layout_below="@+id/sex_spin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Numéro de téléphone"
+        android:hint="Numéro de téléphone"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -114,7 +114,7 @@
         android:layout_below="@+id/phone_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Adresse"
+        android:hint="Adresse"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

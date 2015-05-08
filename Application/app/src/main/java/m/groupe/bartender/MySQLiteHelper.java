@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.collector;
+package m.groupe.bartender;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -31,7 +31,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * Nom du fichier sql contenant les instructions de création de la base de données. Le fichier
      * doit être placé dans le dossier assets/
      */
+<<<<<<< HEAD
     private static final String DATABASE_SQL_FILENAME = "bartender-auto.sql";
+=======
+    private static final String DATABASE_SQL_FILENAME = "bartender.sql";
+>>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     /**
      * Nom du fichier de la base de données.
      */
@@ -186,24 +190,39 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *        product_id : id du produit dont on veut le rating.
      *
      * @post Le rating du produit ayant l'id product_id
+<<<<<<< HEAD
 
     private int getRating(SQLiteDatabase db, int product_id)
+=======
+     */
+  /*  private int getRating(SQLiteDatabase db, int product_id)
+>>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     {
         String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
         Cursor result = db.rawQuery(request, null);
         int rating = result.getInt(0);
         result.close();
         return rating;
+<<<<<<< HEAD
     }
     */
+=======
+    }*/
+
+>>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     /**
      * Calcul le rating de tout les produit et retourne une liste 
      *
      * @param db : Base de données dans laquelle on va chercher le rating.
      *
      * @post un tableau contenant les ratings de tout les produit int[0] = rating du produit 1 (donc penser a faire +1 si on veut recup le nom du produit correspondant)
+<<<<<<< HEAD
 
     private int[] getAllRatings(SQLiteDatabase db)
+=======
+     */
+   /* private int[] getAllRatings(SQLiteDatabase db)
+>>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     {
         String request = "SELECT SUM(RATING.NOTE)/COUNT(RATING.NOTE) FROM RATING, PRODUIT, STRING WHERE PRODUIT.ID_PROD = RATING.ID_PRODUIT GROUP BY PRODUIT.ID_PROD";
         Cursor result = db.rawQuery(request, null);
@@ -217,6 +236,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper
 
         result.close();
         return rating;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99faca8fe583efd9fd41b660c033039d674f2294
     }*/
 }

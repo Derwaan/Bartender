@@ -15,15 +15,16 @@
 \maketitle
 \section*{User}
 \begin{itemize}
-\item User possède un identifiant (login) Eric123
-\item User (login) Eric123 possède un mot-de-passe (mot de passe) ******
-\item User (login) Eric123 fait partie d'une catégorie (categorie) Client
-\item User (login) Eric123 possède un nom (nom) Eric Dubois
-\item User (login) Eric123 a une langue (langue) francais.
-\item User (login) Eric123 possède une adresse (email) eric.dubois@gmail.com
-\item User (login) Eric123 a une adresse (adresse) Rue de l'arbre, 42 Lafaurait
-\item User (login) Eric123 a un sexe (sexe) M
-\item User (login) Eric123 possède un numéro de téléphone (numéro) 0478/021.245
+\item User possède un identifiant unique (ID) 1
+\item User (ID) 1 possède un identifiant (login) Eric123
+\item User (ID) 1 possède un mot-de-passe (mot de passe) ******
+\item User (ID) 1 fait partie d'une catégorie (categorie) Client
+\item User (ID) 1 possède un nom (nom) Eric Dubois
+\item User (ID) 1 a une langue (langue) francais.
+\item User (ID) 1 possède une adresse (email) eric.dubois@gmail.com
+\item User (ID) 1 a une adresse (adresse) Rue de l'arbre, 42 Lafaurait
+\item User (ID) 1 a un sexe (sexe) M
+\item User (ID) 1 possède un numéro de téléphone (numéro) 0478/021.245
 \end{itemize}
 
 \section*{Produit}
@@ -50,7 +51,7 @@
 \begin{itemize}
 \item Commande possède un numéro (id) 0001
 \item Commande (id) 0001 possède un produit (produit) Coca-Cola lié à la quantité commandée (quantite) 3
-\item Commande (id) 0001 désigne un user (login)  Eric123
+\item Commande (id) 0001 désigne un user (ID)  1
 \item Commande (id) 0001 possède une date (date) 19/02/2015
 \item Commande (id) 0001 possède un état (état) Payé
 \item Commande (id) 13456 a une table (table) 12
@@ -61,5 +62,19 @@
 \item String possède un identifiant (id) 0001.
 \item String (id) 0001 possède une langue (langue) français.
 \item String (id) 0001 possède un texte (texte) "Ce produit se caractérise par sa fraîcheur et sa robe ambrée".
+\end{itemize}
+
+\section*{Rating}
+\begin{itemize}
+\item Chaque Rating possède un identifiant de l'user (ID) 1.
+\item Chaque Rating possède un identifiant du produit (id) 01.
+\item Chaque Rating possède une note (note) 2.
+\end{itemize}
+
+\section*{Quantité}
+\begin{itemize}
+\item Chaque Quantité possède l'identifant de commande (id) 0001.
+\item Chaque Quantité possède l'identifiant d'un produit (id) 01.
+\item Chaque quantité possède une quantité (quantité) 3.
 \end{itemize}
 \end{document}
