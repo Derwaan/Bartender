@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import m.groupe.bartender.BartenderApp;
+import m.groupe.bartender.MainActivity;
 import m.groupe.bartender.model.User;
 import m.groupe.bartender.R;
 import java.util.ArrayList;
@@ -79,10 +80,11 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
     public void login(View v) {
         EditText username = (EditText) findViewById(R.id.login_field);
         EditText passwordEditText = (EditText) findViewById(R.id.password_field);
+        String login = username.getText().toString();
         String password = passwordEditText.getText().toString();
 
-        User user = (User) username.getText();
-        if (user.login(password)) {
+        User user = new User(0, login, password, 0, null, null,null,null,null,null);
+        if (user.login()) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {
