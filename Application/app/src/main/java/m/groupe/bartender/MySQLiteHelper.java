@@ -1,4 +1,4 @@
-package m.groupe.bartender;
+package be.uclouvain.lsinf1225.collector;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,8 +10,6 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import m.groupe.bartender.BartenderApp;
 
 /**
  * Classe utilitaire qui va gérer la connexion, la création et la mise à jour de la base de données.
@@ -31,11 +29,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * Nom du fichier sql contenant les instructions de création de la base de données. Le fichier
      * doit être placé dans le dossier assets/
      */
-    private static final String DATABASE_SQL_FILENAME = "foobar.sql";
+    private static final String DATABASE_SQL_FILENAME = "database.sql";
     /**
      * Nom du fichier de la base de données.
      */
-    private static final String DATABASE_NAME = "foobar.sqlite";
+    private static final String DATABASE_NAME = "database.sqlite";
 
     /**
      * Version de la base de données (à incrémenter en cas de modification de celle-ci afin que la
@@ -70,7 +68,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         if (instance == null)
         {
-            return new MySQLiteHelper(BartenderApp.getContext());
+            return new MySQLiteHelper(CollectorApp.getContext());
         }
         return instance;
     }
@@ -128,7 +126,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         try
         {
             // Ouverture du fichier sql.
-            BufferedReader in = new BufferedReader(new InputStreamReader(BartenderApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
+            BufferedReader in = new BufferedReader(new InputStreamReader(CollectorApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
 
             String line;
             // Parcourt du fichier ligne par ligne.
@@ -191,36 +189,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
         Cursor result = db.rawQuery(request, null);
-        rating.moveToFirst();
+        result.moveToFirst();
         int rating = result.getInt(0);
         result.close();
         return rating;
     }
 
-    /**
-     * Calcul le rating de tout les produit et retourne une liste 
-     *
-     * @param db : Base de données dans laquelle on va chercher le rating.
-     *
-     * @post un tableau contenant les ratings de tout les produit int[0] = rating du produit 1 (donc penser a faire +1 si on veut recup le nom du produit correspondant)
-     */
-    private int[] getAllRatings(SQLiteDatabase db)
-    {
-        String request = "SELECT STRING.TEXTE, SUM(RATING.NOTE)/COUNT(RATING.NOTE) FROM RATING, PRODUIT, STRING WHERE PRODUIT.ID_PROD = RATING.ID_PRODUIT GROUP BY PRODUIT.ID_PROD";
-        Cursor result = db.rawQuery(request, null);
-
-        int rating[result.getCount()];
-
-        rating.moveToFirst();
-        for (int i = 0; i < result.getCount() ; i++)
-        {
-            rating = result.getInt(i);
-        }
-
-        result.close();
-        return rating;
-    }
-    
     /**
      * Calcul des factures les commandes non payées (state = 1) par table.
      *
@@ -232,6 +206,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         String request = "SELECT COMMAND.TABL, SUM(ROUND(PRODUIT.PRIX*QUANTITY.QUANTITY,2)) FROM COMMAND, PRODUIT, QUANTITY WHERE COMMAND.STATE != 0 AND PRODUIT.ID_PROD = QUANTITY.ID_PROD AND COMMAND.ID_COMMAND = QUANTITY.ID_COMMAND";
         Cursor result = db.rawQuery(request, null);
+        result.moveToFirst();
 
         ArrayList<Object> to_pay[result.getCount()][result.getColumnCount()];
         int trigger = 0;
@@ -257,5 +232,24 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         }
         result.close();
         return to_pay;
+    }
+
+    /**
+     * Description d'un produit selon la langue de l'utilisateur
+     *
+     * @param db Base de données dans laquelle on va chercher les factures impayées, product_id l'id du produit dont on veut la traduction, user_id l'id de l'user pour qui on veut traduire le texte
+     *
+     * @post le product_id traduit
+     */
+    private String getTrad(SQLiteDatabase db, int product_id, int user_id)
+    {
+        String request = "STRING.TEXTE FROM USER, PRODUIT, STRING WHERE USER.LANGUE = STRING.LANGUE AND PRODUIT.ID_PROD = " + product_id " AND STRING.ID_STRING = PRODUIT.DESCR AND USER.ID_LOGIN = " + user_id;
+        Cursor result = db.rawQuery(request, null);
+        
+        String trad = result.moveToFirst();
+
+        result.close();
+
+        return trad;
     }
 }
