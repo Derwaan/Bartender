@@ -1,3 +1,6 @@
+Application/.idea/
+*.iml
+
 # Built application files
 *.apk
 *.ap_
@@ -39,4 +42,3 @@ hs_err_pid*
 *.aux
 *.log
 *.synctex.gz
-.idea/*

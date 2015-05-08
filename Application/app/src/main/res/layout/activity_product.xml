@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/rating_bar"
             android:layout_gravity="center_horizontal"
-            android:rating="1.5"
-            android:stepSize="1"
+            android:rating="3.5"
+            android:stepSize="0.5"
             android:numStars="5" />
 
         <FrameLayout
@@ -63,14 +63,14 @@
                 android:text="Supprimer"
                 android:id="@+id/removeProduct_btn"
                 android:layout_gravity="right|center_vertical" />
-        </FrameLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modifier"
-            android:id="@+id/modify_btn"
-            android:layout_gravity="center_horizontal" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modifier"
+                android:id="@+id/modify_btn"
+                android:layout_gravity="center" />
+        </FrameLayout>
 
     </LinearLayout>
 </RelativeLayout>
