@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import m.groupe.bartender.BartenderApp;
+import m.groupe.bartender.MainActivity;
 import m.groupe.bartender.model.User;
 import m.groupe.bartender.R;
 import java.util.ArrayList;
