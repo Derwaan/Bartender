@@ -8,11 +8,9 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import m.groupe.bartender.BartenderApp;
-import m.groupe.bartender.activity.MainActivity;
 import m.groupe.bartender.model.User;
 import m.groupe.bartender.R;
 import java.util.ArrayList;
@@ -21,8 +19,6 @@ import java.util.ArrayList;
  * Created by Trong-Vu on 07-05-15.
  */
 public class LoginActivity extends Activity implements TextView.OnEditorActionListener {
-    private EditText username;
-    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +77,12 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
      * @param v Une vue quelconque (n'est pas utilisé ici, mais requis par le onClick)
      */
     public void login(View v) {
-        // Lorsqu'on clique sur le bouton "Se connecter" on qu'on valide depuis le clavier.
-        username = (EditText) findViewById(R.id.login_field);
-        Spinner userid = (Spinner) username.getText();
-        password = (EditText) findViewById(R.id.password_field);
-        String userpw = password.getText().toString();
+        EditText username = (EditText) findViewById(R.id.login_field);
+        EditText passwordEditText = (EditText) findViewById(R.id.password_field);
+        String password = passwordEditText.getText().toString();
 
-        User user = (User) userid.getSelectedItem();
-        if (user.login(userpw)) {
+        User user = (User) username.getText();
+        if (user.login(password)) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {
@@ -98,7 +92,6 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
 
     /**
      * Passe à l'activité RegisterActivity
-     *
      **/
     public void register(View v){
         Intent intent = new Intent(this, RegisterActivity.class);

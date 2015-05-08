@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.collector;
+package m.groupe.bartender;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +10,8 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import m.groupe.bartender.BartenderApp;
 
 /**
  * Classe utilitaire qui va gérer la connexion, la création et la mise à jour de la base de données.
@@ -29,11 +31,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      * Nom du fichier sql contenant les instructions de création de la base de données. Le fichier
      * doit être placé dans le dossier assets/
      */
-    private static final String DATABASE_SQL_FILENAME = "database.sql";
+    private static final String DATABASE_SQL_FILENAME = "bartender.sql";
     /**
      * Nom du fichier de la base de données.
      */
-    private static final String DATABASE_NAME = "database.sqlite";
+    private static final String DATABASE_NAME = "bartender.sqlite";
 
     /**
      * Version de la base de données (à incrémenter en cas de modification de celle-ci afin que la
@@ -68,7 +70,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         if (instance == null)
         {
-            return new MySQLiteHelper(CollectorApp.getContext());
+            return new MySQLiteHelper(BartenderApp.getContext());
         }
         return instance;
     }
@@ -126,7 +128,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         try
         {
             // Ouverture du fichier sql.
-            BufferedReader in = new BufferedReader(new InputStreamReader(CollectorApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
+            BufferedReader in = new BufferedReader(new InputStreamReader(BartenderApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
 
             String line;
             // Parcourt du fichier ligne par ligne.
@@ -185,14 +187,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *
      * @post Le rating du produit ayant l'id product_id
      */
-    private int getRating(SQLiteDatabase db, int product_id)
+  /*  private int getRating(SQLiteDatabase db, int product_id)
     {
         String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
         Cursor result = db.rawQuery(request, null);
         int rating = result.getInt(0);
         result.close();
         return rating;
-    }
+    }*/
 
     /**
      * Calcul le rating de tout les produit et retourne une liste 
@@ -201,7 +203,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *
      * @post un tableau contenant les ratings de tout les produit int[0] = rating du produit 1 (donc penser a faire +1 si on veut recup le nom du produit correspondant)
      */
-    private int[] getAllRatings(SQLiteDatabase db)
+   /* private int[] getAllRatings(SQLiteDatabase db)
     {
         String request = "SELECT SUM(RATING.NOTE)/COUNT(RATING.NOTE) FROM RATING, PRODUIT, STRING WHERE PRODUIT.ID_PROD = RATING.ID_PRODUIT GROUP BY PRODUIT.ID_PROD";
         Cursor result = db.rawQuery(request, null);
@@ -215,5 +217,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper
 
         result.close();
         return rating;
-    }
+    }*/
 }

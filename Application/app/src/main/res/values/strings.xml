@@ -8,5 +8,11 @@
     <string name="login_wrong_password_msg">Le mot de passe saisi est incorrect</string>
     <string name="login_btn">Se connecter</string>
 
+    <!-- Register -->
+    <string name="register_activity_title">S\'inscrire</string>
+
+    <!-- Main -->
+    <string name="main_activity_title">Menu</string>
+
     <string name="action_settings">Settings</string>
 </resources>
