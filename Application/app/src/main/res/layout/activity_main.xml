@@ -20,63 +20,70 @@
     </FrameLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Carte"
         android:id="@+id/menu_btn"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="143dp" />
+        android:layout_marginTop="143dp"
+        android:onClick=""/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Mes commandes"
         android:id="@+id/orders_btn"
         android:layout_below="@+id/menu_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="order"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Mon compte"
         android:id="@+id/account_btn"
         android:layout_below="@+id/orders_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="account"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="État du stock"
         android:id="@+id/stock_btn"
         android:layout_below="@+id/account_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="showStock"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Rajouter un serveur"
         android:id="@+id/addWaiter_btn"
         android:layout_below="@+id/stock_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="add"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Statistiques"
         android:id="@+id/stats_btn"
         android:layout_below="@+id/addWaiter_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="showStat"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Se déconnecter"
         android:id="@+id/logout_btn"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/stats_btn"
         android:layout_alignLeft="@+id/stock_btn"
-        android:layout_alignStart="@+id/stock_btn" />
+        android:layout_alignStart="@+id/stock_btn"
+        android:onClick="logout"/>
 
 </RelativeLayout>
