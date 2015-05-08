@@ -48,21 +48,8 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rajouter"
-                android:id="@+id/addProduct_btn"
-                android:layout_gravity="left|center_vertical" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Supprimer"
-                android:id="@+id/removeProduct_btn"
-                android:layout_gravity="right|center_vertical" />
+            android:layout_height="wrap_content"
+            android:background="#ffd5d5d5">
 
             <Button
                 android:layout_width="wrap_content"
@@ -70,6 +57,20 @@
                 android:text="Modifier"
                 android:id="@+id/modify_btn"
                 android:layout_gravity="center" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:layout_gravity="left|center_vertical"
+                android:src="@android:drawable/ic_input_add" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton2"
+                android:layout_gravity="right|center_vertical"
+                android:src="@android:drawable/ic_delete" />
         </FrameLayout>
 
     </LinearLayout>
