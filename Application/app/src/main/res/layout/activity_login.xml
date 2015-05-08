@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login_field"
-            android:text="Identifiant" />
+            android:hint="Identifiant" />
 
         <EditText
             android:layout_width="match_parent"
@@ -27,7 +27,10 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password_field"
-            android:text="Mot de passe" />
+            android:hint="Mot de passe"
+            android:imeActionLabel="@string/login_btn"
+            android:imeActionId="6"
+            android:imeOptions="actionDone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -40,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Connexion"
+            android:onClick="login"
             android:id="@+id/login_btn"
             android:layout_gravity="center_horizontal" />
 
@@ -47,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inscription"
+            android:onClick="register"
             android:id="@+id/register_btn"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
