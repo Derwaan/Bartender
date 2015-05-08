@@ -10,10 +10,16 @@
 
     <!-- Register -->
     <string name="register_activity_title">S\'enregistrer</string>
+    <string-array name="sex">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+    <string name="registered">Vous êtes a présent enregistré</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>
 
     <string name="action_settings">Settings</string>
     <string name="main_back_button_disable">Pour retourner en arrière, déconnectez-vous</string>
+
 </resources>

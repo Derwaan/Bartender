@@ -10,6 +10,11 @@
 
     <!-- Register -->
     <string name="register_activity_title">Register</string>
+    <string-array name="sex">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+    <string name="registered">You are now registered</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>

@@ -5,9 +5,6 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.SparseArray;
 
-
-import java.util.ArrayList;
-
 import m.groupe.bartender.MySQLiteHelper;
 
 

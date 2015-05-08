@@ -31,15 +31,15 @@ public class MainActivity extends Activity {
         //welcomeTxt.setText(getString(R.string.main_welcome) + " " + User.getConnectedUser().getName());
 
         //Verifie l'identité de l'utilisateur et affiche ce qui lui est permis de voir
-        /*
-        if(User.getConnectedUser().getType==1) {
-            View b = findViewById(R.id.stock_button);
+
+        if(User.getConnectedUser().getType()==1) {
+            View b = findViewById(R.id.stock_btn);
             b.setVisibility(View.GONE);
             View c = findViewById(R.id.addWaiter_btn);
-            b.setVisibility(View.GONE);
+            c.setVisibility(View.GONE);
             View d = findViewById(R.id.stats_btn);
-            b.setVisibility(View.GONE);
-        }*/
+            d.setVisibility(View.GONE);
+        }
 
     }
 
