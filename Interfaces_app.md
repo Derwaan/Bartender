@@ -45,10 +45,11 @@
 - Description du produit (description_text)
 - Note du produit (bouttons) (rating_bar)
 - Prix du produit (price_text)
-- Boutton rajouter à la commande (addProduct_btn)
+- Boutton supprimer (-) (addProduct_btn)
+- Boutton rajouter (+) (removeProduct_btn)
 - Boutton modifier (admin) (modify_btn)
 
-##Ecran liste des commandes (activity_listOrders) :
+##Ecran liste des commandes (activity_listorders) :
 - Liste des commandes et table (bouttons) (orders_list)
 
 ##Ecran détail d'une commande (activity_detailOrder) :
@@ -56,8 +57,6 @@
 - Table de la commande (table_text)
 - Total (total_text)
 - Etat de l'addition (state_text)
-- Boutton supprimer (-) (addProduct_btn)
-- Boutton rajouter (+) (removeProduct_btn)
 - Bouton commander (submit_btn)
 
 ##Ecran état du stock (activity_stock) :
