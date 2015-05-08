@@ -27,7 +27,7 @@
 
      <!-- Main -->
      <activity
-     android:name=".activity.MainActivity"
+     android:name=".MainActivity"
      android:label="@string/main_activity_title" />
 </application>
 

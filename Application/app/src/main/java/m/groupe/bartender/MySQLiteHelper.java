@@ -150,12 +150,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         {
             throw new RuntimeException("Erreur de lecture du fichier " + DATABASE_SQL_FILENAME + " : " + e.getMessage(), e);
         }
-            catch (SQLException e)
+/*            catch (SQLException e)
         {
             throw new RuntimeException("Erreur SQL lors de la création de la base de données." +
                     "Vérifiez que chaque instruction SQL est au plus sur une ligne." +
                     "L'erreur est : " + e.getMessage(), e);
-        }
+        }*/
     }
 
 

@@ -29,7 +29,7 @@ public class User {
     private static final String DB_COLUMN_ID = "ID_LOGIN";
     private static final String DB_COLUMN_LOGIN = "LOGIN";
     private static final String DB_COLUMN_PASSWORD = "MDP";
-    private static final String DB_COLUMN_TYPE = "CATEGORIE USER";
+    private static final String DB_COLUMN_TYPE = "CATEGORIE_USER";
     private static final String DB_COLUMN_NAME = "NOM_USER";
     private static final String DB_COLUMN_LANGUAGE = "LANGUE";
     private static final String DB_COLUMN_EMAIL = "EMAIL";
@@ -85,7 +85,7 @@ public class User {
      * @note Ce constructeur est privé (donc utilisable uniquement depuis cette classe). Cela permet
      * d'éviter d'avoir deux instances différentes d'un même utilisateur.
      */
-    private User(int uId, String uLogin, String uPassword, int uType, String uName, String uLanguage, String uEmail, String uSex, String uGSM, String uAdress) {
+    public User(int uId, String uLogin, String uPassword, int uType, String uName, String uLanguage, String uEmail, String uSex, String uGSM, String uAdress) {
 
         this.id = uId;
         this.login= uLogin;
@@ -184,7 +184,7 @@ public class User {
     public boolean login() {
         User user = User.passwordMatch(this.login, this.password);
         if(user != null) {
-            this.id = user.getId();
+            this.login = user.getLogin();
             this.type = user.getType();
             connectedUser = this;
             return(true);
@@ -232,10 +232,12 @@ public class User {
      */
     public static User passwordMatch(String login, String password) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
-        String[] columns = {DB_COLUMN_ID, DB_COLUMN_NAME, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
-        String where = DB_COLUMN_NAME + " = ? AND " + DB_COLUMN_PASSWORD + " = ?";
+
+        String[] columns = {DB_COLUMN_ID, DB_COLUMN_LOGIN, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE};
+        String where = DB_COLUMN_LOGIN + " = ? AND " + DB_COLUMN_PASSWORD + " = ?";
         String[] whereArgs = {login, password};
-        Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null);
+        Cursor cursor = db.query(DB_TABLE, columns, where, whereArgs, null, null, null, null);
+
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
