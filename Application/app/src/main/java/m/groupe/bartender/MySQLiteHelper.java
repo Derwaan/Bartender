@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.collector;
+package m.groupe.bartender;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -68,7 +68,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         if (instance == null)
         {
-            return new MySQLiteHelper(CollectorApp.getContext());
+            return new MySQLiteHelper(BartenderApp.getContext());
         }
         return instance;
     }
@@ -126,7 +126,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
         try
         {
             // Ouverture du fichier sql.
-            BufferedReader in = new BufferedReader(new InputStreamReader(CollectorApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
+            BufferedReader in = new BufferedReader(new InputStreamReader(BartenderApp.getContext().getAssets().open(DATABASE_SQL_FILENAME)));
 
             String line;
             // Parcourt du fichier ligne par ligne.
@@ -187,7 +187,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      */
     private int getRating(SQLiteDatabase db, int product_id)
     {
-        String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(id);
+        String request = "SELECT SUM(NOTE)/COUNT(NOTE) FROM RATING WHERE ID_PRODUIT = " + String.valueOf(product_id);
         Cursor result = db.rawQuery(request, null);
         result.moveToFirst();
         int rating = result.getInt(0);
@@ -202,13 +202,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      *
      * @post une arraylist d'objet basique, 1 ere colonne = int command.table, 2eme colonne = double addition
      */
-    private ArrayList<Object> getAllRatings(SQLiteDatabase db)
+    private Object[][] getAllRatings(SQLiteDatabase db)
     {
         String request = "SELECT COMMAND.TABL, SUM(ROUND(PRODUIT.PRIX*QUANTITY.QUANTITY,2)) FROM COMMAND, PRODUIT, QUANTITY WHERE COMMAND.STATE != 0 AND PRODUIT.ID_PROD = QUANTITY.ID_PROD AND COMMAND.ID_COMMAND = QUANTITY.ID_COMMAND";
         Cursor result = db.rawQuery(request, null);
         result.moveToFirst();
 
-        ArrayList<Object> to_pay[result.getCount()][result.getColumnCount()];
+        Object to_pay[][] = new Object[result.getCount()][result.getColumnCount()];
+
         int trigger = 0;
 
         for (int i = 0; i < result.getColumnCount() ; i++)
@@ -222,11 +223,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
                 }
                 if (i == 0)
                 {
-                    to_pay[j][i] = (Object)result.getInt(j);
+                    to_pay[j][i] = result.getInt(j);
                 }
                 else
                 {
-                    to_pay[j][i] = (Object)result.getDouble(j);
+                    to_pay[j][i] = result.getDouble(j);
                 }
             }
         }
@@ -243,10 +244,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
      */
     private String getTrad(SQLiteDatabase db, int product_id, int user_id)
     {
-        String request = "STRING.TEXTE FROM USER, PRODUIT, STRING WHERE USER.LANGUE = STRING.LANGUE AND PRODUIT.ID_PROD = " + product_id " AND STRING.ID_STRING = PRODUIT.DESCR AND USER.ID_LOGIN = " + user_id;
+        String request = "STRING.TEXTE FROM USER, PRODUIT, STRING WHERE USER.LANGUE = STRING.LANGUE AND PRODUIT.ID_PROD = " + product_id + " AND STRING.ID_STRING = PRODUIT.DESCR AND USER.ID_LOGIN = " + user_id;
         Cursor result = db.rawQuery(request, null);
-        
-        String trad = result.moveToFirst();
+
+        result.moveToFirst();
+        String trad = result.getString(0);
 
         result.close();
 
