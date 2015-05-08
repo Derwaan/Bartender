@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -288,11 +292,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper
                 }
                 else
                 {
-                    to_pay[j][i] = result.getString(j);
+                    to_trash[j][i] = result.getString(j);
                 }
             }
         }
         result.close();
-        return to_pay;
+        return to_trash;
     }
 }
