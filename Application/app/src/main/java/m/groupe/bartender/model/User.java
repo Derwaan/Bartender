@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.SparseArray;
 
+import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.MySQLiteHelper;
 
 
@@ -249,13 +250,11 @@ public class User {
             String uGSM = cursor.getString(8);
             String uAdress = cursor.getString(9);
 
-
             User user = new User(uId, uLogin, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
-            cursor.close();
-            db.close();
-
             return user;
         }
+        cursor.close();
+        db.close();
         return null;
     }
 
@@ -266,71 +265,24 @@ public class User {
         User.connectedUser = null;
     }
 
-    /**
-     * Fournit la liste des utilisateurs.
-     */
-    /*public static ArrayList<User> getUtilisateurs() {
-        // Récupération du  SQLiteHelper et de la base de données.
-        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
-
-        // Colonnes à récupérer
-        String[] colonnes = {DB_COLUMN_ID, DB_COLUMN_PASSWORD, DB_COLUMN_TYPE, DB_COLUMN_NAME, DB_COLUMN_LANGUAGE, DB_COLUMN_EMAIL, DB_COLUMN_SEX, DB_COLUMN_GSM, DB_COLUMN_ADRESS};
-
-        // Requête de selection (SELECT)
-        Cursor cursor = db.query(DB_TABLE, colonnes, null, null, null, null, null);
-
-        // Placement du curseur sur la première ligne.
-        cursor.moveToFirst();
-
-        // Initialisation la liste des utilisateurs.
-        ArrayList<User> users = new ArrayList<User>();
-
-        // Tant qu'il y a des lignes.
-        while (!cursor.isAfterLast()) {
-            // Récupération des informations de l'utilisateur pour chaque ligne.
-            int uId = cursor.getInt(0);
-            String uLogin = cursor.getString(1);
-            String uPassword = cursor.getString(2);
-            int uType = cursor.getInt(3);
-            String uName = cursor.getString(4);
-            String uLanguage = cursor.getString(5);
-            String uEmail = cursor.getString(6);
-            String uSex = cursor.getString(7);
-            String uGSM = cursor.getString(8);
-            String uAdress = cursor.getString(9);
-
-
-            // Vérification pour savoir s'il y a déjà une instance de cet utilisateur.
-            User user = User.userSparseArray.get(uId);
-            if (user == null) {
-                // Si pas encore d'instance, création d'une nouvelle instance.
-                user = new User(uId, uLogin, uPassword, uType, uName, uLanguage, uEmail, uSex, uGSM, uAdress);
-            }
-
-            // Ajout de l'utilisateur à la liste.
-            users.add(user);
-
-            // Passe à la ligne suivante.
-            cursor.moveToNext();
-        }
-
-        // Fermeture du curseur et de la base de données.
-        cursor.close();
-        db.close();
-
-        return users;
-    }
-*/
     public static boolean add(User newUser) {
-        boolean addSuccessful = false;
+        boolean addSuccessful;
 
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(DB_COLUMN_NAME, newUser.getLogin());
-        values.put(DB_COLUMN_PASSWORD, newUser.getPassword());
-        values.put(DB_COLUMN_TYPE, newUser.getType());
-        addSuccessful = db.insert(DB_TABLE, null, values) > 0;
-
+        ContentValues cv = new ContentValues();
+        cv.put(DB_COLUMN_ID, newUser.getId());
+        cv.put(DB_COLUMN_LOGIN, newUser.getLogin());
+        cv.put(DB_COLUMN_PASSWORD, newUser.getPassword());
+        cv.put(DB_COLUMN_TYPE, newUser.getType());
+        cv.put(DB_COLUMN_NAME, newUser.getName());
+        cv.put(DB_COLUMN_LANGUAGE, newUser.getLanguage());
+        cv.put(DB_COLUMN_EMAIL, newUser.getEmail());
+        cv.put(DB_COLUMN_SEX, newUser.getSex());
+        cv.put(DB_COLUMN_GSM, newUser.getGsm());
+        cv.put(DB_COLUMN_ADRESS, newUser.getAdress());
+        addSuccessful = db.insert(DB_TABLE, null, cv) != -1;
+        cv.clear();
+        db.close();
         return addSuccessful;
     }
 }

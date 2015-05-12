@@ -84,7 +84,7 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
         String password = passwordEditText.getText().toString();
 
         User user = new User(0, login, password, 0, null, null,null,null,null,null);
-        if (user.login()) {
+        if (user.login()){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {

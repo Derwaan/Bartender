@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.MySQLiteHelper;
 import m.groupe.bartender.R;
+import m.groupe.bartender.model.User;
 
 /**
  * Created by Tran Trong-Vu on 07-05-15.
@@ -37,8 +38,19 @@ public class RegisterActivity extends Activity{
         super.onResume();
     }
 
-    public void createUser(View v){
-        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+    public void createUser(View v) {
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+
+        Cursor last_id = db.rawQuery("SELECT MAX(USER.ID_LOGIN) FROM USER", null);
+        if (last_id != null) {
+            last_id.moveToFirst();
+        }
+
+        //Get the values from register fields
+        int id = last_id.getInt(0) + 1;
+
+        last_id.close();
+        db.close();
 
         String login = findViewById(R.id.login_field).toString();
         String password = findViewById(R.id.password_field).toString();
@@ -46,26 +58,23 @@ public class RegisterActivity extends Activity{
         String name = findViewById(R.id.name_field).toString();
         String language = "fr";
         String email = findViewById(R.id.mail_field).toString();
-        String sex = ""+sex_spinner.getSelectedItem().toString().charAt(0);
+        String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = findViewById(R.id.phone_field).toString();
         String address = findViewById(R.id.address_field).toString();
 
-        Cursor last_id = db.rawQuery("SELECT MAX(USER.ID_LOGIN) FROM USER", null);
-        if (last_id != null) {
-            last_id.moveToFirst();
+        User user = new User(id, login, password, type, name, language, email, sex, phone, address);
+        boolean res = User.add(user);
+
+        if (!res) {
+            BartenderApp.notifyShort(R.string.unregistered);
         }
-        int id = last_id.getInt(0) +  1;
+        else{
+            BartenderApp.notifyShort(R.string.registered);
+        }
 
-        String query = "INSERT INTO USER VALUES " + id + "," + login +","+password+"," +type+" , "+name+","+language+","+ email+","+","+sex+","+phone+","+ address +");";
-        db.execSQL(query,null);
-
-//        String[] data_user = {String.valueOf(id), login, password, String.valueOf(type), name,language, email, sex, phone, address};
-//        db.execSQL( (?,?,?,?,?,?,?,?,?,?)", data_user);
-
-        BartenderApp.notifyShort(R.string.registered);
-        db.close();
-
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        if(res) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 }
