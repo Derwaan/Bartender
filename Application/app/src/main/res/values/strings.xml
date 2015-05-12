@@ -15,6 +15,7 @@
         <item>F</item>
     </string-array>
     <string name="registered">Vous êtes a présent enregistré</string>
+    <string name="unregistered">Erreur: Impossible d\'enregistrer l\'utilisateur</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>

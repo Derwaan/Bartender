@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
@@ -52,16 +53,15 @@ public class RegisterActivity extends Activity{
         last_id.close();
         db.close();
 
-        String login = findViewById(R.id.login_field).toString();
-        String password = findViewById(R.id.password_field).toString();
+        String login = ((EditText) findViewById(R.id.login_field)).getText().toString();
+        String password = ((EditText)findViewById(R.id.password_field)).getText().toString();
         int type = 1;
-        String name = findViewById(R.id.name_field).toString();
+        String name = ((EditText)findViewById(R.id.name_field)).getText().toString();;
         String language = "fr";
-        String email = findViewById(R.id.mail_field).toString();
+        String email = ((EditText)findViewById(R.id.mail_field)).getText().toString();;
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
-        String phone = findViewById(R.id.phone_field).toString();
-        String address = findViewById(R.id.address_field).toString();
-
+        String phone = ((EditText)findViewById(R.id.phone_field)).getText().toString();
+        String address = ((EditText)findViewById(R.id.address_field)).getText().toString();
         User user = new User(id, login, password, type, name, language, email, sex, phone, address);
         boolean res = User.add(user);
 

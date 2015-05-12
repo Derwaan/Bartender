@@ -225,9 +225,7 @@ public class User {
         return User.connectedUser;
     }
 
-    /**
-     * Provides the users list.
-     */
+
     public static User passwordMatch(String login, String password) {
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
@@ -266,7 +264,7 @@ public class User {
     }
 
     public static boolean add(User newUser) {
-        boolean addSuccessful;
+        boolean res;
 
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -280,10 +278,10 @@ public class User {
         cv.put(DB_COLUMN_SEX, newUser.getSex());
         cv.put(DB_COLUMN_GSM, newUser.getGsm());
         cv.put(DB_COLUMN_ADRESS, newUser.getAdress());
-        addSuccessful = db.insert(DB_TABLE, null, cv) != -1;
+        res = db.insert(DB_TABLE, null, cv) != -1;
         cv.clear();
         db.close();
-        return addSuccessful;
+        return res;
     }
 }
 

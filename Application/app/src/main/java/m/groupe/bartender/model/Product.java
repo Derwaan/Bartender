@@ -1,11 +1,14 @@
+/*
 package m.groupe.bartender;
 
+*/
 /**
  * Product construit un objet
  *
  * @author Romain Leonard (romain.leonard@student.uclouvain.be)
  * @version 0.1
- */
+ *//*
+
 public class Product
 {PRIMARY KEY (ID_PROD)
     protected int id_prod;
@@ -16,12 +19,14 @@ public class Product
     protected int seuil_prod;
     protected int primary_key;
 
-    /**
+    */
+/**
      *  /// Constructor ///
      *
      * @pre : word != null
      * @post : Construit un objet de type Word contenant un String et un int
-     */
+     *//*
+
     public Product(String word , int instance)
     {
         assert word != null : "word ne peut etre null, voir pre";
@@ -34,11 +39,13 @@ public class Product
         this.primary_key;
     }
 
-    /**
+    */
+/**
      *@pre : /
      *@post : retourne l'id de la description de ce produit
-     */
+     *//*
+
     public int getDescr()
     {
         return this.descr;
-    }
+    }*/
