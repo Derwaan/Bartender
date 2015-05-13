@@ -118,7 +118,7 @@ public class MenuActivity extends Activity implements OnItemClickListener{
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, ShowDetailsActivity.class);
+        Intent intent = new Intent(this, DetailActivity.class);
         // L'id de l'élément de collection est passé en argument afin que la vue de détails puisse
         // récupérer celui-ci.
         intent.putExtra("p_id", products.get(position).getId());

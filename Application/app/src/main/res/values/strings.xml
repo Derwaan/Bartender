@@ -26,5 +26,13 @@
     <string name="menu_activity_title">Carte</string>
     <string name="show_list_error_no_item">Aucun produit.</string>
     <string name="show_list_no_result">Aucun résultat ne correspond à votre recherche</string>
+
+    <!-- Detail -->
+    <string name="detail_activity_title">Détail</string>
+    <string name="show_details_name_title">Produit: </string>
+    <string name="show_details_description_title">Description: </string>
+    <string name="show_details_picture_title">Image: </string>
+    <string name="show_details_rating_title">Note: </string>
+    <string name="show_details_rating_change_error">Désolé, la nouvelle note n\'a pas pu être enregistrée.</string>
     
 </resources>

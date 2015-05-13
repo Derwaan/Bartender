@@ -35,6 +35,11 @@
             android:name=".activity.MenuActivity"
             android:label="@string/menu_activity_title" />
 
+        <!-- Detail -->
+        <activity
+            android:name=".activity.DetailActivity"
+            android:label="" />
+
     </application>
 
 </manifest>

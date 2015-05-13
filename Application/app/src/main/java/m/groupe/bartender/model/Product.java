@@ -3,10 +3,16 @@ package m.groupe.bartender.model;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.SparseArray;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.MySQLiteHelper;
 
 /**
@@ -114,6 +120,25 @@ public class Product {
         return description;
     }
 
+    public Bitmap getImage() {
+        if (this.image == null) {
+            return null;
+        }
+
+        try {
+            FileInputStream in = BartenderApp.getContext().openFileInput(image);
+            Bitmap bitmap = BitmapFactory.decodeStream(in);
+            in.close();
+
+            return bitmap;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public String getPrice(){
         return ""+price;
     }
@@ -122,7 +147,11 @@ public class Product {
      * Fournit la note de l'élément de collection courant (comprise entre 0 et 5).
      */
     public float getRating() {
-        return rating.get(User.getConnectedUser().getId());
+        if(rating.get(User.getConnectedUser().getId()) == null)
+            return 0;
+        else{
+            return rating.get(User.getConnectedUser().getId());
+        }
     }
 
     /**
@@ -182,7 +211,9 @@ public class Product {
         this.threshold = c.getInt(5);
         c.close();
 
-        /* Récupération des noms dans la table STRING */
+        /**
+         *  Récupération des noms dans la table STRING
+         */
         columns = new String[]{DB_COL_TEXTE};
         selection = DB_COL_ID_STRING + " = ? AND " + DB_COL_LANGUE + " = ?";
         selectionArgs = new String[]{this.name, User.getConnectedUser().getLanguage()};
@@ -192,20 +223,34 @@ public class Product {
         this.name = c.getString(0);
         c.close();
 
-        /* Récupération des différentes notes pour les différents utilisateurs. */
-//        this.rating = new SparseArray<Float>();
-//
-//        columns = new String[]{DB_COL_ID_LOGIN, DB_COL_RATING};
-//        selection = DB_COL_ID_PRODUIT + " = ?";
-//        selectionArgs = new String[]{String.valueOf(id)};
-//        c = db.query(DB_TABLE_RATING, columns, selection, selectionArgs, null, null, null);
-//
-//        c.moveToFirst();
-//        while (!c.isAfterLast()) {
-//            this.rating.put(c.getInt(0), c.getFloat(1));
-//            c.moveToNext();
-//        }
-//        c.close();
+        /**
+         *  Récupération des descriptions dans la table STRING
+         */
+        columns = new String[]{DB_COL_TEXTE};
+        selection = DB_COL_ID_STRING + " = ? AND " + DB_COL_LANGUE + " = ?";
+        selectionArgs = new String[]{this.description, User.getConnectedUser().getLanguage()};
+        c = db.query(DB_TABLE_STRING, columns, selection, selectionArgs, null, null, null);
+
+        c.moveToFirst();
+        this.description = c.getString(0);
+        c.close();
+
+        /**
+         * Récupération des différentes notes pour les différents utilisateurs.
+         */
+        this.rating = new SparseArray<Float>();
+
+        columns = new String[]{DB_COL_ID_LOGIN, DB_COL_RATING};
+        selection = DB_COL_ID_PRODUIT + " = ?";
+        selectionArgs = new String[]{""+User.getConnectedUser().getId()};
+        c = db.query(DB_TABLE_RATING, columns, selection, selectionArgs, null, null, null);
+
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            this.rating.put(c.getInt(0), c.getFloat(1));
+            c.moveToNext();
+        }
+        c.close();
         db.close();
     }
 
