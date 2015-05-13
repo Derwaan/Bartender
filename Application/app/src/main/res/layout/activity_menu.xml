@@ -4,8 +4,8 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -13,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nom"
+            android:onClick="change_order"
             android:id="@+id/name_btn" />
 
         <Space
@@ -23,18 +24,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prix"
+            android:onClick="change_order"
             android:id="@+id/price_btn" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Catégorie"
+            android:onClick="change_order"
             android:id="@+id/cat_btn" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Note"
+            android:onClick="change_order"
             android:id="@+id/rating_btn" />
     </LinearLayout>
 

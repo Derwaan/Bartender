@@ -73,7 +73,7 @@ public class Product {
     private String name;
     private String category;
     private String image;
-    private int price;
+    private float price;
     private int threshold;
 
     private SparseArray<Float> rating;
@@ -178,7 +178,7 @@ public class Product {
         this.name = c.getString(1);
         this.category = c.getString(2);
         this.image = c.getString(3);
-        this.price = c.getInt(4);
+        this.price = c.getFloat(4);
         this.threshold = c.getInt(5);
         c.close();
 
@@ -187,24 +187,25 @@ public class Product {
         selection = DB_COL_ID_STRING + " = ? AND " + DB_COL_LANGUE + " = ?";
         selectionArgs = new String[]{this.name, User.getConnectedUser().getLanguage()};
         c = db.query(DB_TABLE_STRING, columns, selection, selectionArgs, null, null, null);
+
         c.moveToFirst();
         this.name = c.getString(0);
         c.close();
 
         /* Récupération des différentes notes pour les différents utilisateurs. */
-        this.rating = new SparseArray<Float>();
-
-        columns = new String[]{DB_COL_ID_LOGIN, DB_COL_RATING};
-        selection = DB_COL_ID_PRODUIT + " = ?";
-        selectionArgs = new String[]{String.valueOf(id)};
-        c = db.query(DB_TABLE_RATING, columns, selection, selectionArgs, null, null, null);
-
-        c.moveToFirst();
-        while (!c.isAfterLast()) {
-            this.rating.put(c.getInt(0), c.getFloat(1));
-            c.moveToNext();
-        }
-        c.close();
+//        this.rating = new SparseArray<Float>();
+//
+//        columns = new String[]{DB_COL_ID_LOGIN, DB_COL_RATING};
+//        selection = DB_COL_ID_PRODUIT + " = ?";
+//        selectionArgs = new String[]{String.valueOf(id)};
+//        c = db.query(DB_TABLE_RATING, columns, selection, selectionArgs, null, null, null);
+//
+//        c.moveToFirst();
+//        while (!c.isAfterLast()) {
+//            this.rating.put(c.getInt(0), c.getFloat(1));
+//            c.moveToNext();
+//        }
+//        c.close();
         db.close();
     }
 
@@ -335,7 +336,7 @@ public class Product {
         String[] columns = new String[]{DB_COL_PROD_ID};
 
         // Requête SELECT à la base de données.
-        Cursor c = db.query(DB_TABLES, columns, selection, selectionArgs, null, null, Product.order_by + " " + Product.order);
+        Cursor c = db.query(DB_TABLE_PRODUCT, columns, selection, selectionArgs, null, null, Product.order_by + " " + Product.order);
 
         c.moveToFirst();
         while (!c.isAfterLast()) {
