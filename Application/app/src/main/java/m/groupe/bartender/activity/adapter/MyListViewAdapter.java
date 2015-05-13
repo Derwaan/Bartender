@@ -80,12 +80,13 @@ public class MyListViewAdapter extends BaseAdapter {
         }
 
         // Récupération des deux éléments de notre vue dans le but d'y placer les données.
-        TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
-        RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.rating_bar);
+        TextView nameTextView = (TextView) convertView.findViewById(R.id.name_row);
+        TextView priceTextView = (TextView) convertView.findViewById(R.id.price_row);
 
         // Récupération et placement des données.
         Product product = products.get(position);
         nameTextView.setText(product.getName());
+        priceTextView.setText(product.getPrice());
         //ratingBar.setRating(product.getRating());
 
         return convertView;

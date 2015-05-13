@@ -1,77 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/name_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="70"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:gravity="left" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/product_img"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nom du produit"
-            android:id="@+id/name_text"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description du produit"
-            android:id="@+id/description_text"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Prix du produit €"
-            android:id="@+id/price_text"
-            android:layout_gravity="center_horizontal" />
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rating_bar"
-            android:layout_gravity="center_horizontal"
-            android:rating="3.5"
-            android:stepSize="0.5"
-            android:numStars="5" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffd5d5d5">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Modifier"
-                android:id="@+id/modify_btn"
-                android:layout_gravity="center" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton"
-                android:layout_gravity="left|center_vertical"
-                android:src="@android:drawable/ic_input_add" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton2"
-                android:layout_gravity="right|center_vertical"
-                android:src="@android:drawable/ic_delete" />
-        </FrameLayout>
-
-    </LinearLayout>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/price_row"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="30"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textAlignment="gravity"
+        android:gravity="right"
+        android:singleLine="false" />
+</LinearLayout>

@@ -21,6 +21,7 @@ public class Product {
      */
     public static final String DB_TABLE_PRODUCT = "PRODUIT";
     public static final String DB_TABLE_RATING = "RATING";
+    public static final String DB_TABLE_STRING = "STRING";
 
     /**
      * Nom des colonnes de la table PRODUIT
@@ -34,7 +35,14 @@ public class Product {
     public static final String DB_COL_THRESH = "SEUIL";
 
     /**
-     * Nom des colonnes de la table rating
+     * Nom des colonnes de la table STRING
+     */
+    public static final String DB_COL_ID_STRING = "ID_STRING";
+    public static final String DB_COL_LANGUE = "LANGUE";
+    public static final String DB_COL_TEXTE = "TEXTE";
+
+    /**
+     * Nom des colonnes de la table RATING
      */
     public static final String DB_COL_ID_LOGIN = "ID_LOGIN";
     public static final String DB_COL_ID_PRODUIT = "ID_PRODUIT";
@@ -106,6 +114,10 @@ public class Product {
         return description;
     }
 
+    public String getPrice(){
+        return ""+price;
+    }
+
     /**
      * Fournit la note de l'élément de collection courant (comprise entre 0 et 5).
      */
@@ -156,52 +168,42 @@ public class Product {
         // Récupération de la base de données en mode "lecture".
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        // Colonnes pour lesquelles il nous faut les données.
         String[] columns = new String[]{ DB_COL_DESCR, DB_COL_NAME, DB_COL_CAT, DB_COL_IMG, DB_COL_PRICE, DB_COL_THRESH};
-
-        // Critères de sélection de la ligne :
         String selection = DB_COL_ID_PROD + " = ? ";
         String[] selectionArgs = new String[]{String.valueOf(id)};
-
-        // Requête SELECT à la base de données.
         Cursor c = db.query(DB_TABLE_PRODUCT, columns, selection, selectionArgs, null, null, null);
 
-        // Placement du curseur sur le  premier résultat (ici le seul puisque l'objet est unique).
         c.moveToFirst();
-
-        // Copie des données de la ligne vers les variables d'instance de l'objet courant.
         this.description = c.getString(0);
         this.name = c.getString(1);
         this.category = c.getString(2);
         this.image = c.getString(3);
         this.price = c.getInt(4);
         this.threshold = c.getInt(5);
+        c.close();
 
-        // Fermeture du curseur.
+        /* Récupération des noms dans la table STRING */
+        columns = new String[]{DB_COL_TEXTE};
+        selection = DB_COL_ID_STRING + " = ? AND " + DB_COL_LANGUE + " = ?";
+        selectionArgs = new String[]{this.name, User.getConnectedUser().getLanguage()};
+        c = db.query(DB_TABLE_STRING, columns, selection, selectionArgs, null, null, null);
+        c.moveToFirst();
+        this.name = c.getString(0);
         c.close();
 
         /* Récupération des différentes notes pour les différents utilisateurs. */
-
         this.rating = new SparseArray<Float>();
 
-        // Colonnes à récupérérer.
         columns = new String[]{DB_COL_ID_LOGIN, DB_COL_RATING};
-
-        // Critères de sélection de la ligne.
         selection = DB_COL_ID_PRODUIT + " = ?";
         selectionArgs = new String[]{String.valueOf(id)};
-
-        // Requête SELECT à la base de données.
         c = db.query(DB_TABLE_RATING, columns, selection, selectionArgs, null, null, null);
 
         c.moveToFirst();
         while (!c.isAfterLast()) {
-            // On copie les résultats dans la variable d'instance rating.
             this.rating.put(c.getInt(0), c.getFloat(1));
             c.moveToNext();
         }
-
-        // Fermeture du curseur et de la base de données.
         c.close();
         db.close();
     }

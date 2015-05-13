@@ -184,7 +184,7 @@ public class User {
         if(user != null) {
             this.login = user.getLogin();
             this.type = user.getType();
-            connectedUser = this;
+            connectedUser = user;
             return(true);
         }
 
