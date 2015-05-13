@@ -1,4 +1,4 @@
-package m.groupe.bartender;
+package m.groupe.bartender.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -54,10 +54,10 @@ public class MainActivity extends Activity {
     /**
      * Lance l'activité d'affichage du menu.
      */
-//    public void showMenu(View v) {
-//        Intent intent = new Intent(this, MenuActivity.class);
-//        startActivity(intent);
-//    }
+    public void showMenu(View v) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
 
     /**
      * Lance l'activité d'affichage des commandes.
@@ -65,14 +65,6 @@ public class MainActivity extends Activity {
     public void order(View v) {
         Intent intent = new Intent(this, OrderActivity.class);
         startActivity(intent);
-    }
-
-    /**
-     * Déconnecte l'utilisateur actuellement connecté et retourne vers l'écran de connexion.
-     */
-    public void logout(View v) {
-        User.logout();
-        finish();
     }
 
     /**
@@ -107,7 +99,13 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-
+    /**
+     * Déconnecte l'utilisateur actuellement connecté et retourne vers l'écran de connexion.
+     */
+    public void logout(View v) {
+        User.logout();
+        finish();
+    }
 
     /**
      * Désactive le bouton de retour. Désactive le retour à l'activité précédente (donc l'écran de

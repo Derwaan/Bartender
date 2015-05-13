@@ -19,8 +19,12 @@
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>
-
     <string name="action_settings">Settings</string>
     <string name="main_back_button_disable">Pour retourner en arrière, déconnectez-vous</string>
-
+    
+    <!-- Menu -->
+    <string name="menu_activity_title">Carte</string>
+    <string name="show_list_error_no_item">Aucun produit.</string>
+    <string name="show_list_no_result">Aucun résultat ne correspond à votre recherche</string>
+    
 </resources>

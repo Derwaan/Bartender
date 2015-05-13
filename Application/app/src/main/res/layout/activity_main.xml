@@ -27,7 +27,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="143dp"
-        android:onClick=""/>
+        android:onClick="showMenu"/>
 
     <Button
         android:layout_width="fill_parent"
