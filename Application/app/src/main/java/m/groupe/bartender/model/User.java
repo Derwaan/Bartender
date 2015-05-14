@@ -266,6 +266,19 @@ public class User {
     public static boolean add(User newUser) {
         boolean res;
 
+        if (newUser.getLogin() == null)
+            return false;
+        if (newUser.getPassword() == null)
+            return false;
+        if (newUser.getName() == null)
+            return false;
+        if (newUser.getEmail() == null)
+            return false;
+        if (newUser.getGsm() == null)
+            return false;
+        if (newUser.getAdress() == null)
+            return false;
+
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(DB_COLUMN_ID, newUser.getId());
@@ -287,17 +300,28 @@ public class User {
     public static void update(int id, String login, String password, int type, String name, String language, String email, String sex, String phone, String address){
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
         ContentValues cv = new ContentValues();
+
         cv.put(DB_COLUMN_ID, id);
-        cv.put(DB_COLUMN_LOGIN, login);
-        cv.put(DB_COLUMN_PASSWORD, password);
         cv.put(DB_COLUMN_TYPE, type);
-        cv.put(DB_COLUMN_NAME, name);
-        cv.put(DB_COLUMN_LANGUAGE, language);
-        cv.put(DB_COLUMN_EMAIL, email);
-        cv.put(DB_COLUMN_SEX, sex);
-        cv.put(DB_COLUMN_GSM, phone);
-        cv.put(DB_COLUMN_ADRESS, address);
-        db.update(DB_TABLE, cv, "ID_LOGIN = "+id, null);
+
+        if (login != null)
+            cv.put(DB_COLUMN_LOGIN, login);
+        if (password != null)
+            cv.put(DB_COLUMN_PASSWORD, password);
+        if(name != null)
+            cv.put(DB_COLUMN_NAME, name);
+        if(language != null)
+            cv.put(DB_COLUMN_LANGUAGE, language);
+        if (email != null)
+            cv.put(DB_COLUMN_EMAIL, email);
+        if (sex != null)
+            cv.put(DB_COLUMN_SEX, sex);
+        if (phone != null)
+            cv.put(DB_COLUMN_GSM, phone);
+        if (address != null)
+            cv.put(DB_COLUMN_ADRESS, address);
+
+        db.update(DB_TABLE, cv, "ID_LOGIN = " +id, null);
         cv.clear();
         db.close();
     }
