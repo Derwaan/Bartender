@@ -40,6 +40,11 @@
             android:name=".activity.DetailActivity"
             android:label="" />
 
+        <!-- Search -->
+        <activity
+            android:name=".activity.SearchActivity"
+            android:label="" />
+
     </application>
 
 </manifest>

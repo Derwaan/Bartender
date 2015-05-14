@@ -1,0 +1,43 @@
+#Présentation#
+
+0. Introduction
+1. Démonstration du prototype
+2. Gestion des données et structure BDD
+3. UML
+4. L'application et son fonctionnement
+5. Améliorations futures
+6. Conclusion
+
+0. Introduction
+
+Mise en contexte rapide. Avertissement sur l'état du prototype
+
+1. Démonstration prototype
+
+On démontre le prototype selon ce qui marche
+
+2. Gestion des données/structure BDD
+
+Gestion multilangue modulable. Suivi de chaque utilisateur.
+Solide, belle et fiable.
+Prête pour un serveur externe
+
+3. UML
+
+Mise en place de la structure.
+
+4. Application en elle-même
+
+> Menu & description 
+> Commande Client
+> Prête pour un serveur externe
+
+5. Améliorations futures
+La BDD est déjà prête pour les améliorations
+
+> Historique User/Admin
+> Statistiques produit + User
+> Statistiques de chiffres d'affaire bar/stock etc.
+> Admin voit toutes les commandes par table + Serveur Commande
+
+

@@ -21,20 +21,20 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // Récupération de l'id de l'élément de collection ou si rien n'est trouvé, -1 est la valeur
-        // par défaut.
+        // Rï¿½cupï¿½ration de l'id de l'ï¿½lï¿½ment de collection ou si rien n'est trouvï¿½, -1 est la valeur
+        // par dï¿½faut.
         // Lire http://d.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent
         int id = getIntent().getIntExtra("p_id", -1);
 
         if (id == -1) {
             // Ne devrait jamais arriver.
-            throw new RuntimeException("Aucun id d'élément n'a été spécifié.");
+            throw new RuntimeException("Aucun id d'element n'a ete specifie.");
         }
 
-        // Récupération de l'élément de collection.
+        // Rï¿½cupï¿½ration de l'ï¿½lï¿½ment de collection.
         currentProduct = Product.get(id);
 
-        // Complétition des différents champs avec les données de l'élément de collection.
+        // Complï¿½tition des diffï¿½rents champs avec les donnï¿½es de l'ï¿½lï¿½ment de collection.
         TextView name = (TextView) findViewById(R.id.show_details_name);
         name.setText(currentProduct.getName());
 
@@ -44,19 +44,19 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
         RatingBar rating = (RatingBar) findViewById(R.id.show_details_rating);
         rating.setRating(currentProduct.getRating());
 
-        // Indique que cette classe recevra les modifications de note (rating) grâce à la méthode
+        // Indique que cette classe recevra les modifications de note (rating) grï¿½ce ï¿½ la mï¿½thode
         // onRatingChanged.
         rating.setOnRatingBarChangeListener(this);
 
-        // Récupération et affichage de l'image.
-        // S'il n'y a pas d'image, l'emplacement prévu doit être masqué.
+        // Rï¿½cupï¿½ration et affichage de l'image.
+        // S'il n'y a pas d'image, l'emplacement prï¿½vu doit ï¿½tre masquï¿½.
         Bitmap bitmap = currentProduct.getImage();
         if (bitmap != null) {
             ImageView picture = (ImageView) findViewById(R.id.show_details_picture);
             picture.setImageBitmap(bitmap);
         } else {
             View pictureLL = findViewById(R.id.show_details_picture_ll);
-            // La visibilité GONE implique que l'élément ne prend aucune place (contrairement à INVISIBLE).
+            // La visibilitï¿½ GONE implique que l'ï¿½lï¿½ment ne prend aucune place (contrairement ï¿½ INVISIBLE).
             pictureLL.setVisibility(View.GONE);
         }
 
@@ -65,11 +65,11 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
     /**
      * Enregistre les changements de la note (rating).
      *
-     * @param ratingBar La RatingBar concernée (ici il n'y en a qu'une dont l'id est
+     * @param ratingBar La RatingBar concernï¿½e (ici il n'y en a qu'une dont l'id est
      *                  show_details_rating).
      * @param rating    La valeur de la nouvelle note (rating).
-     * @param fromUser  Indique si le changement de note (rating) est effectué par l'utilisateur ou
-     *                  par le programme (par exemple par appel de la méthode
+     * @param fromUser  Indique si le changement de note (rating) est effectuï¿½ par l'utilisateur ou
+     *                  par le programme (par exemple par appel de la mï¿½thode
      *                  ratingBar.setRating(x)).
      */
     @Override
@@ -77,7 +77,7 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
         if (fromUser) {
             if (!currentProduct.setRating(rating)) {
                 // En cas d'erreur, il faut notifier l'utilisateur et afficher la valeur qui est
-                // réellement enregistrée.
+                // rï¿½ellement enregistrï¿½e.
                 BartenderApp.notifyShort(R.string.show_details_rating_change_error);
                 ratingBar.setRating(currentProduct.getRating());
             }

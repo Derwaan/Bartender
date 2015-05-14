@@ -2,53 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <LinearLayout
+    <FrameLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Nom"
             android:onClick="change_order"
+            android:layout_gravity="start"
             android:id="@+id/name_btn" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Prix"
             android:onClick="change_order"
+            android:layout_gravity="end"
             android:id="@+id/price_btn" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Catégorie"
-            android:onClick="change_order"
-            android:id="@+id/cat_btn" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Note"
-            android:onClick="change_order"
-            android:id="@+id/rating_btn" />
-    </LinearLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="445dp"
+            android:layout_height="429dp"
             android:id="@+id/products_list"
             android:choiceMode="none"
             android:layout_gravity="center" />
@@ -57,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rechercher"
+            android:onClick="search"
             android:id="@+id/search_btn"
             android:layout_gravity="center_horizontal|bottom" />
     </FrameLayout>

@@ -29,9 +29,10 @@
 
     <!-- Detail -->
     <string name="detail_activity_title">Detail</string>
-    <string name="show_details_name_title">Product: </string>
-    <string name="show_details_description_title">Description: </string>
+    <string name="show_details_name_title">Product :   </string>
+    <string name="show_details_description_title">Description :   </string>
     <string name="show_details_picture_title">Picture</string>
     <string name="show_details_rating_title">Rating</string>
     <string name="show_details_rating_change_error">Sorry, unable to record the rating.</string>
+    <string name="add_product">Add to my order </string>
 </resources>
