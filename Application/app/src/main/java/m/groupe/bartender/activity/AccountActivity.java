@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.MySQLiteHelper;
@@ -30,6 +31,24 @@ public class AccountActivity extends Activity{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sex_spinner.setAdapter(adapter);
+        if(User.getConnectedUser().getSex().equals("F")) {
+            sex_spinner.setSelection(1);
+        }
+
+        TextView login = (TextView) findViewById(R.id.login_field_mod);
+        login.setText(User.getConnectedUser().getLogin());
+
+        TextView name = (TextView) findViewById(R.id.name_field_mod);
+        name.setText(User.getConnectedUser().getName());
+
+        TextView mail = (TextView) findViewById(R.id.mail_field_mod);
+        mail.setText(User.getConnectedUser().getEmail());
+
+        TextView phone = (TextView) findViewById(R.id.phone_field_mod);
+        phone.setText(User.getConnectedUser().getGsm());
+
+        TextView address = (TextView) findViewById(R.id.address_field_mod);
+        address.setText(User.getConnectedUser().getAdress());
     }
 
     @Override
@@ -49,10 +68,9 @@ public class AccountActivity extends Activity{
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = ((EditText)findViewById(R.id.phone_field_mod)).getText().toString();
         String address = ((EditText)findViewById(R.id.address_field_mod)).getText().toString();
-
         User.update(id, login, password, type, name, language, email, sex, phone, address);
 
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
