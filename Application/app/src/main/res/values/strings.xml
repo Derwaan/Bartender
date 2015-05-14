@@ -6,7 +6,7 @@
     <string name="login_password_hint">Mot de Passe</string>
     <string name="login_username">Pseudonyme</string>
     <string name="login_wrong_password_msg">Mauvais pseudo ou mot de passe.</string>
-    <string name="login_btn">Conexion</string>
+    <string name="login_btn">Connexion</string>
 
     <!-- Register -->
     <string name="register_activity_title">S\'enregistrer</string>
@@ -19,8 +19,9 @@
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Paramètres</string>
     <string name="main_back_button_disable">Pour retourner en arrière, déconnectez-vous</string>
+    <string name="coming_soon">Cette fonctionnalité arrive bientôt.</string>
     
     <!-- Menu -->
     <string name="menu_activity_title">Carte</string>

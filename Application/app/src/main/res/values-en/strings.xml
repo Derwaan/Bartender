@@ -21,6 +21,7 @@
     <string name="main_activity_title">Menu</string>
     <string name="action_settings">Settings</string>
     <string name="main_back_button_disable">To come back , log off</string>
+    <string name="coming_soon">This functionality is coming soon.</string>
 
     <!-- Menu -->
     <string name="menu_activity_title">Menu</string>

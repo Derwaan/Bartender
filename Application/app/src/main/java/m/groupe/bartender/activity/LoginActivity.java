@@ -31,26 +31,10 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
          */
         setTitle(R.string.login_activity_title);
 
-
-        /**
-         * @note La liste des utilisateurs est affichées dans un Spinner, pour en savoir plus lisez
-         * http://d.android.com/guide/topics/ui/controls/spinner.html
-         */
-        //userSpinner = (Spinner) findViewById(R.id.username);
-
-        // Obtention de la liste des utilisateurs.
-        //ArrayList<User> users = User.getUtilisateurs();
-
-        // Création d'un ArrayAdapter en utilisant la liste des utilisateurs et un layout pour le spinner existant dans Android.
-        //ArrayAdapter<User> adapter = new ArrayAdapter<User>(this, android.R.layout.simple_spinner_dropdown_item, users);
-        // On lie l'adapter au spinner.
-        //userSpinner.setAdapter(adapter);
-
-
         // On indique qu'il faut appeler onEditorAction de cette classe lorsqu'une action (valider ici)
         // est faite depuis le clavier lorsqu'on est en train de remplir le mot de passe.
-        //EditText passwordEditText = (EditText) findViewById(R.id.password);
-        //passwordEditText.setOnEditorActionListener(this);
+        EditText passwordEditText = (EditText) findViewById(R.id.password_field);
+        passwordEditText.setOnEditorActionListener(this);
     }
 
     @Override
@@ -108,7 +92,7 @@ public class LoginActivity extends Activity implements TextView.OnEditorActionLi
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         // L'attribut android:imeOptions="actionNext" est défini dans le fichier xml de layout
         // (activity_login.xml), L'actionId attendue est donc IME_ACTION_NEXT.
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
+        if (actionId == 6) {
             login(v);
             return true;
         }

@@ -63,8 +63,9 @@ public class MainActivity extends Activity {
      * Lance l'activité d'affichage des commandes.
      */
     public void order(View v) {
-        Intent intent = new Intent(this, OrderActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, OrderActivity.class);
+//        startActivity(intent);
+        BartenderApp.notifyShort(R.string.coming_soon);
     }
 
     /**
@@ -79,24 +80,27 @@ public class MainActivity extends Activity {
      * Lance l'activité de gestion des stocks.
      */
     public void showStock(View v) {
-        Intent intent = new Intent(this, StockActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, StockActivity.class);
+//        startActivity(intent);
+        BartenderApp.notifyShort(R.string.coming_soon);
     }
 
     /**
      * Lance l'activité d'ajout de serveur.
      */
     public void add(View v) {
-        Intent intent = new Intent(this, AddWaiterActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, AddWaiterActivity.class);
+//        startActivity(intent);
+        BartenderApp.notifyShort(R.string.coming_soon);
     }
 
     /**
      * Lance l'activité d'affichage des statistiques.
      */
     public void showStat(View v) {
-        Intent intent = new Intent(this, ShowStatActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, ShowStatActivity.class);
+//        startActivity(intent);
+        BartenderApp.notifyShort(R.string.coming_soon);
     }
 
     /**
