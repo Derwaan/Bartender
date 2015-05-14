@@ -250,5 +250,4 @@ public class MenuActivity extends Activity implements OnItemClickListener{
             orderTitle.setCompoundDrawablesWithIntrinsicBounds(d3, null, null, null);
         }
     }
-
 }

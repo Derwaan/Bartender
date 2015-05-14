@@ -29,9 +29,9 @@ public class SearchActivity extends Activity implements SearchView.OnQueryTextLi
          * Lorsqu'une requête est soumise, on ouvre l'activité d'affichage de la liste qui affichera
          * les résultats. (voir MenuActivity.java pour la suite de la recherche).
          */
-//        Intent intent = new Intent(this, MenuActivity.class);
-//        intent.putExtra("searchQuery", query);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra("searchQuery", query);
+        startActivity(intent);
         return true;
     }
 

@@ -55,12 +55,12 @@ public class Product {
     public static final String DB_COL_RATING = "NOTE";
 
     /**
-     *
+     *  Unions
      */
     public static final String DB_COL_PROD_ID = DB_TABLE_PRODUCT + "." + DB_COL_ID_PROD;
     public static final String DB_COL_RATING_ID = DB_TABLE_RATING + "." + DB_COL_ID_PRODUIT;
     public static final String DB_TABLES = DB_TABLE_PRODUCT + " INNER JOIN " + DB_TABLE_RATING + " ON " + DB_COL_PROD_ID + " = " + DB_COL_RATING_ID;
-
+    public static final String DB_TABLES_PRODUCT_STRING = DB_TABLE_PRODUCT + " INNER JOIN " + DB_TABLE_STRING + " ON " + DB_COL_ID_STRING + " = " + DB_COL_NAME;
     /**
      * Nom de colonne sur laquelle le tri est effectue
      */
@@ -343,16 +343,23 @@ public class Product {
      * @return Liste d'elements de collection repondant e la requete de recherche.
      */
     public static ArrayList<Product> searchProducts(String searchQuery) {
-        // Recuperation de l'id de l'utilisateur courant.
-        int u_id = User.getConnectedUser().getId();
+        SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
+        ArrayList<Product> products = new ArrayList<Product>();
 
-        // Criteres de selection (partie WHERE) :eappartiennent e l'utilisateur courant et ont un nom
-        // correspondant e la requete de recherche.
-        String selection = DB_COL_ID_LOGIN + " = ? AND " + DB_COL_NAME + " LIKE ?";
-        String[] selectionArgs = new String[]{String.valueOf(u_id), "%" + searchQuery + "%"};
+        String[] columns = new String[]{DB_COL_ID_PROD};
+        String selection = DB_COL_LANGUE + " = ? AND " + DB_COL_TEXTE + " LIKE ?";
+        String[] selectionArgs = new String[]{User.getConnectedUser().getLanguage(), "%" + searchQuery + "%"};
+        Cursor c = db.query(DB_TABLES_PRODUCT_STRING, columns, selection, selectionArgs, null, null, null);
 
-        // Les criteres de selection sont passes e la sous-methode de recuperation des elements.
-        return getProducts(selection, selectionArgs);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            int pId = c.getInt(0);
+            Product product = Product.get(pId);
+            products.add(product);
+            c.moveToNext();
+        }
+        c.close();
+        return products;
     }
 
     /**
@@ -370,34 +377,20 @@ public class Product {
      * @return Liste d'objets. La liste peut etre vide si aucun objet ne correspond.
      */
     private static ArrayList<Product> getProducts(String selection, String[] selectionArgs) {
-        // Initialisation de la liste des products.
         ArrayList<Product> products = new ArrayList<Product>();
-
-        // Recuperation du SQLiteHelper pour recuperer la base de donnees.
         SQLiteDatabase db = MySQLiteHelper.get().getReadableDatabase();
 
-        // Colonnes e recuperer. Ici uniquement l'id de l'element, le reste sera recupere par
-        // loadData() e la creation de l'instance de l'element. (choix de developpement).
-        String[] columns = new String[]{DB_COL_PROD_ID};
+        String[] columns = new String[]{DB_COL_ID_PROD};
 
-        // Requete SELECT e la base de donnees.
         Cursor c = db.query(DB_TABLE_PRODUCT, columns, selection, selectionArgs, null, null, Product.order_by + " " + Product.order);
 
         c.moveToFirst();
         while (!c.isAfterLast()) {
-            // Id de l'element.
             int pId = c.getInt(0);
-            // L'instance de l'element de collection est recupere avec la methode get(ciId)
-            // (Si l'instance n'existe pas encore, elle est creee par la methode get)
             Product product = Product.get(pId);
-
-            // Ajout de l'element de collection e la liste.
             products.add(product);
-
             c.moveToNext();
         }
-
-        // Fermeture du curseur et de la base de donnees.
         c.close();
         db.close();
 
