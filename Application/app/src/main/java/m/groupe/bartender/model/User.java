@@ -266,6 +266,19 @@ public class User {
     public static boolean add(User newUser) {
         boolean res;
 
+        if (newUser.getLogin() == null)
+            return false;
+        if (newUser.getPassword() == null)
+            return false;
+        if (newUser.getName() == null)
+            return false;
+        if (newUser.getEmail() == null)
+            return false;
+        if (newUser.getGsm() == null)
+            return false;
+        if (newUser.getAdress() == null)
+            return false;
+
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(DB_COLUMN_ID, newUser.getId());
