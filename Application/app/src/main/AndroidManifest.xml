@@ -45,6 +45,11 @@
             android:name=".activity.SearchActivity"
             android:label="" />
 
+        <!-- Account -->
+        <activity
+            android:name=".activity.AccountActivity"
+            android:label="" />
+
     </application>
 
 </manifest>

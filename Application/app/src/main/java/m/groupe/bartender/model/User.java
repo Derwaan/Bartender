@@ -283,5 +283,23 @@ public class User {
         db.close();
         return res;
     }
+
+    public static void update(int id, String login, String password, int type, String name, String language, String email, String sex, String phone, String address){
+        SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(DB_COLUMN_ID, id);
+        cv.put(DB_COLUMN_LOGIN, login);
+        cv.put(DB_COLUMN_PASSWORD, password);
+        cv.put(DB_COLUMN_TYPE, type);
+        cv.put(DB_COLUMN_NAME, name);
+        cv.put(DB_COLUMN_LANGUAGE, language);
+        cv.put(DB_COLUMN_EMAIL, email);
+        cv.put(DB_COLUMN_SEX, sex);
+        cv.put(DB_COLUMN_GSM, phone);
+        cv.put(DB_COLUMN_ADRESS, address);
+        db.update(DB_TABLE, cv, "ID_LOGIN = "+id, null);
+        cv.clear();
+        db.close();
+    }
 }
 
