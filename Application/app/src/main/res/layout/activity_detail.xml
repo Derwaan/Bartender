@@ -76,5 +76,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_product"
+        android:id="@+id/addToOrder_btn"
+        android:layout_above="@+id/addItem"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="-"
+        android:id="@+id/removeItem"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/addToOrder_btn"
+        android:layout_alignStart="@+id/addToOrder_btn" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:id="@+id/addItem"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/addToOrder_btn"
+        android:layout_alignEnd="@+id/addToOrder_btn" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:gravity="center"
+        android:id="@+id/numberItem"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/addToOrder_btn"
+        android:layout_toRightOf="@+id/removeItem"
+        android:layout_toLeftOf="@+id/addItem"
+        android:layout_toStartOf="@+id/addItem" />
 </RelativeLayout>

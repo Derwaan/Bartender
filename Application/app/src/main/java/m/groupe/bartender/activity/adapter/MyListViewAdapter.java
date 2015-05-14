@@ -14,11 +14,11 @@ import m.groupe.bartender.R;
 import m.groupe.bartender.model.Product;
 
 /**
- * Gère l'affichage personnalisé de notre liste.
+ * Gere l'affichage personnalise de notre liste.
  *
- * Cette classe permet de créer un Adapter personnalisé pour notre liste d'éléments de collection.
- * De cette manière il nous est possible d'utiliser un layout particulier (ici
- * collected_item_row.xml) pour chaque ligne reprenant le nom de l'élément et sa note (rating).
+ * Cette classe permet de creer un Adapter personnalise pour notre liste d'elements de collection.
+ * De cette maniere il nous est possible d'utiliser un layout particulier (ici
+ * collected_item_row.xml) pour chaque ligne reprenant le nom de l'element et sa note (rating).
  *
  * @author Damien Mercier
  * @version 1
@@ -32,7 +32,7 @@ public class MyListViewAdapter extends BaseAdapter {
     private final LayoutInflater mInflater;
 
     /**
-     * Liste des éléments de collection à mettre dans la liste.
+     * Liste des elements de collection e mettre dans la liste.
      */
     private ArrayList<Product> products;
 
@@ -40,7 +40,7 @@ public class MyListViewAdapter extends BaseAdapter {
      * Constructeur.
      *
      * @param context        Contexte de l'application.
-     * @param products Liste des éléments de collection à placer dans la liste.
+     * @param products Liste des elements de collection e placer dans la liste.
      */
     public MyListViewAdapter(Context context, ArrayList<Product> products) {
         mInflater = LayoutInflater.from(context);
@@ -65,25 +65,25 @@ public class MyListViewAdapter extends BaseAdapter {
     /**
      * Remplit chaque ligne de la liste avec un layout particulier.
      *
-     * Cette méthode est appelée par Android pour construire la vue de la liste (lors de la
+     * Cette methode est appelee par Android pour construire la vue de la liste (lors de la
      * construction de listview).
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Si la vue n'a pas encore été créé (typiquement lors du première affichage de la liste).
-        // Android recycle en effet les layout déjà chargés des éléments de la liste (par exemple
+        // Si la vue n'a pas encore ete cree (typiquement lors du premiere affichage de la liste).
+        // Android recycle en effet les layout deje charges des elements de la liste (par exemple
         // lors du changement de l'ordre dans la liste.)
 
         if (convertView == null) {
-            // Création d'un nouvelle vue avec le layout correspondant au fichier xml
+            // Creation d'un nouvelle vue avec le layout correspondant au fichier xml
             convertView = mInflater.inflate(R.layout.activity_product, parent, false);
         }
 
-        // Récupération des deux éléments de notre vue dans le but d'y placer les données.
+        // Recuperation des deux elements de notre vue dans le but d'y placer les donnees.
         TextView nameTextView = (TextView) convertView.findViewById(R.id.name_row);
         TextView priceTextView = (TextView) convertView.findViewById(R.id.price_row);
 
-        // Récupération et placement des données.
+        // Recuperation et placement des donnees.
         Product product = products.get(position);
         nameTextView.setText(product.getName());
         priceTextView.setText(product.getPrice());
@@ -93,13 +93,13 @@ public class MyListViewAdapter extends BaseAdapter {
     }
 
     /**
-     * Change la liste des éléments de collection affichée.
+     * Change la liste des elements de collection affichee.
      *
-     * Permet de changer complètement la liste des éléments affichés dans la liste.
+     * Permet de changer completement la liste des elements affiches dans la liste.
      *
-     * @param newProducts La nouvelle liste des éléments de collection à afficher.
+     * @param newProducts La nouvelle liste des elements de collection e afficher.
      *
-     * @post Les éléments de la liste ont été remplacés par les éléments passés en argument.
+     * @post Les elements de la liste ont ete remplaces par les elements passes en argument.
      */
     public void setProducts(ArrayList<Product> newProducts) {
         this.products = newProducts;

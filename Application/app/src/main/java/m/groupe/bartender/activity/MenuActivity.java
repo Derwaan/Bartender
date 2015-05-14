@@ -2,6 +2,9 @@ package m.groupe.bartender.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -156,27 +159,27 @@ public class MenuActivity extends Activity implements OnItemClickListener{
                     Product.order = "DESC";
                 }
                 break;
-            case R.id.rating_btn:
-                if (Product.order_by.equals(Product.DB_COL_RATING)) {
-                    // Si le tri est déjà effectué sur les cotes, il faut juste inverser l'ordre
-                    Product.reverseOrder();
-                } else {
-                    // Sinon il faut indiquer que le tri se fait sur les notes par ordre décroissant
-                    // (le meilleure note d'abord)
-                    Product.order_by = Product.DB_COL_RATING;
-                    Product.order = "DESC";
-                }
-                break;
-            case R.id.cat_btn:
-                if (Product.order_by.equals(Product.DB_COL_CAT)) {
-                    // Si le tri est déjà effectué sur les catégories, il faut juste inverser l'ordre
-                    Product.reverseOrder();
-                } else {
-                    // Sinon il faut indiquer que le tri se fait sur les categories par ordre alphabetique
-                    Product.order_by = Product.DB_COL_CAT;
-                    Product.order = "ASC";
-                }
-                break;
+//            case R.id.rating_btn:
+//                if (Product.order_by.equals(Product.DB_COL_RATING)) {
+//                    // Si le tri est déjà effectué sur les cotes, il faut juste inverser l'ordre
+//                    Product.reverseOrder();
+//                } else {
+//                    // Sinon il faut indiquer que le tri se fait sur les notes par ordre décroissant
+//                    // (le meilleure note d'abord)
+//                    Product.order_by = Product.DB_COL_RATING;
+//                    Product.order = "DESC";
+//                }
+//                break;
+//            case R.id.cat_btn:
+//                if (Product.order_by.equals(Product.DB_COL_CAT)) {
+//                    // Si le tri est déjà effectué sur les catégories, il faut juste inverser l'ordre
+//                    Product.reverseOrder();
+//                } else {
+//                    // Sinon il faut indiquer que le tri se fait sur les categories par ordre alphabetique
+//                    Product.order_by = Product.DB_COL_CAT;
+//                    Product.order = "ASC";
+//                }
+//                break;
         }
 
         // Mise à jour des icônes de tri.
@@ -201,8 +204,8 @@ public class MenuActivity extends Activity implements OnItemClickListener{
     private void updateDrawableOrder() {
         TextView priceValue = (TextView) findViewById(R.id.price_btn);
         TextView nameTitle = (TextView) findViewById(R.id.name_btn);
-        TextView catTitle = (TextView) findViewById(R.id.cat_btn);
-        TextView ratingTitle = (TextView) findViewById(R.id.rating_btn);
+       // TextView catTitle = (TextView) findViewById(R.id.cat_btn);
+      //  TextView ratingTitle = (TextView) findViewById(R.id.rating_btn);
 
         /**
          * Remise à zéro des images de tri.
@@ -210,27 +213,41 @@ public class MenuActivity extends Activity implements OnItemClickListener{
          * (up) et celui pour les notes est décroissant (down). Il faut que cela correspondent dans
          * le comportement de la méthode change_order.
          */
-        nameTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_inactive, 0, 0, 0);
-        ratingTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_inactive, 0, 0, 0);
+        // Read your drawable from somewhere
+        Drawable dr = getResources().getDrawable(R.drawable.ic_up_inactive);
+        Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+// Scale it to 50 x 50
+        Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 50, 50, true));
+        nameTitle.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+       // ratingTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_inactive, 0, 0, 0);
 
 
         // Détermination de la colonne sur laquelle le tri est effectué.
         TextView orderTitle;
         boolean orderByRating = Product.order_by.equals(Product.DB_COL_RATING);
-        if (orderByRating) {
-            orderTitle = ratingTitle;
-        } else {
+        //if (orderByRating) {
+        //    orderTitle = ratingTitle;
+        //}
+        //else {
             orderTitle = nameTitle;
-        }
-
+        //}
+        Drawable dr2 = getResources().getDrawable(R.drawable.ic_down_active);
+        Bitmap bitmap2 = ((BitmapDrawable) dr2).getBitmap();
+// Scale it to 50 x 50
+        Drawable d2 = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap2, 50, 50, true));
+        Drawable dr3 = getResources().getDrawable(R.drawable.ic_up_active);
+        Bitmap bitmap3 = ((BitmapDrawable) dr3).getBitmap();
+// Scale it to 50 x 50
+        Drawable d3 = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap3, 50, 50, true));
         // Détermination de l'ordre de tri.
         boolean orderDesc = Product.order.equals("DESC");
 
         // Placement de l'icône en fonction de l'ordre de tri.
         if (orderDesc) {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_down_active, 0, 0, 0);
+
+            orderTitle.setCompoundDrawablesWithIntrinsicBounds(d2, null, null, null);
         } else {
-            orderTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_up_active, 0, 0, 0);
+            orderTitle.setCompoundDrawablesWithIntrinsicBounds(d3, null, null, null);
         }
     }
 
