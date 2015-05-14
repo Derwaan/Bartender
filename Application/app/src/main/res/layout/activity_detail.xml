@@ -96,7 +96,8 @@
         android:id="@+id/removeItem"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/addToOrder_btn"
-        android:layout_alignStart="@+id/addToOrder_btn" />
+        android:layout_alignStart="@+id/addToOrder_btn"
+        android:onClick="decrement" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -106,7 +107,8 @@
         android:id="@+id/addItem"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/addToOrder_btn"
-        android:layout_alignEnd="@+id/addToOrder_btn" />
+        android:layout_alignEnd="@+id/addToOrder_btn"
+        android:onClick="increment" />
 
     <TextView
         android:layout_width="50dp"

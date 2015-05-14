@@ -15,14 +15,15 @@ import m.groupe.bartender.model.Product;
 public class DetailActivity extends Activity implements RatingBar.OnRatingBarChangeListener {
 
     private Product currentProduct;
+    private int amount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        // R�cup�ration de l'id de l'�l�ment de collection ou si rien n'est trouv�, -1 est la valeur
-        // par d�faut.
+        // Recuperation de l'id de l'element de collection ou si rien n'est trouve, -1 est la valeur
+        // par defaut.
         // Lire http://d.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent
         int id = getIntent().getIntExtra("p_id", -1);
 
@@ -31,10 +32,10 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
             throw new RuntimeException("Aucun id d'element n'a ete specifie.");
         }
 
-        // R�cup�ration de l'�l�ment de collection.
+        // Recuperation de l'element de collection.
         currentProduct = Product.get(id);
 
-        // Compl�tition des diff�rents champs avec les donn�es de l'�l�ment de collection.
+        // Completition des differents champs avec les donnees de l'element de collection.
         TextView name = (TextView) findViewById(R.id.show_details_name);
         name.setText(currentProduct.getName());
 
@@ -44,19 +45,19 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
         RatingBar rating = (RatingBar) findViewById(R.id.show_details_rating);
         rating.setRating(currentProduct.getRating());
 
-        // Indique que cette classe recevra les modifications de note (rating) gr�ce � la m�thode
+        // Indique que cette classe recevra les modifications de note (rating) grece e la methode
         // onRatingChanged.
         rating.setOnRatingBarChangeListener(this);
 
-        // R�cup�ration et affichage de l'image.
-        // S'il n'y a pas d'image, l'emplacement pr�vu doit �tre masqu�.
+        // Recuperation et affichage de l'image.
+        // S'il n'y a pas d'image, l'emplacement prevu doit etre masque.
         Bitmap bitmap = currentProduct.getImage();
         if (bitmap != null) {
             ImageView picture = (ImageView) findViewById(R.id.show_details_picture);
             picture.setImageBitmap(bitmap);
         } else {
             View pictureLL = findViewById(R.id.show_details_picture_ll);
-            // La visibilit� GONE implique que l'�l�ment ne prend aucune place (contrairement � INVISIBLE).
+            // La visibilite GONE implique que l'element ne prend aucune place (contrairement e INVISIBLE).
             pictureLL.setVisibility(View.GONE);
         }
 
@@ -65,11 +66,11 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
     /**
      * Enregistre les changements de la note (rating).
      *
-     * @param ratingBar La RatingBar concern�e (ici il n'y en a qu'une dont l'id est
+     * @param ratingBar La RatingBar concernee (ici il n'y en a qu'une dont l'id est
      *                  show_details_rating).
      * @param rating    La valeur de la nouvelle note (rating).
-     * @param fromUser  Indique si le changement de note (rating) est effectu� par l'utilisateur ou
-     *                  par le programme (par exemple par appel de la m�thode
+     * @param fromUser  Indique si le changement de note (rating) est effectue par l'utilisateur ou
+     *                  par le programme (par exemple par appel de la methode
      *                  ratingBar.setRating(x)).
      */
     @Override
@@ -77,10 +78,18 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
         if (fromUser) {
             if (!currentProduct.setRating(rating)) {
                 // En cas d'erreur, il faut notifier l'utilisateur et afficher la valeur qui est
-                // r�ellement enregistr�e.
+                // reellement enregistree.
                 BartenderApp.notifyShort(R.string.show_details_rating_change_error);
                 ratingBar.setRating(currentProduct.getRating());
             }
         }
+    }
+
+    public void increment(View v) {
+        amount++;
+    }
+
+    public void decrement(View v) {
+        amount = amount > 0 ? --amount : 0;
     }
 }
