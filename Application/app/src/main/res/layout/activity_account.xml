@@ -44,9 +44,9 @@
         android:text="Données personnelles"
         android:id="@+id/informations_text_mod"
         android:layout_below="@+id/password_field_mod"
-        android:layout_alignRight="@+id/connexion_text"
-        android:layout_alignEnd="@+id/connexion_text"
-        android:layout_marginTop="37dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="67dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,7 +81,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:spinnerMode="dropdown"
-        android:layout_below="@+id/mail_field_mod" />
+        android:layout_below="@+id/mail_field_mod"
+        android:layout_toLeftOf="@+id/submit_btn_mod"
+        android:layout_toStartOf="@+id/submit_btn_mod" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -118,4 +120,26 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
         android:onClick="updateUser"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/confirm_field"
+        android:layout_below="@+id/password_field_mod"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Confirmer le mot de passe" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lan_spin"
+        android:layout_below="@+id/mail_field_mod"
+        android:layout_toRightOf="@+id/submit_btn_mod"
+        android:layout_toEndOf="@+id/submit_btn_mod"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

@@ -19,6 +19,7 @@ import m.groupe.bartender.model.User;
 
 public class AccountActivity extends Activity{
     private Spinner sex_spinner;
+    private Spinner lan_spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,14 @@ public class AccountActivity extends Activity{
         sex_spinner.setAdapter(adapter);
         if(User.getConnectedUser().getSex().equals("F")) {
             sex_spinner.setSelection(1);
+        }
+
+        lan_spinner = (Spinner) findViewById(R.id.lan_spin);
+        ArrayAdapter<CharSequence> adapter_l = ArrayAdapter.createFromResource(this, R.array.lan, android.R.layout.simple_spinner_item);
+        adapter_l.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lan_spinner.setAdapter(adapter_l);
+        if(User.getConnectedUser().getLanguage().equals("en")) {
+            lan_spinner.setSelection(1);
         }
 
         TextView login = (TextView) findViewById(R.id.login_field_mod);
@@ -61,16 +70,21 @@ public class AccountActivity extends Activity{
         int id = User.getConnectedUser().getId();
         String login = ((EditText) findViewById(R.id.login_field_mod)).getText().toString();
         String password = ((EditText)findViewById(R.id.password_field_mod)).getText().toString();
+        String confirm = ((EditText)findViewById(R.id.confirm_field)).getText().toString();
         int type = 1;
         String name = ((EditText)findViewById(R.id.name_field_mod)).getText().toString();;
-        String language = "fr";
+        String language = "" + lan_spinner.getSelectedItem().toString();
         String email = ((EditText)findViewById(R.id.mail_field_mod)).getText().toString();;
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = ((EditText)findViewById(R.id.phone_field_mod)).getText().toString();
         String address = ((EditText)findViewById(R.id.address_field_mod)).getText().toString();
-        User.update(id, login, password, type, name, language, email, sex, phone, address);
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        if(confirm.equals(password)) {
+            User.update(id, login, password, type, name, language, email, sex, phone, address);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            BartenderApp.notifyShort(R.string.confirm);
+        }
     }
 }

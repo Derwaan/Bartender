@@ -64,7 +64,7 @@ public class RegisterActivity extends Activity{
         String confirm = ((EditText) findViewById(R.id.confirm_field)).getText().toString();
         int type = 1;
         String name = ((EditText)findViewById(R.id.name_field)).getText().toString();;
-        String language = "" + lan_spinner.getSelectedItem().toString().charAt(0);
+        String language = "" + lan_spinner.getSelectedItem().toString();
         String email = ((EditText)findViewById(R.id.mail_field)).getText().toString();;
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = ((EditText)findViewById(R.id.phone_field)).getText().toString();
