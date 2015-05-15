@@ -1,6 +1,8 @@
 package m.groupe.bartender.activity;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +10,15 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 import m.groupe.bartender.BartenderApp;
+import m.groupe.bartender.MySQLiteHelper;
 import m.groupe.bartender.R;
+import m.groupe.bartender.model.Order;
 import m.groupe.bartender.model.Product;
+import m.groupe.bartender.model.Quantity;
+import m.groupe.bartender.model.User;
 
 public class DetailActivity extends Activity implements RatingBar.OnRatingBarChangeListener {
 
@@ -87,9 +95,23 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
 
     public void increment(View v) {
         amount++;
+        TextView myTextView = (TextView) findViewById(R.id.numberItem);
+        myTextView.setText("" + amount);
     }
 
     public void decrement(View v) {
         amount = amount > 0 ? --amount : 0;
+        TextView myTextView = (TextView) findViewById(R.id.numberItem);
+        myTextView.setText("" + amount);
+    }
+
+    public void addToOrder(View v){
+        if(Order.getCurrentOrder() == null) {//we create a new order if it doesn't exist already
+            Order.createOrder();
+        }
+        Quantity qty = new Quantity(currentProduct.getId(), Order.getCurrentOrder().getId_order(), amount);
+        //Add to db
+        Quantity.addToDB(qty);
+        BartenderApp.notifyShort(R.string.item_added);
     }
 }

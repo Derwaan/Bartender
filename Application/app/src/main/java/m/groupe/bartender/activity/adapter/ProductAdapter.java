@@ -25,7 +25,7 @@ import m.groupe.bartender.model.Product;
  * @see <a href="http://d.android.com/reference/android/widget/Adapter.html">Adapter</a>
  * @see <a href="http://d.android.com/reference/android/widget/BaseAdapter.html">BaseAdapter</a>
  */
-public class MyListViewAdapter extends BaseAdapter {
+public class ProductAdapter extends BaseAdapter {
     /**
      * Permet d'instancier un fichier xml de layout dans une vue.
      */
@@ -42,7 +42,7 @@ public class MyListViewAdapter extends BaseAdapter {
      * @param context        Contexte de l'application.
      * @param products Liste des elements de collection e placer dans la liste.
      */
-    public MyListViewAdapter(Context context, ArrayList<Product> products) {
+    public ProductAdapter(Context context, ArrayList<Product> products) {
         mInflater = LayoutInflater.from(context);
         this.products = products;
     }
@@ -86,7 +86,7 @@ public class MyListViewAdapter extends BaseAdapter {
         // Recuperation et placement des donnees.
         Product product = products.get(position);
         nameTextView.setText(product.getName());
-        priceTextView.setText(product.getPrice());
+        priceTextView.setText(product.getPrice()+"€");
         //ratingBar.setRating(product.getRating());
 
         return convertView;
