@@ -266,17 +266,17 @@ public class User {
     public static boolean add(User newUser) {
         boolean res;
 
-        if (newUser.getLogin() == null)
+        if (newUser.getLogin().equals(""))
             return false;
-        if (newUser.getPassword() == null)
+        if (newUser.getPassword().equals(""))
             return false;
-        if (newUser.getName() == null)
+        if (newUser.getName().equals(""))
             return false;
-        if (newUser.getEmail() == null)
+        if (newUser.getEmail().equals(""))
             return false;
-        if (newUser.getGsm() == null)
+        if (newUser.getGsm().equals(""))
             return false;
-        if (newUser.getAdress() == null)
+        if (newUser.getAdress().equals(""))
             return false;
 
         SQLiteDatabase db = MySQLiteHelper.get().getWritableDatabase();
@@ -304,21 +304,21 @@ public class User {
         cv.put(DB_COLUMN_ID, id);
         cv.put(DB_COLUMN_TYPE, type);
 
-        if (login != null)
+        if (!login.equals(""))
             cv.put(DB_COLUMN_LOGIN, login);
-        if (password != null)
+        if (!password.equals(""))
             cv.put(DB_COLUMN_PASSWORD, password);
-        if(name != null)
+        if(!name.equals(""))
             cv.put(DB_COLUMN_NAME, name);
-        if(language != null)
+        if(!language.equals(""))
             cv.put(DB_COLUMN_LANGUAGE, language);
-        if (email != null)
+        if (!email.equals(""))
             cv.put(DB_COLUMN_EMAIL, email);
-        if (sex != null)
+        if (!sex.equals(""))
             cv.put(DB_COLUMN_SEX, sex);
-        if (phone != null)
+        if (!phone.equals(""))
             cv.put(DB_COLUMN_GSM, phone);
-        if (address != null)
+        if (!address.equals(""))
             cv.put(DB_COLUMN_ADRESS, address);
 
         db.update(DB_TABLE, cv, "ID_LOGIN = " +id, null);
