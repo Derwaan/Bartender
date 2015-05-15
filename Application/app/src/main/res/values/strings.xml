@@ -42,6 +42,7 @@
     <string name="show_details_rating_change_error">Désolé, la nouvelle note n\'a pas pu être enregistrée.</string>
     <string name="add_product">Ajouter à ma commande </string>
     <string name="item_added">Objet ajouté </string>
+    <string name="null_amount">Désolé nous ne pouvez pas rajouter 0 objet</string>
 
     <!-- Order -->
     <string name="no_order">Vous n\'avez pas de commande.</string>
