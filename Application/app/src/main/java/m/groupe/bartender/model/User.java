@@ -286,7 +286,7 @@ public class User {
         cv.put(DB_COLUMN_PASSWORD, newUser.getPassword());
         cv.put(DB_COLUMN_TYPE, newUser.getType());
         cv.put(DB_COLUMN_NAME, newUser.getName());
-        cv.put(DB_COLUMN_LANGUAGE, newUser.getLanguage());
+        cv.put(DB_COLUMN_LANGUAGE, newUser.getLanguage().toLowerCase());
         cv.put(DB_COLUMN_EMAIL, newUser.getEmail());
         cv.put(DB_COLUMN_SEX, newUser.getSex());
         cv.put(DB_COLUMN_GSM, newUser.getGsm());
@@ -311,7 +311,7 @@ public class User {
         if(!name.equals(""))
             cv.put(DB_COLUMN_NAME, name);
         if(!language.equals(""))
-            cv.put(DB_COLUMN_LANGUAGE, language);
+            cv.put(DB_COLUMN_LANGUAGE, language.toLowerCase());
         if (!email.equals(""))
             cv.put(DB_COLUMN_EMAIL, email);
         if (!sex.equals(""))

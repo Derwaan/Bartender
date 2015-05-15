@@ -250,10 +250,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper
     {
         String request = "STRING.TEXTE FROM USER, PRODUIT, STRING WHERE USER.LANGUE = STRING.LANGUE AND PRODUIT.ID_PROD = " + product_id + " AND STRING.ID_STRING = PRODUIT.DESCR AND USER.ID_LOGIN = " + user_id;
         Cursor result = db.rawQuery(request, null);
-
         result.moveToFirst();
         String trad = result.getString(0);
-
         result.close();
 
         return trad;
