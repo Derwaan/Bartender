@@ -55,6 +55,7 @@ public class RegisterActivity extends Activity{
 
         String login = ((EditText) findViewById(R.id.login_field)).getText().toString();
         String password = ((EditText)findViewById(R.id.password_field)).getText().toString();
+        String confirm = ((EditText) findViewById(R.id.confirm_field)).getText().toString();
         int type = 1;
         String name = ((EditText)findViewById(R.id.name_field)).getText().toString();;
         String language = "fr";
@@ -62,19 +63,23 @@ public class RegisterActivity extends Activity{
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = ((EditText)findViewById(R.id.phone_field)).getText().toString();
         String address = ((EditText)findViewById(R.id.address_field)).getText().toString();
-        User user = new User(id, login, password, type, name, language, email, sex, phone, address);
-        boolean res = User.add(user);
 
-        if (!res) {
-            BartenderApp.notifyShort(R.string.unregistered);
-        }
-        else{
-            BartenderApp.notifyShort(R.string.registered);
-        }
+        if(password.equals(confirm)) {
+            User user = new User(id, login, password, type, name, language, email, sex, phone, address);
+            boolean res = User.add(user);
+            if (!res) {
+                BartenderApp.notifyShort(R.string.unregistered);
+            }
+            else{
+                BartenderApp.notifyShort(R.string.registered);
+            }
 
-        if(res) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            if(res) {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            }
+        } else {
+            BartenderApp.notifyShort(R.string.confirm);
         }
     }
 }

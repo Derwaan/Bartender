@@ -16,6 +16,7 @@
     </string-array>
     <string name="registered">Vous êtes a présent enregistré</string>
     <string name="unregistered">Erreur: Impossible d\'enregistrer l\'utilisateur</string>
+    <string name="confirm">Erreur: Les mots de passes ne correspondent pas</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>

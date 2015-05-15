@@ -16,6 +16,7 @@
     </string-array>
     <string name="registered">You are now registered</string>
     <string name="unregistered">Error: Unable to register</string>
+    <string name="confirm">Error: Passwords don\'t match</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>
