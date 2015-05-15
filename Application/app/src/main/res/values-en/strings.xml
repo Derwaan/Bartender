@@ -36,4 +36,8 @@
     <string name="show_details_rating_title">Rating</string>
     <string name="show_details_rating_change_error">Sorry, unable to record the rating.</string>
     <string name="add_product">Add to my order </string>
+    <string name="item_added">Item added </string>
+
+    <!-- Order -->
+    <string name="no_order">You have no order.</string>
 </resources>

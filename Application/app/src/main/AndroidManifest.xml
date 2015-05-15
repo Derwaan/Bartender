@@ -50,6 +50,11 @@
             android:name=".activity.AccountActivity"
             android:label="" />
 
+        <!-- Order -->
+        <activity
+            android:name=".activity.OrderActivity"
+            android:label="" />
+
     </application>
 
 </manifest>
