@@ -22,7 +22,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Carte"
+        android:text="@string/menu"
         android:id="@+id/menu_btn"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -32,7 +32,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Mes commandes"
+        android:text="@string/orders"
         android:id="@+id/orders_btn"
         android:layout_below="@+id/menu_btn"
         android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Mon compte"
+        android:text="@string/account"
         android:id="@+id/account_btn"
         android:layout_below="@+id/orders_btn"
         android:layout_centerHorizontal="true"
@@ -50,7 +50,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="État du stock"
+        android:text="@string/account"
         android:id="@+id/stock_btn"
         android:layout_below="@+id/account_btn"
         android:layout_centerHorizontal="true"
@@ -59,7 +59,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Rajouter un serveur"
+        android:text="@string/addWaiter"
         android:id="@+id/addWaiter_btn"
         android:layout_below="@+id/stock_btn"
         android:layout_centerHorizontal="true"
@@ -68,7 +68,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Statistiques"
+        android:text="@string/stats"
         android:id="@+id/stats_btn"
         android:layout_below="@+id/addWaiter_btn"
         android:layout_centerHorizontal="true"
@@ -78,7 +78,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Se déconnecter"
+        android:text="@string/logout"
         android:id="@+id/logout_btn"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/stats_btn"

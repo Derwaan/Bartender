@@ -7,6 +7,7 @@
     <string name="login_username">Pseudonyme</string>
     <string name="login_wrong_password_msg">Mauvais pseudo ou mot de passe.</string>
     <string name="login_btn">Connexion</string>
+    <string name="register_btn">S\'inscrire</string>
 
     <!-- Register -->
     <string name="register_activity_title">S\'enregistrer</string>
@@ -21,16 +22,35 @@
     <string name="registered">Vous êtes a présent enregistré</string>
     <string name="unregistered">Erreur: Impossible d\'enregistrer l\'utilisateur</string>
     <string name="confirm">Erreur: Les mots de passes ne correspondent pas</string>
+    <string name="connection_data">Données de connexion</string>
+    <string name="login">Identifiant</string>
+    <string name="password">Mot de passe</string>
+    <string name="confirm_text">Confirmer le mot de passe</string>
+    <string name="personal_data">Données personnelles</string>
+    <string name="name">Nom</string>
+    <string name="mail">Email</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="address">Adresse</string>
+    <string name="confirm_btn">Modifier</string>
 
     <!-- Main -->
     <string name="main_activity_title">Menu</string>
+    <string name="menu">Carte</string>
+    <string name="orders">Mes commandes</string>
+    <string name="account">Mon compte</string>
+    <string name="stock">État du stock</string>
+    <string name="addWaiter">Rajouter un serveur</string>
+    <string name="stats">Statistiques</string>
+    <string name="logout">Se déconnecter</string>
     <string name="action_settings">Paramètres</string>
     <string name="main_back_button_disable">Pour retourner en arrière, déconnectez-vous</string>
     <string name="coming_soon">Cette fonctionnalité arrive bientôt.</string>
     
     <!-- Menu -->
     <string name="menu_activity_title">Carte</string>
+    <string name="price">Prix</string>
     <string name="show_list_error_no_item">Aucun produit.</string>
+    <string name="search">Rechercher</string>
     <string name="show_list_no_result">Aucun résultat ne correspond à votre recherche</string>
 
     <!-- Detail -->
@@ -46,4 +66,10 @@
 
     <!-- Order -->
     <string name="no_order">Vous n\'avez pas de commande.</string>
+    <string name="table">Table n°</string>
+    <string name="total">Total: €</string>
+    <string name="state">Etat: </string>
+    <string name="command_btn">Commander</string>
+
+    <string name="addProduct">Rajouter un produit</string>
 </resources>

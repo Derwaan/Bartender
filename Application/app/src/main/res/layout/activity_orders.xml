@@ -9,7 +9,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="Total : €" />
+        android:text="@string/total" />
 
     <ListView
         android:layout_width="wrap_content"

@@ -6,7 +6,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rajouter un produit"
+        android:text="@string/addProduct"
         android:id="@+id/addProduct_btn"
         android:layout_gravity="center_horizontal|bottom" />
 

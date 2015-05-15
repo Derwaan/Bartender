@@ -6,7 +6,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Données de connexion"
+        android:text="@string/connection_data"
         android:id="@+id/connexion_text"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
         android:layout_below="@+id/connexion_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Identifiant"
+        android:hint="@string/login"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -33,7 +33,7 @@
         android:layout_below="@+id/login_field_mod"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Mot de passe"
+        android:hint="@string/password"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Données personnelles"
+        android:text="@string/personal_data"
         android:id="@+id/informations_text_mod"
         android:layout_below="@+id/password_field_mod"
         android:layout_alignParentLeft="true"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Nom"
+        android:hint="@string/name"
         android:ems="10"
         android:id="@+id/name_field_mod"
         android:layout_below="@+id/informations_text_mod"
@@ -70,7 +70,7 @@
         android:layout_below="@+id/name_field_mod"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Email"
+        android:hint="@string/mail"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -94,7 +94,7 @@
         android:layout_below="@+id/sex_spin_mod"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Numéro de téléphone"
+        android:hint="@string/phone_number"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -107,14 +107,14 @@
         android:layout_below="@+id/phone_field_mod"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Adresse"
+        android:hint="@string/address"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modifier"
+        android:text="@string/confirm_btn"
         android:id="@+id/submit_btn_mod"
         android:layout_below="@+id/address_field_mod"
         android:layout_centerHorizontal="true"
@@ -132,7 +132,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="Confirmer le mot de passe" />
+        android:hint="@string/confirm_text" />
 
     <Spinner
         android:layout_width="wrap_content"

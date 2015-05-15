@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login_field"
-            android:hint="Identifiant" />
+            android:hint="@string/login" />
 
         <EditText
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/password_field"
-            android:hint="Mot de passe"
+            android:hint="@string/password"
             android:imeActionLabel="@string/login_btn"
             android:imeActionId="6"
             android:imeOptions="actionDone"/>
@@ -43,14 +43,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="login"
-            android:text="Connexion"
+            android:text="@string/login_btn"
             android:id="@+id/login_btn"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inscription"
+            android:text="@string/register_btn"
             android:onClick="register"
             android:id="@+id/register_btn"
             android:layout_gravity="center_horizontal" />

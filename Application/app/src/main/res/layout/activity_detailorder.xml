@@ -15,26 +15,26 @@
         android:layout_height="wrap_content"
         android:id="@+id/table_text"
         android:layout_gravity="left|top"
-        android:text="Table n° " />
+        android:text="@string/table" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/total_text"
         android:layout_gravity="center_horizontal|top"
-        android:text="Total : €" />
+        android:text="@string/total" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/state_text"
         android:layout_gravity="right|top"
-        android:text="Etat" />
+        android:text="@string/state" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Commander"
+        android:text="@string/command_btn"
         android:id="@+id/submit_btn"
         android:layout_gravity="center_horizontal|bottom" />
 </FrameLayout>
