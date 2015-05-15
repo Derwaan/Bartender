@@ -64,7 +64,7 @@ public class Quantity {
         String selection = "ID_PROD = ? AND LANGUE = ?";
         String []selectionArgs = {""+qty.getId_product(), User.getConnectedUser().getLanguage()};
 
-        Cursor c = db.query("PRODUCT INNER JOIN STRING ON NOM_PRODUIT = ID STRING", columns, selection, selectionArgs, null, null, null);
+        Cursor c = db.query("PRODUIT INNER JOIN STRING ON NOM_PRODUIT = ID_STRING", columns, selection, selectionArgs, null, null, null);
         c.moveToFirst();
 
         while (!c.isAfterLast()) {

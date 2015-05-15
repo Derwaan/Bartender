@@ -108,6 +108,7 @@ public class DetailActivity extends Activity implements RatingBar.OnRatingBarCha
     public void addToOrder(View v){
         if(Order.getCurrentOrder() == null) {//we create a new order if it doesn't exist already
             Order.createOrder();
+            Order.writeOrder();
         }
         Quantity qty = new Quantity(currentProduct.getId(), Order.getCurrentOrder().getId_order(), amount);
         //Add to db

@@ -73,7 +73,7 @@ public class OrderAdapter extends BaseAdapter {
         // Récupération et placement des données.
         Quantity quantity1 = quantities.get(position);
         nameTextView.setText(quantity1.getName(quantity1));
-        quantity.setText(quantity1.getQuantity());
+        quantity.setText(""+quantity1.getQuantity());
 
         return convertView;
     }
