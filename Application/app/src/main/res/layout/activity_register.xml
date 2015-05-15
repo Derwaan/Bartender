@@ -81,7 +81,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:spinnerMode="dropdown"
-        android:layout_below="@+id/mail_field" />
+        android:layout_below="@+id/mail_field"
+        android:layout_toLeftOf="@+id/submit_btn"
+        android:layout_toStartOf="@+id/submit_btn" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -131,4 +133,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lang_spin"
+        android:layout_above="@+id/phone_field"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/connexion_text"
+        android:layout_toEndOf="@+id/connexion_text"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

@@ -14,6 +14,10 @@
         <item>M</item>
         <item>F</item>
     </string-array>
+    <string-array name="lan">
+        <item>FR</item>
+        <item>EN</item>
+    </string-array>
     <string name="registered">You are now registered</string>
     <string name="unregistered">Error: Unable to register</string>
     <string name="confirm">Error: Passwords don\'t match</string>

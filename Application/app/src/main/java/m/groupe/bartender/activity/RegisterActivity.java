@@ -20,6 +20,7 @@ import m.groupe.bartender.model.User;
  */
 public class RegisterActivity extends Activity{
     private Spinner sex_spinner;
+    private Spinner lan_spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,11 @@ public class RegisterActivity extends Activity{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         sex_spinner.setAdapter(adapter);
+
+        lan_spinner = (Spinner) findViewById(R.id.lang_spin);
+        ArrayAdapter<CharSequence> adapter_l = ArrayAdapter.createFromResource(this, R.array.lan, android.R.layout.simple_spinner_item);
+        adapter_l.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        lan_spinner.setAdapter(adapter_l);
     }
 
     @Override
@@ -58,7 +64,7 @@ public class RegisterActivity extends Activity{
         String confirm = ((EditText) findViewById(R.id.confirm_field)).getText().toString();
         int type = 1;
         String name = ((EditText)findViewById(R.id.name_field)).getText().toString();;
-        String language = "fr";
+        String language = "" + lan_spinner.getSelectedItem().toString().charAt(0);
         String email = ((EditText)findViewById(R.id.mail_field)).getText().toString();;
         String sex = "" + sex_spinner.getSelectedItem().toString().charAt(0);
         String phone = ((EditText)findViewById(R.id.phone_field)).getText().toString();
