@@ -63,9 +63,9 @@ public class MainActivity extends Activity {
      * Lance l'activité d'affichage des commandes.
      */
     public void order(View v) {
-//        Intent intent = new Intent(this, OrderActivity.class);
-//        startActivity(intent);
-        BartenderApp.notifyShort(R.string.coming_soon);
+        Intent intent = new Intent(this, OrderActivity.class);
+        startActivity(intent);
+//        BartenderApp.notifyShort(R.string.coming_soon);
     }
 
     /**

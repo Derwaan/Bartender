@@ -6,25 +6,25 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="369dp"
-        android:id="@+id/products_list"
+        android:id="@+id/order_list"
         android:layout_gravity="center"
         android:choiceMode="none" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/table_text"
         android:layout_gravity="left|top"
         android:text="Table n° " />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/total_text"
         android:layout_gravity="center_horizontal|top"
         android:text="Total : €" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/state_text"

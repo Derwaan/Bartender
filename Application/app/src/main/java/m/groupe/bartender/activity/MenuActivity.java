@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import m.groupe.bartender.BartenderApp;
 import m.groupe.bartender.R;
-import m.groupe.bartender.activity.adapter.MyListViewAdapter;
+import m.groupe.bartender.activity.adapter.ProductAdapter;
 import m.groupe.bartender.model.Product;
 
 /**
@@ -28,7 +28,7 @@ public class MenuActivity extends Activity implements OnItemClickListener{
 
 
     private ArrayList<Product> products;
-    private MyListViewAdapter myListViewAdapter;
+    private ProductAdapter productAdapter;
 
     /**
      * Lance l'activité de recherche.
@@ -52,8 +52,8 @@ public class MenuActivity extends Activity implements OnItemClickListener{
 
         // Création de l'adapter pour faire la liaison entre les données (products) et
         // l'affichage de chaque ligne de la liste.
-        myListViewAdapter = new MyListViewAdapter(this, products);
-        myListView.setAdapter(myListViewAdapter);
+        productAdapter = new ProductAdapter(this, products);
+        myListView.setAdapter(productAdapter);
 
         // Indique que le clic d'un élément de la liste doit appeler la méthode onItemClick d
         // cette classe (this).
@@ -110,7 +110,7 @@ public class MenuActivity extends Activity implements OnItemClickListener{
 
         loadProducts();
 
-        myListViewAdapter.setProducts(products);
+        productAdapter.setProducts(products);
     }
 
     /**
@@ -189,7 +189,7 @@ public class MenuActivity extends Activity implements OnItemClickListener{
         loadProducts();
 
         // Mise à jour de la liste des éléments dans l'adapter pour que l'affichage soit modifié.
-        myListViewAdapter.setProducts(products);
+        productAdapter.setProducts(products);
     }
 
 
